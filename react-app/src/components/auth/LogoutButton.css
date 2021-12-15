@@ -1,4 +1,7 @@
-.navElementBox{
+.navElement{
     border: none;
     background-color: transparent;
+    font-family: cursive;
+    color: white;
+    font-size: medium;
 }

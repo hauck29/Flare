@@ -3,7 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import '../NavBar/NavBar.css'
-import navPic from '../NavBar/navPic.png'
 
 const NavBar = () => {
   return (
@@ -11,7 +10,7 @@ const NavBar = () => {
       <div className='flareWord'>
             flare
         </div>
-        <img className='navPic' src={navPic}/>
+        {/* <img className='navPic' src={navPic}/> */}
         <div className='searchBar'>
           <input className='searchBarInput' type="text" placeholder="Search for birds here..."></input>
         </div>
