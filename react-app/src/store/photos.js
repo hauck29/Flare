@@ -27,7 +27,7 @@ const remove = (photoId) => ({
 //thunk action dispatchers
 
 export const getPhotos = () => async (dispatch) => {
-    const response = await csrfFetch("/api/photos/");
+    const response = await csrfFetch("/api/photos");
 
     if (response.ok) {
       const photos = await response.json();
