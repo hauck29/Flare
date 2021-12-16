@@ -8,7 +8,7 @@ from app.models import db
 from app.forms.photo_form import PhotoForm
 
 
-post_routes = Blueprint('photos', __name__)
+photo_routes = Blueprint('photos', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # READ ONE PHOTO
-@post_routes.route("/<int:id>")
+@photo_routes.route("/<int:id>")
 @login_required
 def get_one_photo(id):
     photo = Photo.query.get(id)
@@ -32,21 +32,25 @@ def get_one_photo(id):
         return "Photo not found", 404
 
 # READ ALL PHOTOS
-@post_routes.route('/')
+@photo_routes.route('/')
 def photos():
+    print('@@@@@@@@@@@@@@')
     # userId = session['_user_id']
     # user = User.query.get(userId).to_dict()
     results = Photo.query.get().order_by(Photo.createdAt.desc()).all()
 
     results_dict = {photo.id: photo.to_dict() for photo in results}
-    return results_dict
+    if results_dict:
+        return results_dict
+    else:
+        return 'Photos not found', 404
 
 # POST ONE PHOTO
-@post_routes.route('/', methods=["POST"])
+@photo_routes.route('/', methods=["POST"])
 @login_required
 def create_photo():
     form = PhotoForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+    # form['csrf_token'].data = request.cookies['csrf_token']
     photo = Photo(
         user_id=form.data['user_id'],
         url=form.data['url'],
@@ -60,7 +64,7 @@ def create_photo():
     return photo.to_dict()
 
 # UPDATE ONE POST
-@post_routes.route("/<int:id>", methods=["PUT"])
+@photo_routes.route("/<int:id>", methods=["PUT"])
 def update_photo(id):
     photo = Photo.query.get(id)
     req = request.get_json()
@@ -72,7 +76,7 @@ def update_photo(id):
         return "Photo not found", 404
 
 # DELETE ONE POST
-@post_routes.route("/<int:id>", methods=["DELETE"])
+@photo_routes.route("/<int:id>", methods=["DELETE"])
 def delete_photo(id):
     print('id', id)
     photo = Photo.query.get(id)

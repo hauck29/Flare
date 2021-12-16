@@ -53,7 +53,7 @@ export const getPhotos = () => async (dispatch) => {
     form.append("url", url);
     form.append("caption", caption);
 
-    const res = await fetch("/api/photos/", {
+    const res = await fetch("/api/photos", {
       method: "POST",
       body: form,
     });

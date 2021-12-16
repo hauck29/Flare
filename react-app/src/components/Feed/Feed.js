@@ -8,18 +8,19 @@ const Feed = () => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
   const [showModal, setShowModal] = useState(false);
-  const [postId, setPostId] = useState("");
-};
-useEffect(() => {
-  dispatch(getPhotos());
-}, [dispatch]);
+  const [photoId, setPhotoId] = useState("");
 
-return (
-  <div>
-    {photos?.map(({ id, url, user_id, caption }) => (
-      <Photo id={id} url={url} user_id={user_id} caption={caption} />
-    ))}
-  </div>
-);
+  useEffect(() => {
+    dispatch(getPhotos());
+  }, [dispatch]);
+
+  return (
+    <div>
+      {photos?.map((photo) => (
+        <Photo photo={photo} />
+      ))}
+    </div>
+  );
+};
 
 export default Feed;

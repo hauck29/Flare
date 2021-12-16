@@ -12,13 +12,13 @@ const Photo = ({
     caption
 }) => {
 
-    const handleClick = () => {
-
-    }
-
+    const dispatch = useDispatch;
     return (
         <div>
+            {id}
             <img src={url}></img>
+            {user_id}
+            {caption}
         </div>
     )
 }

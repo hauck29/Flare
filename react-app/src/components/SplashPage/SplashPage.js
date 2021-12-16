@@ -11,12 +11,11 @@ const SplashPage = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
   if (sessionUser) {
-
     return (
       <>
         <div className="welcomeMessage">Welcome {sessionUser.username}
         <div className="startButtonDiv">
-        <button className="startButton">Begin Your Photo Aviary Here</button>
+        <button className="startButton">Enter Your Photo Aviary</button>
       </div>
       </div>
         <div>
