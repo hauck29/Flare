@@ -15,7 +15,7 @@ const SplashPage = () => {
       <>
         <div className="welcomeMessage">Welcome {sessionUser.username}
         <div className="startButtonDiv">
-        {/* <button className="startButton">Enter Your Photo Aviary</button> */}
+        <button className="startButton">Enter Your Photo Aviary</button>
       </div>
       </div>
         <div>
