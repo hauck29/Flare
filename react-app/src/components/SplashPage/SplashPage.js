@@ -14,9 +14,7 @@ const SplashPage = () => {
       <div className="welcomeMessage">
         <div className="welcomeWrap">Welcome {sessionUser?.username}</div>
         <div className="startButtonDiv">
-          <a href='https://flarebird.herokuapp.com/photos'>
-            <button className="startButton">Enter Photo Aviary</button>
-          </a>
+          <button onclick="location.href='https://flarebird.herokuapp.com/photos'" className="startButton">Enter Photo Aviary</button>
         </div>
       </div>
 
