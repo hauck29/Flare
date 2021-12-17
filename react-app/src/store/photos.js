@@ -33,7 +33,6 @@ export const getPhotos = () => async (dispatch) => {
 
   if (response.ok) {
     const photos = await response.json();
-    // console.log('**************', photos)
     dispatch(load(photos));
   }
 };
@@ -97,7 +96,7 @@ const photoReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case LOAD_PHOTOS:
-      let photos = Object.values(action.photos);
+      let photos = Object.values(action.photos.photo);
       photos.forEach((photo) => {
         newState[photo.id] = photo;
       });

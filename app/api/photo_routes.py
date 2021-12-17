@@ -35,9 +35,7 @@ def get_one_photo(id):
 @photo_routes.route('/')
 def get_all_photos():
     photos = Photo.query.all()
-    print('###########', photos)
     results_dict = {'photo': [photo.to_dict() for photo in photos]}
-    print('!!!!!!!!!!!!!!!!', results_dict)
     if results_dict:
         return results_dict
     else:
