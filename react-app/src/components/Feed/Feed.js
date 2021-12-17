@@ -16,6 +16,7 @@ const Feed = () => {
   return (
     <div>
       <h1>Photos</h1>
+      <button></button>
       {photo?.map((photo) => (
         <img src={photo.url} />
 
