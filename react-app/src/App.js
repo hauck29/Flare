@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage'
+import Feed from './components/Feed/Feed'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -24,6 +25,7 @@ function App() {
   if (!loaded) {
     return null;
   }
+
 
   return (
     <BrowserRouter>
@@ -41,10 +43,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          {/* <h1>Welcome to Flare</h1> */}
-          <SplashPage />
+        <ProtectedRoute path='/photos' exact={true} >
+          <Feed />
         </ProtectedRoute>
+        <Route path='/' exact={true}>
+          <SplashPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -7,8 +7,14 @@ import '../NavBar/NavBar.css'
 const NavBar = () => {
   return (
     <nav className='navOutterBox'>
-      <div className='flareWord'>
+      <div className='flareWord1'>
             flare
+        </div>
+        <div className='flareWord2'>
+            b
+        </div>
+        <div className='flareWord3'>
+            ird
         </div>
         {/* <img className='navPic' src={navPic}/> */}
         <div className='searchBar'>

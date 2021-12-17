@@ -7,13 +7,16 @@ const ADD_PHOTO = "photos/ADD_PHOTO";
 const UPDATE_PHOTO = "photos/UPDATE_PHOTO";
 const REMOVE_PHOTO = "photos/REMOVE_PHOTO";
 
-
 //action creators
 
 const load = (photos) => ({
-    type: LOAD_PHOTOS,
-    photos,
+  type: LOAD_PHOTOS,
+  photos,
 });
+// const add = (photo) => ({
+//   type: ADD_PHOTO,
+//   photo,
+// });
 const update = (photo) => ({
   type: UPDATE_PHOTO,
   photo,
@@ -23,63 +26,68 @@ const remove = (photoId) => ({
   photoId,
 });
 
-
 //thunk action dispatchers
 
 export const getPhotos = () => async (dispatch) => {
-    const response = await csrfFetch("/api/photos");
+  const response = await fetch("/api/photos/");
 
-    if (response.ok) {
-      const photos = await response.json();
-      dispatch(load(photos));
-    }
-  };
-  export const getUserPosts = (userId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/users/${userId}/photos`);
+  if (response.ok) {
+    const photos = await response.json();
+    // console.log('**************', photos)
+    dispatch(load(photos));
+  }
+};
 
-    if (response.ok) {
-      const photos = await response.json();
-      dispatch(load(photos));
-    }
-  };
+export const getUserPhotos = (userId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${userId}/photos`);
 
-  // ************************************
+  if (response.ok) {
+    const photos = await response.json();
+    dispatch(load(photos));
+  }
+};
 
-  export const createPhoto = (photoData) => async (dispatch) => {
-    const { user_id, url, caption } = photoData;
+// ************************************
 
-    const form = new FormData();
-    form.append("user_id", user_id);
-    form.append("url", url);
-    form.append("caption", caption);
+export const createPhoto = (photoData) => async (dispatch) => {
+  const { user_id, url, caption } = photoData;
 
-    const res = await fetch("/api/photos", {
-      method: "POST",
-      body: form,
-    });
-  };
-  export const editPhoto = (id, photoData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/photos/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(photoData),
-    });
+  const form = new FormData();
+  form.append("user_id", user_id);
+  form.append("url", url);
+  form.append("caption", caption);
 
-    if (response.ok) {
-      const editedPhoto = await response.json();
-      dispatch(update(editedPhoto));
-    }
-  };
+  const res = await fetch("/api/photos", {
+    method: "POST",
+    body: form,
+  });
+  // if (res.ok) {
+  //   const photo = await res.json();
+  //   dispatch(add(photo));
+  // }
+};
 
-  export const deletePhoto = (photoId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/photos/${photoId}`, {
-      method: "DELETE",
-    });
+export const editPhoto = (id, photoData) => async (dispatch) => {
+  const response = await csrfFetch(`/api/photos/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(photoData),
+  });
 
-    if (response.ok) {
-      dispatch(remove(photoId));
-    }
-  };
+  if (response.ok) {
+    const editedPhoto = await response.json();
+    dispatch(update(editedPhoto));
+  }
+};
 
+export const deletePhoto = (photoId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/photos/${photoId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(remove(photoId));
+  }
+};
 
 //reducer
 

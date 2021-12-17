@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # READ ONE PHOTO
-@photo_routes.route("/<int:id>")
+@photo_routes.route("/photos/<int:id>")
 @login_required
 def get_one_photo(id):
     photo = Photo.query.get(id)
@@ -33,13 +33,11 @@ def get_one_photo(id):
 
 # READ ALL PHOTOS
 @photo_routes.route('/')
-def photos():
-    print('@@@@@@@@@@@@@@')
-    # userId = session['_user_id']
-    # user = User.query.get(userId).to_dict()
-    results = Photo.query.get().order_by(Photo.createdAt.desc()).all()
-
-    results_dict = {photo.id: photo.to_dict() for photo in results}
+def get_all_photos():
+    photos = Photo.query.all()
+    print('###########', photos)
+    results_dict = {'photo': photo.to_dict() for photo in photos}
+    print('!!!!!!!!!!!!!!!!', results_dict)
     if results_dict:
         return results_dict
     else:
@@ -48,7 +46,7 @@ def photos():
 # POST ONE PHOTO
 @photo_routes.route('/', methods=["POST"])
 @login_required
-def create_photo():
+def create_photo(id):
     form = PhotoForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
     photo = Photo(

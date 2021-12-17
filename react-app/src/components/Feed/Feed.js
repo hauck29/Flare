@@ -16,6 +16,7 @@ const Feed = () => {
 
   return (
     <div>
+      <h1>Photos</h1>
       {photos?.map((photo) => (
         <Photo photo={photo} />
       ))}
