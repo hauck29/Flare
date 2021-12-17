@@ -15,6 +15,7 @@ const Photo = ({
     const dispatch = useDispatch;
     return (
         <div>
+            <p>Photo should render here</p>
             {id}
             <img src={url}></img>
             {user_id}
