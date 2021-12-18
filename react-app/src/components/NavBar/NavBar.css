@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  background-color: #F4EEA9;
+  background-color: transparent;
   border-radius: 5px;
 }
 .navListBox {
@@ -21,7 +21,7 @@ li {
 
 .navElementBox {
   text-decoration: none;
-  color: olive;
+  color: white;
   font-family: cursive;
   font-size: small;
   margin: 10px;

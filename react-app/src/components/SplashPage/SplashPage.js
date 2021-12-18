@@ -18,7 +18,7 @@ const SplashPage = () => {
         </div>
       </div>
 
-      <img className="splashImage" src="https://i.imgur.com/TnBPS5V.jpeg"></img>
+      {/* <img className="splashImage" src="https://i.imgur.com/TnBPS5V.jpeg"/> */}
 
       <div className="bottomBorder">
         <p className="credits"> © 2021 Tony Hauck - App Academy</p>

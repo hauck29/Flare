@@ -11,7 +11,6 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage'
 import Feed from './components/Feed/Feed'
 import UploadForm from './components/CreatePhoto/CreatePhotoForm'
-import EditPhoto from './components/EditPhoto/EditPhoto'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
