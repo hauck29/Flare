@@ -64,7 +64,7 @@ def update_photo(id):
     photo = Photo.query.get(id)
     req = request.get_json()
     if photo:
-        photo.url = req
+        photo.caption = req
         db.session.commit()
         return photo.to_dict()
     else:

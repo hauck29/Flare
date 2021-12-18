@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createPhoto } from "../../store/photos";
 import { useHistory } from "react-router-dom";
 
-const UploadPhoto = () => {
+const UploadForm = () => {
   const [url, setUrl] = useState("");
   const [caption, setCaption] = useState("");
   const history = useHistory();
@@ -62,4 +62,4 @@ const UploadPhoto = () => {
     </div>
   );
 };
-export default UploadPhoto;
+export default UploadForm;
