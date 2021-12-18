@@ -13,9 +13,6 @@ const SplashPage = () => {
     <>
       <div className="welcomeMessage">
         <div className="welcomeWrap">Welcome {sessionUser?.username}</div>
-        <div className="startButtonDiv">
-          <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink>
-        </div>
       </div>
 
       {/* <img className="splashImage" src="https://i.imgur.com/TnBPS5V.jpeg"/> */}
@@ -29,6 +26,9 @@ const SplashPage = () => {
           <img className="lLogo" src={linkedInLogo}></img>
         </a>
       </div>
+        <div className="startButtonDiv">
+          <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink>
+        </div>
     </>
   );
 

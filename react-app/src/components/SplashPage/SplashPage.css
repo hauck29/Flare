@@ -1,18 +1,21 @@
 body {
   margin: 0;
   background-color: #a9ab7a;
-  background-image: url('https://i.imgur.com/TnBPS5V.jpeg');
+  background-image: url('https://i.imgur.com/1LuCnpi.jpg');
   background-repeat: no-repeat;
-  height: 100vh;
+  background-size:cover;
+  overflow: hidden;
 }
 #root{
   height: 100vh;
+  width: 100vw;
 }
 
 .startButtonDiv {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .startButton {
   display: flex;
@@ -21,7 +24,7 @@ body {
   height: 50px;
   width: 350px;
   border-radius: 10px;
-  border: 3px white;
+  /* border: 3px white; */
 
   font-family: cursive;
   font-size: xx-large;
@@ -73,6 +76,6 @@ body {
   height: 30px;
 }
 .credits{
-  margin-left: 10px;
+  margin-left: 50px;
   font-family: Arial, Helvetica, sans-serif;
 }

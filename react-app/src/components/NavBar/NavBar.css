@@ -61,5 +61,5 @@ li {
   border: none;
   width: 100%;
   border-radius: 5px;
-  background-color: #ebd39d;
+  background-color: rgba(0, 0, 0, 0.5);
 }
