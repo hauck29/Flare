@@ -13,10 +13,10 @@ const load = (photos) => ({
   type: LOAD_PHOTOS,
   photos,
 });
-// const add = (photo) => ({
-//   type: ADD_PHOTO,
-//   photo,
-// });
+const add = (photo) => ({
+  type: ADD_PHOTO,
+  photo,
+});
 const update = (photo) => ({
   type: UPDATE_PHOTO,
   photo,
@@ -38,7 +38,7 @@ export const getPhotos = () => async (dispatch) => {
 };
 
 export const getUserPhotos = (userId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/users/${userId}/photos`);
+  const response = await fetch(`/api/users/${userId}/photos`);
 
   if (response.ok) {
     const photos = await response.json();
@@ -49,37 +49,35 @@ export const getUserPhotos = (userId) => async (dispatch) => {
 // ************************************
 
 export const createPhoto = (photoData) => async (dispatch) => {
-  const { user_id, url, caption } = photoData;
-
-  const form = new FormData();
-  form.append("user_id", user_id);
-  form.append("url", url);
-  form.append("caption", caption);
-
-  const res = await fetch("/api/photos", {
+  const response = await fetch("/api/photos/", {
     method: "POST",
-    body: form,
-  });
-  // if (res.ok) {
-  //   const photo = await res.json();
-  //   dispatch(add(photo));
-  // }
-};
-
-export const editPhoto = (id, photoData) => async (dispatch) => {
-  const response = await csrfFetch(`/api/photos/${id}`, {
-    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(photoData),
   });
 
   if (response.ok) {
-    const editedPhoto = await response.json();
-    dispatch(update(editedPhoto));
+
+    const photo = await response.json();
+    dispatch(add(photo));
   }
 };
 
+// export const editPhoto = (photo) => async (dispatch) => {
+//   const response = await fetch(`/api/photos/${id}`, {
+//     method: "PUT",
+//     body: JSON.stringify(photo),
+//   });
+
+//   if (response.ok) {
+//     const editedPhoto = await response.json();
+//     dispatch(update(editedPhoto));
+//   }
+// };
+
 export const deletePhoto = (photoId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/photos/${photoId}`, {
+  const response = await fetch(`/api/photos/${photoId}`, {
     method: "DELETE",
   });
 
