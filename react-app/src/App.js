@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage'
 import Feed from './components/Feed/Feed'
+import UploadForm from './components/UploadForm/UploadForm'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true}>
           <SplashPage />
+        </Route>
+        <Route path='/newPhoto' exact={true}>
+          <UploadForm />
         </Route>
       </Switch>
     </BrowserRouter>

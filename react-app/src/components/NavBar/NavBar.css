@@ -32,12 +32,12 @@ li {
   font-family: cursive;
   margin-left: 50px;
   color: olive;
-  text-decoration: underline white;
+  text-decoration: underline #ebd39d;
 }
 .flareWord2 {
   font-size: 50px;
   font-family: cursive;
-  color: white;
+  color: #ebd39d;
 
 }
 .flareWord3 {
@@ -45,7 +45,7 @@ li {
   font-family: cursive;
   margin-right: 50px;
   color: olive;
-  text-decoration: underline white;
+  text-decoration: underline #ebd39d;
 }
 .searchBar {
   display: flex;

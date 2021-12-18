@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # READ ONE PHOTO
-@photo_routes.route("/photos/<int:id>")
+@photo_routes.route("/<int:id>")
 @login_required
 def get_one_photo(id):
     photo = Photo.query.get(id)
@@ -43,10 +43,10 @@ def get_all_photos():
 
 # POST ONE PHOTO
 @photo_routes.route('/', methods=["POST"])
-@login_required
-def create_photo(id):
+# @login_required
+def create_photo():
     form = PhotoForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
     photo = Photo(
         user_id=form.data['user_id'],
         url=form.data['url'],
@@ -54,24 +54,23 @@ def create_photo(id):
         createdAt=datetime.now(),
         updatedAt=datetime.now(),
     )
-
     db.session.add(photo)
     db.session.commit()
     return photo.to_dict()
 
-# UPDATE ONE POST
+# UPDATE ONE PHOTO
 @photo_routes.route("/<int:id>", methods=["PUT"])
 def update_photo(id):
     photo = Photo.query.get(id)
     req = request.get_json()
     if photo:
-        photo.description = req
+        photo.url = req
         db.session.commit()
         return photo.to_dict()
     else:
         return "Photo not found", 404
 
-# DELETE ONE POST
+# DELETE ONE PHOTO
 @photo_routes.route("/<int:id>", methods=["DELETE"])
 def delete_photo(id):
     print('id', id)
