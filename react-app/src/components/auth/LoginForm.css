@@ -1,0 +1,30 @@
+.loginFormDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+    background-color: #b2a68d;
+    height: 300px;
+    width: 500px;
+    border-radius: 15px;
+
+}
+.loginInput{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    background-color: #F4EEA9;
+}
+.loginBtn{
+    border: none;
+    background-color: olive;
+    color: #F4EEA9;
+    width: 20%;
+    border-radius: 5px;
+}
+.loginOutterDiv{
+    display: flex;
+    justify-content: center;
+}
