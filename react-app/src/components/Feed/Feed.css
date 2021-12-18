@@ -6,26 +6,25 @@
   height: 30px;
   margin-left: 50px;
   text-decoration: none;
-  color: olive;
+  color: whitesmoke;
   font-family: cursive;
-  background-color: #f4eea9;
+  background-color: rgba(0, 0, 0, 0.61);
   border-radius: 5px;
   width: 100px;
   display: flex;
   justify-content: center;
 }
 .addPhotoBtn:hover {
-  color: #f4eea9;
-  background-color: olive;
+  color: rgba(0, 0, 0, 0.61);
+  background-color: whitesmoke;
 }
 .imgClass {
-  width: 550px;
-  /* height: 150px; */
-  margin: 25px;
-  /* border: 4mm groove rgba(200, 179, 122, 0.6); */
-  border: 4mm ridge rgba(200, 179, 122, 0.6);
-  box-shadow: 0 0 25px 15px rgb(0 0 0 / 0.5);
-  position: relative;
+  width: 200px;
+  height: 150px;
+  /* margin: 25px;
+
+  box-shadow: 0 0 25px 15px rgb(0 0 0 / 0.5); */
+
 }
 .imgClass:hover {
   transform: translate3D(0, -1px, 0) scale(1.5);
@@ -35,16 +34,20 @@
   border: none;
 }
 .feedDiv {
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   /* grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto); */
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  width: 60vw;
 }
 .del-photo-btn {
   border: none;
-  background-color: olive;
+  background-color: transparent;
   color: #ebd39d;
   border-radius: 5px;
 }
@@ -56,16 +59,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
-  background-color: #b2a68d;
-  border-radius: 10px;
+  /* margin-bottom: 30px; */
+  background-color: rgba(0, 0, 0, 0.61);
+  /* border-radius: 10px; */
 }
 .pNcDiv{
-    display: flex;
+    display: grid;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .commentsDiv{
     width: 20vw;
     height: 55vh;
     background-color: #f4eea9;
     border-radius: 10px;
+}
+#feedMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#edDiv{
+    display: flex;
+    justify-content: center;
+}
+#feedBackground{
+background-color: rgba(0, 0, 0, 0.5);
+backdrop-filter: blur(5px);
+border-radius: 15px;
 }
