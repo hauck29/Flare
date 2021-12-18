@@ -17,8 +17,11 @@ const SplashPage = () => {
 
       {/* <img className="splashImage" src="https://i.imgur.com/TnBPS5V.jpeg"/> */}
 
+        <div className="startButtonDiv">
+          <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink>
+        </div>
       <div className="bottomBorder">
-        <p className="credits"> © 2021 Tony Hauck - App Academy</p>
+        <p className="credits"> © 2021 Tony Hauck</p>
         <a href="https://github.com/hauck29">
           <img className="gLogo" src={githubLogo}></img>
         </a>
@@ -26,9 +29,6 @@ const SplashPage = () => {
           <img className="lLogo" src={linkedInLogo}></img>
         </a>
       </div>
-        <div className="startButtonDiv">
-          <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink>
-        </div>
     </>
   );
 
