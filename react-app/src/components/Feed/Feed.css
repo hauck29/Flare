@@ -57,4 +57,15 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  background-color: #b2a68d;
+  border-radius: 10px;
+}
+.pNcDiv{
+    display: flex;
+}
+.commentsDiv{
+    width: 20vw;
+    height: 55vh;
+    background-color: #f4eea9;
+    border-radius: 10px;
 }
