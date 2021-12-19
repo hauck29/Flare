@@ -1,0 +1,65 @@
+.navOutterBox {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.navListBox {
+  display: flex;
+  justify-content: space-between;
+  /* width: 50vw; */
+  /* margin-left: 60vw; */
+  margin-right: 2vw;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  width: 86px;
+}
+
+.navElementBox {
+  text-decoration: none;
+  color: white;
+  font-family: cursive;
+  font-size: small;
+  margin: 10px;
+  width: 100px;
+}
+.flareWord1 {
+  font-size: 50px;
+  font-family: cursive;
+  margin-left: 50px;
+  color: olive;
+  text-decoration: underline #ebd39d;
+}
+.flareWord2 {
+  font-size: 50px;
+  font-family: cursive;
+  color: #ebd39d;
+
+}
+.flareWord3 {
+  font-size: 50px;
+  font-family: cursive;
+  margin-right: 50px;
+  color: olive;
+  text-decoration: underline #ebd39d;
+}
+.searchBar {
+  display: flex;
+  height: 25px;
+  margin-top: 30px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  border: 1px grey solid;
+  border-radius: 5px;
+}
+.searchBarInput {
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
