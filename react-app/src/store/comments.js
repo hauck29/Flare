@@ -48,8 +48,8 @@ export const getcomments = (photoId) => async (dispatch) => {
 
 // ************************************
 
-export const createComment = (photoId, commentId, commentData) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments/`, {
+export const createComment = (commentId, commentData) => async (dispatch) => {
+  const response = await fetch(`/api/comments/`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -64,20 +64,23 @@ export const createComment = (photoId, commentId, commentData) => async (dispatc
   }
 };
 
-// export const editPhoto = (photo) => async (dispatch) => {
-//   const response = await fetch(`/api/comments/${id}`, {
-//     method: "PUT",
-//     body: JSON.stringify(photo),
-//   });
+export const editComment = (id, comment) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${id}`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(comment),
+  });
 
-//   if (response.ok) {
-//     const editedPhoto = await response.json();
-//     dispatch(update(editedPhoto));
-//   }
-// };
+  if (response.ok) {
+    const editedComment = await response.json();
+    dispatch(update(editedComment));
+  }
+};
 
-export const deleteComment = (photoId, commentId) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {
+export const deleteComment = (commentId) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${commentId}`, {
     method: "DELETE",
   });
 
