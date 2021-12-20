@@ -15,7 +15,7 @@ const load = (comments) => ({
 });
 const add = (comment) => ({
   type: ADD_COMMENT,
-  comment,comment
+  comment
 });
 const update = (comment) => ({
   type: UPDATE_COMMENT,
@@ -64,17 +64,17 @@ export const createComment = (photoId, commentId, commentData) => async (dispatc
   }
 };
 
-// export const editPhoto = (photo) => async (dispatch) => {
-//   const response = await fetch(`/api/comments/${id}`, {
-//     method: "PUT",
-//     body: JSON.stringify(photo),
-//   });
+export const editComment = (id, commentData) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(commentData),
+  });
 
-//   if (response.ok) {
-//     const editedPhoto = await response.json();
-//     dispatch(update(editedPhoto));
-//   }
-// };
+  if (response.ok) {
+    const editedComment = await response.json();
+    dispatch(update(editedComment));
+  }
+};
 
 export const deleteComment = (photoId, commentId) => async (dispatch) => {
   const response = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {

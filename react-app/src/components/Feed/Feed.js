@@ -53,15 +53,10 @@ const Feed = ({ photo }) => {
           <div className="imgDiv">
             <div className="pNcDiv">
               <img className="imgClass" src={photo.url} />
-              {/* <div className='commentsDiv'>
-              <p>Comments Div</p>
-              {comments?.map((comment) => (
-                {comment}
-                ))}
-              </div> */}
+
               {photo.caption}
               <div id='edDiv'>
-              <button
+              {/* <button
                 onClick={() => setToEditPhoto(!toEditPhoto)}
                 className="del-photo-btn"
               >
@@ -83,7 +78,7 @@ const Feed = ({ photo }) => {
                   </button>
                 </form>
               )}
-              {'/'}
+              {'/'} */}
               <button
                 onClick={() => handleDelete(photo.id)}
                 type="submit"

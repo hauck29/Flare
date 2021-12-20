@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage'
 import Feed from './components/Feed/Feed'
 import UploadForm from './components/CreatePhoto/CreatePhotoForm'
+import Navigation from './components/Navigation'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
