@@ -4,8 +4,10 @@ import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import "../Feed/Feed.css";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import CreatePhotoModal from '../CreatePhoto';
+import DisplayPhotoModal from '../DisplayPhoto/index'
 
-const Feed = ({ photo }) => {
+const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
@@ -14,8 +16,7 @@ const Feed = ({ photo }) => {
   const [photoId, setPhotoId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
-  // const [url, setUrl] = useState(photo.url);
-  const [caption, setCaption] = useState(photos.caption);
+  const [caption, setCaption] = useState('');
 
   const cancel = (e) => {
     e.preventDefault();
@@ -27,9 +28,9 @@ const Feed = ({ photo }) => {
     history.push("/photos");
   };
 
-  const handleEditPhoto = (e) => {
-    e.preventDefault();
+  const handleEditPhoto = async (id, caption) => {
     const payload = {
+      id,
       caption,
     };
     dispatch(editPhoto(payload));
@@ -43,9 +44,8 @@ const Feed = ({ photo }) => {
   return (
     <div id="feedMain">
       <div className="addPhotoBtnDiv">
-        <NavLink className="addPhotoBtn" exact to="/newPhoto">
-          Add Photo
-        </NavLink>
+
+        <CreatePhotoModal />
       </div>
       <div id='feedBackground'>
       <div className="feedDiv">
@@ -53,10 +53,13 @@ const Feed = ({ photo }) => {
           <div className="imgDiv">
             <div className="pNcDiv">
               <img className="imgClass" src={photo.url} />
+              {/* onClick on this image sould open the DisplayPhotoModal*/}
+              {/* <DisplayPhotoModal /> */}
 
               {photo.caption}
+              {/* <button onClick={() => <DisplayPhotoModal />}>Details</button> */}
               <div id='edDiv'>
-              {/* <button
+              <button
                 onClick={() => setToEditPhoto(!toEditPhoto)}
                 className="del-photo-btn"
               >
@@ -78,7 +81,7 @@ const Feed = ({ photo }) => {
                   </button>
                 </form>
               )}
-              {'/'} */}
+              {'/'}
               <button
                 onClick={() => handleDelete(photo.id)}
                 type="submit"
@@ -88,9 +91,14 @@ const Feed = ({ photo }) => {
               </button>
               </div>
             </div>
-          </div>
+           </div>
         ))}
       </div>
+      </div>
+      <div className='commentsBackground'>
+        <div className='commentsDiv'>
+          <p>Comments</p>
+        </div>
       </div>
     </div>
   );

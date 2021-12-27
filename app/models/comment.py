@@ -6,13 +6,11 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'), nullable=False)
     content = db.Column(db.String(255), nullable=False)
     createdAt = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
     user = db.relationship('User', back_populates='comments')
-    photos = db.relationship('Photo', back_populates='comments')
 
 
     def to_dict(self):
@@ -20,5 +18,4 @@ class Comment(db.Model):
             'user_id': self.user_id,
             'content': self.content,
             'id': self.id,
-            'photo_id': self.photo_id,
         }

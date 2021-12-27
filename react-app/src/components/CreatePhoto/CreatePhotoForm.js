@@ -33,30 +33,29 @@ const UploadForm = () => {
 
   return (
     <div className="add-photo">
-      <h3>Add A Photo</h3>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className='loginInput'
           onChange={(e) => setUrl(e.target.value)}
           value={url}
           placeholder="Photo URL"
         />
-        <input
+        <input className='loginInput'
           onChange={(e) => setCaption(e.target.value)}
           value={caption}
           placeholder="Photo Caption"
         />
         <div className="add-p-btns">
-          <button className="photo-sumbit-btn" type="submit">
+          <button className="loginBtn" type="submit">
             Add Photo
           </button>
-          <button className="cancel-btn" onClick={cancel}>
+          {/* <button className="loginBtn" onClick={cancel}>
             Cancel
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

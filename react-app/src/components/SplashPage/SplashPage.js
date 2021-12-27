@@ -18,7 +18,7 @@ const SplashPage = () => {
       {/* <img className="splashImage" src="https://i.imgur.com/TnBPS5V.jpeg"/> */}
 
         <div className="startButtonDiv">
-          <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink>
+          {/* <NavLink className="startButton" exact to='/photos'>Enter Photo Aviary</NavLink> */}
         </div>
       <div className="bottomBorder">
         <p className="credits"> © 2021 Tony Hauck</p>

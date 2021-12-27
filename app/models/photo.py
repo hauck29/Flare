@@ -12,7 +12,6 @@ class Photo(db.Model):
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
     user = db.relationship('User', back_populates='photos')
-    comments = db.relationship('Comment', back_populates='photos', cascade='all, delete')
 
 
     def to_dict(self):

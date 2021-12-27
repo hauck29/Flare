@@ -73,7 +73,6 @@ def update_photo(id):
 # DELETE ONE PHOTO
 @photo_routes.route("/<int:id>", methods=["DELETE"])
 def delete_photo(id):
-    print('id', id)
     photo = Photo.query.get(id)
     if photo:
         db.session.delete(photo)

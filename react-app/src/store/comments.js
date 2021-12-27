@@ -28,8 +28,8 @@ const remove = (commentId) => ({
 
 //thunk action dispatchers
 
-export const getcomments = (photoId) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments`);
+export const getcomments = () => async (dispatch) => {
+  const response = await fetch(`/api/comments`);
 
   if (response.ok) {
     const comments = await response.json();
@@ -48,8 +48,8 @@ export const getcomments = (photoId) => async (dispatch) => {
 
 // ************************************
 
-export const createComment = (photoId, commentId, commentData) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments/`, {
+export const createComment = (commentId, commentData) => async (dispatch) => {
+  const response = await fetch(`/api/comments/`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -76,8 +76,8 @@ export const editComment = (id, commentData) => async (dispatch) => {
   }
 };
 
-export const deleteComment = (photoId, commentId) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments/${commentId}`, {
+export const deleteComment = (commentId) => async (dispatch) => {
+  const response = await fetch(`/api/comments/${commentId}`, {
     method: "DELETE",
   });
 

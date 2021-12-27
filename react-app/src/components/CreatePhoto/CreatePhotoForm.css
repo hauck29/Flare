@@ -1,0 +1,14 @@
+.postBtn{
+    border: none;
+    font-family: cursive;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 25px;
+    border-radius: 5px;
+}
+.postBtn:hover{
+    cursor: pointer;
+}
+.loginBtn{
+    width: 100px;
+}

@@ -37,12 +37,12 @@ export const getPhotos = () => async (dispatch) => {
   }
 };
 
-export const getUserPhotos = (userId) => async (dispatch) => {
-  const response = await fetch(`/api/users/${userId}/photos`);
+export const getOnePhoto = (id) => async (dispatch) => {
+  const response = await fetch(`/api/photos/${id}`);
 
   if (response.ok) {
-    const photos = await response.json();
-    dispatch(load(photos));
+    const photo = await response.json();
+    dispatch(load(photo));
   }
 };
 
@@ -64,11 +64,11 @@ export const createPhoto = (photoData) => async (dispatch) => {
   }
 };
 
-export const editPhoto = (id, photoData) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${id}`, {
+export const editPhoto = (photoId, caption) => async (dispatch) => {
+  const response = await fetch(`/api/photos/${photoId}/`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(photoData),
+    body: JSON.stringify(caption),
   });
 
   if (response.ok) {
