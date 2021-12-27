@@ -26,10 +26,11 @@ const remove = (commentId) => ({
   commentId,
 });
 
+// ************************************
 //thunk action dispatchers
 
-export const getcomments = () => async (dispatch) => {
-  const response = await fetch(`/api/comments`);
+export const getComments = () => async (dispatch) => {
+  const response = await fetch("/api/comments/");
 
   if (response.ok) {
     const comments = await response.json();
@@ -37,24 +38,14 @@ export const getcomments = () => async (dispatch) => {
   }
 };
 
-// export const getUserComments = (userId) => async (dispatch) => {
-//   const response = await fetch(`/api/users/${userId}/comments`);
 
-//   if (response.ok) {
-//     const comments = await response.json();
-//     dispatch(load(comments));
-//   }
-// };
-
-// ************************************
-
-export const createComment = (commentId, commentData) => async (dispatch) => {
-  const response = await fetch(`/api/comments/`, {
+export const createComment = (commentData) => async (dispatch) => {
+  const response = await fetch("/api/comments/", {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(commentId, commentData),
+    body: JSON.stringify(commentData),
   });
 
   if (response.ok) {
@@ -96,7 +87,7 @@ const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case LOAD_COMMENTS:
-      let comments = Object.values(action.comments);
+      let comments = Object.values(action.comments.comment);
       comments.forEach((comment) => {
         newState[comment.id] = comment;
       });

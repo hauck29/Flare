@@ -26,6 +26,7 @@ const remove = (photoId) => ({
   photoId,
 });
 
+// ************************************
 //thunk action dispatchers
 
 export const getPhotos = () => async (dispatch) => {
@@ -37,16 +38,15 @@ export const getPhotos = () => async (dispatch) => {
   }
 };
 
-export const getOnePhoto = (id) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${id}`);
+// export const getOnePhoto = (id) => async (dispatch) => {
+//   const response = await fetch(`/api/photos/${id}`);
 
-  if (response.ok) {
-    const photo = await response.json();
-    dispatch(load(photo));
-  }
-};
+//   if (response.ok) {
+//     const photo = await response.json();
+//     dispatch(load(photo));
+//   }
+// };
 
-// ************************************
 
 export const createPhoto = (photoData) => async (dispatch) => {
   const response = await fetch("/api/photos/", {
@@ -59,13 +59,13 @@ export const createPhoto = (photoData) => async (dispatch) => {
 
   if (response.ok) {
 
-    const photo = await response.json();
-    dispatch(add(photo));
+    const newPhoto = await response.json();
+    dispatch(add(newPhoto));
   }
 };
 
-export const editPhoto = (photoId, caption) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/`, {
+export const editPhoto = (id, caption) => async (dispatch) => {
+  const response = await fetch(`/api/photos/${id}/`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(caption),

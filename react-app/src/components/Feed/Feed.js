@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
+import {
+  getComments,
+  createComment,
+  deleteComment,
+  editComment,
+} from "../../store/comments";
 import "../Feed/Feed.css";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import CreatePhotoModal from '../CreatePhoto';
-import DisplayPhotoModal from '../DisplayPhoto/index'
+import CreatePhotoModal from "../CreatePhoto";
+import CreateCommentModal from "../CreateComment";
 
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,7 +22,7 @@ const Feed = () => {
   const [photoId, setPhotoId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
-  const [caption, setCaption] = useState('');
+  const [caption, setCaption] = useState("");
 
   const cancel = (e) => {
     e.preventDefault();
@@ -38,66 +44,68 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    dispatch(getPhotos());
+    dispatch(getPhotos(), dispatch(getComments()));
   }, [dispatch]);
 
   return (
     <div id="feedMain">
-      <div className="addPhotoBtnDiv">
-
-        <CreatePhotoModal />
-      </div>
-      <div id='feedBackground'>
-      <div className="feedDiv">
-        {photos?.map((photo) => (
-          <div className="imgDiv">
-            <div className="pNcDiv">
-              <img className="imgClass" src={photo.url} />
-              {/* onClick on this image sould open the DisplayPhotoModal*/}
-              {/* <DisplayPhotoModal /> */}
-
-              {photo.caption}
-              {/* <button onClick={() => <DisplayPhotoModal />}>Details</button> */}
-              <div id='edDiv'>
-              <button
-                onClick={() => setToEditPhoto(!toEditPhoto)}
-                className="del-photo-btn"
-              >
-                Edit
-              </button>
-              {toEditPhoto && (
-                <form onSubmit={handleEditPhoto}>
-                  <input
-                    onChange={(e) => setCaption(e.target.value)}
-                    value={caption}
-                    placeholder="Enter new caption"
-                  />
-
-                  <button className="question-sumbit-btn" type="submit">
-                    Update Photo Caption
+      <div id="feedBackground">
+        <div className="addPhotoBtnDiv">
+          <CreatePhotoModal />
+        </div>
+        <div className="feedDiv">
+          {photos?.reverse().map((photo) => (
+            <div className="imgDiv">
+              <div className="pNcDiv">
+                <img className="imgClass" src={photo.url} />
+                {photo.caption}
+                <div id="edDiv">
+                  <button
+                    onClick={() => setToEditPhoto(!toEditPhoto)}
+                    className="del-photo-btn"
+                  >
+                    Edit
                   </button>
-                  <button className="cancel-btn" onClick={cancel}>
-                    Cancel
+                  {toEditPhoto && (
+                    <form onSubmit={handleEditPhoto}>
+                      <input
+                        onChange={(e) => setCaption(e.target.value)}
+                        value={caption}
+                        placeholder="Enter new caption"
+                      />
+
+                      <button className="question-sumbit-btn" type="submit">
+                        Update Photo Caption
+                      </button>
+                      <button className="cancel-btn" onClick={cancel}>
+                        Cancel
+                      </button>
+                    </form>
+                  )}
+                  {"/"}
+                  <button
+                    onClick={() => handleDelete(photo.id)}
+                    type="submit"
+                    className="del-photo-btn"
+                  >
+                    Delete
                   </button>
-                </form>
-              )}
-              {'/'}
-              <button
-                onClick={() => handleDelete(photo.id)}
-                type="submit"
-                className="del-photo-btn"
-              >
-                Delete
-              </button>
+                </div>
               </div>
             </div>
-           </div>
-        ))}
+          ))}
+        </div>
       </div>
-      </div>
-      <div className='commentsBackground'>
-        <div className='commentsDiv'>
-          <p>Comments</p>
+      <div className="commentsBackground">
+        <div className="createCommentDiv">
+          <CreateCommentModal />
+          <div className="commentsDiv">
+            {comments?.reverse().map((comment) => (
+              <div className='commentDiv'>
+              {comment.content}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
