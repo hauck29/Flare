@@ -64,10 +64,12 @@ export const createComment = (commentId, commentData) => async (dispatch) => {
   }
 };
 
+
 export const editComment = (id, commentData) => async (dispatch) => {
   const response = await fetch(`/api/comments/${id}`, {
     method: "PUT",
     body: JSON.stringify(commentData),
+
   });
 
   if (response.ok) {
