@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import SignUpForm from './components/SignupFormModal/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage'
 import Feed from './components/Feed/Feed'
 import UploadForm from './components/CreatePhoto/CreatePhotoForm'
+import DisplayPhoto from './components/DisplayPhoto/DisplayPhoto'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,9 +33,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        {/* <Route path='/login' exact={true}>
           <LoginForm />
-        </Route>
+        </Route> */}
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
@@ -46,6 +47,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/photos' exact={true} >
           <Feed />
+        </ProtectedRoute>
+        <ProtectedRoute path='/photos/:id' exact={true} >
+          <DisplayPhoto />
         </ProtectedRoute>
         <Route path='/' exact={true}>
           <SplashPage />

@@ -5,7 +5,6 @@ def seed_comments():
 
     comment1 = Comment(
         user_id=1,
-        photo_id=1,
         content='Comment for Owl One'
         )
 

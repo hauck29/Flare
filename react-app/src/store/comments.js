@@ -15,7 +15,7 @@ const load = (comments) => ({
 });
 const add = (comment) => ({
   type: ADD_COMMENT,
-  comment,comment
+  comment
 });
 const update = (comment) => ({
   type: UPDATE_COMMENT,
@@ -28,8 +28,8 @@ const remove = (commentId) => ({
 
 //thunk action dispatchers
 
-export const getcomments = (photoId) => async (dispatch) => {
-  const response = await fetch(`/api/photos/${photoId}/comments`);
+export const getcomments = () => async (dispatch) => {
+  const response = await fetch(`/api/comments`);
 
   if (response.ok) {
     const comments = await response.json();
@@ -64,13 +64,12 @@ export const createComment = (commentId, commentData) => async (dispatch) => {
   }
 };
 
-export const editComment = (id, comment) => async (dispatch) => {
+
+export const editComment = (id, commentData) => async (dispatch) => {
   const response = await fetch(`/api/comments/${id}`, {
     method: "PUT",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(comment),
+    body: JSON.stringify(commentData),
+
   });
 
   if (response.ok) {

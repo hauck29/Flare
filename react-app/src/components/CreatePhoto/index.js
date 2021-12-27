@@ -1,21 +1,21 @@
-// frontend/src/components/LoginFormModal/index.js
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import LoginForm from './LoginForm';
+import UploadForm from './CreatePhotoForm';
+import './CreatePhotoForm.css'
 
-function LoginFormModal() {
+function CreatePhotoModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <button className='postBtn' onClick={() => setShowModal(true)}>Post A New Photo</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <UploadForm />
         </Modal>
       )}
     </>
   );
 }
 
-export default LoginFormModal;
+export default CreatePhotoModal;

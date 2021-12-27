@@ -1,53 +1,85 @@
-// frontend/src/components/LoginFormModal/LoginForm.js
-import React, { useState } from "react";
+
+
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
+import { login, demoLogin } from '../../store/session';
 
-function LoginForm() {
-  const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = () => {
   const [errors, setErrors] = useState([]);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const user = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
-    setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      }
-    );
+    const data = await dispatch(login(email, password));
+    if (data) {
+      setErrors(data);
+    }
+    history.push('/photos');
   };
 
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updatePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleDemoLogin= (e) => {
+    e.preventDefault();
+    return dispatch(demoLogin())
+  }
+
+
+
+  if (user) {
+    return <Redirect to='/' />;
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+    <form
+    onSubmit={onLogin}>
+      <div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
         ))}
-      </ul>
-      <label>
-        Username or Email
+      </div>
+      <div>
+        {/* <label htmlFor='email'>Email</label> */}
         <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
+          className="loginInput"
+          name='email'
+          type='text'
+          placeholder='Email'
+          value={email}
+          onChange={updateEmail}
         />
-      </label>
-      <label>
-        Password
+      </div>
+      <div>
+        {/* <label htmlFor='password'>Password</label> */}
         <input
-          type="password"
+          className="loginInput"
+          name='password'
+          type='password'
+          placeholder='Password'
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          onChange={updatePassword}
         />
-      </label>
-      <button type="submit">Log In</button>
+      </div>
+        <button
+        className="loginBtn"
+        type='submit'>Login</button>
+        <button onClick={handleDemoLogin} className="loginBtn" type="submit">
+            Demo-Login
+          </button>
     </form>
   );
-}
+};
 
 export default LoginForm;

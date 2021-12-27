@@ -5,10 +5,11 @@ from wtforms.validators import DataRequired
 # from app.forms.comment_form import CommentForm
 from datetime import datetime
 from app.models import db
-from app.forms.photo_form import PhotoForm
+from app.forms.comment_form import CommentForm
 
 
-photo_routes = Blueprint('photos', __name__)
+
+comment_routes = Blueprint('comments', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -21,63 +22,63 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-# READ ONE PHOTO
-@photo_routes.route("/<int:id>")
+# READ ONE comment
+@comment_routes.route("/<int:id>")
 @login_required
-def get_one_photo(id):
-    photo = Photo.query.get(id)
-    if photo:
-        return photo.to_dict()
+def get_one_comment(id):
+    comment = Comment.query.get(id)
+    if comment:
+        return comment.to_dict()
     else:
-        return "Photo not found", 404
+        return "comment not found", 404
 
-# READ ALL PHOTOS
-@photo_routes.route('/')
-def get_all_photos():
-    photos = Photo.query.all()
-    results_dict = {'photo': [photo.to_dict() for photo in photos]}
+# READ ALL commentS
+@comment_routes.route('/')
+def get_all_comments():
+    comments = Comment.query.all()
+    results_dict = {'comment': [comment.to_dict() for comment in comments]}
     if results_dict:
         return results_dict
     else:
-        return 'Photos not found', 404
+        return 'comments not found', 404
 
-# POST ONE PHOTO
-@photo_routes.route('/', methods=["POST"])
+# POST ONE comment
+@comment_routes.route('/', methods=["POST"])
 # @login_required
-def create_photo():
-    form = PhotoForm()
+def create_comment():
+    form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    photo = Photo(
+    comment = Comment(
         user_id=form.data['user_id'],
         url=form.data['url'],
         caption=form.data['caption'],
         createdAt=datetime.now(),
         updatedAt=datetime.now(),
     )
-    db.session.add(photo)
+    db.session.add(comment)
     db.session.commit()
-    return photo.to_dict()
+    return comment.to_dict()
 
-# UPDATE ONE PHOTO
-@photo_routes.route("/<int:id>", methods=["PUT"])
-def update_photo(id):
-    photo = Photo.query.get(id)
+# UPDATE ONE comment
+@comment_routes.route("/<int:id>", methods=["PUT"])
+def update_comment(id):
+    comment = Comment.query.get(id)
     req = request.get_json()
-    if photo:
-        photo.caption = req
+    if comment:
+        comment.content = req
         db.session.commit()
-        return photo.to_dict()
+        return comment.to_dict()
     else:
-        return "Photo not found", 404
+        return "comment not found", 404
 
-# DELETE ONE PHOTO
-@photo_routes.route("/<int:id>", methods=["DELETE"])
-def delete_photo(id):
+# DELETE ONE comment
+@comment_routes.route("/<int:id>", methods=["DELETE"])
+def delete_comment(id):
     print('id', id)
-    photo = Photo.query.get(id)
-    if photo:
-        db.session.delete(photo)
+    comment = Comment.query.get(id)
+    if comment:
+        db.session.delete(comment)
         db.session.commit()
         return "Ok", 200
     else:
-        return "Photo not found", 404
+        return "comment not found", 404
