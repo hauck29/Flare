@@ -1,11 +1,13 @@
-/* .postBtn{
-    border: none;
+.postBtn{
+    border: 1px whitesmoke inset;
+    /* border: none; */
     font-family: cursive;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: transparent; */
     margin: 25px;
     border-radius: 5px;
-} */
+}
 .postBtn:hover{
     cursor: pointer;
 }

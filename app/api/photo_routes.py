@@ -2,7 +2,6 @@ from flask import Blueprint, request, session
 from flask_login import login_required
 from app.models import Photo, User, Comment
 from wtforms.validators import DataRequired
-# from app.forms.comment_form import CommentForm
 from datetime import datetime
 from app.models import db
 from app.forms.photo_form import PhotoForm
@@ -21,15 +20,15 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{field} : {error}')
     return errorMessages
 
-# READ ONE PHOTO
-@photo_routes.route("/<int:id>")
-@login_required
-def get_one_photo(id):
-    photo = Photo.query.get(id)
-    if photo:
-        return photo.to_dict()
-    else:
-        return "Photo not found", 404
+# # READ ONE PHOTO
+# @photo_routes.route("/<int:id>")
+# @login_required
+# def get_one_photo(id):
+#     photo = Photo.query.get(id)
+#     if photo:
+#         return photo.to_dict()
+#     else:
+#         return "Photo not found", 404
 
 # READ ALL PHOTOS
 @photo_routes.route('/')
@@ -40,6 +39,16 @@ def get_all_photos():
         return results_dict
     else:
         return 'Photos not found', 404
+
+# # READ ALL commentS
+# @photo_routes.route('/')
+# def get_all_comments():
+#     comments = Comment.query.all()
+#     results_dict = {'comment': [comment.to_dict() for comment in comments]}
+#     if results_dict:
+#         return results_dict
+#     else:
+#         return 'comments not found', 404
 
 # POST ONE PHOTO
 @photo_routes.route('/', methods=["POST"])

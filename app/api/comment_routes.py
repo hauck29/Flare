@@ -2,7 +2,6 @@ from flask import Blueprint, request, session
 from flask_login import login_required
 from app.models import Photo, User, Comment
 from wtforms.validators import DataRequired
-# from app.forms.comment_form import CommentForm
 from datetime import datetime
 from app.models import db
 from app.forms.comment_form import CommentForm
