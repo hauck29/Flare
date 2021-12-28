@@ -33,6 +33,10 @@ const Feed = () => {
     dispatch(deletePhoto(id));
     history.push("/photos");
   };
+  const handleDeleteComment = (id) => {
+    dispatch(deleteComment(id));
+    history.push('/photos');
+  }
 
   const handleEditPhoto = async (id, caption) => {
     const payload = {
@@ -103,6 +107,13 @@ const Feed = () => {
             {comments?.reverse().map((comment) => (
               <div className='commentDiv'>
               {comment.content}
+              <button
+                    onClick={() => handleDeleteComment(comment.id)}
+                    type="submit"
+                    className="del-photo-btn"
+                  >
+                    Delete
+                  </button>
               </div>
             ))}
           </div>
