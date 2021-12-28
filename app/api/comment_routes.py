@@ -49,8 +49,7 @@ def create_comment():
     form['csrf_token'].data = request.cookies['csrf_token']
     comment = Comment(
         user_id=form.data['user_id'],
-        url=form.data['url'],
-        caption=form.data['caption'],
+        content=form.data['content'],
         createdAt=datetime.now(),
         updatedAt=datetime.now(),
     )
