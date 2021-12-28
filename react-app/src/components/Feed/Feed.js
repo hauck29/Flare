@@ -22,7 +22,9 @@ const Feed = () => {
   const [photoId, setPhotoId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
+  const [toEditComment, setToEditComment] = useState(false);
   const [caption, setCaption] = useState("");
+  const [content, setContent] = useState('');
 
   const cancel = (e) => {
     e.preventDefault();
@@ -45,6 +47,14 @@ const Feed = () => {
     };
     dispatch(editPhoto(payload));
     setToEditPhoto(!toEditPhoto);
+  };
+  const handleEditComment = async (id, content) => {
+    const payload = {
+      id,
+      content,
+    };
+    dispatch(editComment(payload));
+    setToEditComment(!toEditComment);
   };
 
   useEffect(() => {
@@ -107,6 +117,29 @@ const Feed = () => {
             {comments?.reverse().map((comment) => (
               <div className='commentDiv'>
               {comment.content}
+              <div>
+              <button
+                    onClick={() => setToEditComment(!toEditComment)}
+                    className="del-photo-btn"
+                  >
+                    Edit
+                  </button>
+                  {toEditComment && (
+                    <form onSubmit={handleEditComment}>
+                      <input
+                        onChange={(e) => setContent(e.target.value)}
+                        value={content}
+                        placeholder="Enter new comment"
+                      />
+
+                      <button className="question-sumbit-btn" type="submit">
+                        Update Photo Caption
+                      </button>
+                      <button className="cancel-btn" onClick={cancel}>
+                        Cancel
+                      </button>
+                    </form>
+                  )}
               <button
                     onClick={() => handleDeleteComment(comment.id)}
                     type="submit"
@@ -114,6 +147,7 @@ const Feed = () => {
                   >
                     Delete
                   </button>
+                  </div>
               </div>
             ))}
           </div>

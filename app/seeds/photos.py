@@ -36,6 +36,27 @@ def seed_photos():
     photo11 = Photo(
         url='https://images.unsplash.com/photo-1535083783855-76ae62b2914e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3JmdWwlMjBiaXJkfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
         user_id=9, caption='Come at me BRO!')
+    photo12 = Photo(
+        url='https://mymodernmet.com/wp/wp-content/uploads/2019/06/david-travis-bird-photography-7.jpg',
+        user_id=9, caption='Jay on a pink tree')
+    photo13 = Photo(
+        url='https://media.istockphoto.com/photos/eastern-bluebirds-male-and-female-picture-id183412466?b=1&k=20&m=183412466&s=170667a&w=0&h=45UhLd6cQcc8fqsLPNQKz-Rgof6RflVscLCyqPFxtAE=',
+        user_id=9, caption='Come at me BRO!')
+    photo14 = Photo(
+        url='https://s3.eu-west-1.amazonaws.com/prod.news.product.which.co.uk/news/wp-content/uploads/2020/07/Bird-photography-main.jpg',
+        user_id=9, caption='Come at me BRO!')
+    photo15 = Photo(
+        url='https://i.natgeofe.com/n/d6cdb97e-9a73-458f-8086-a52024e7c0d8/1658117_uploadsmember230167yourshot-230167-1658117jpg_mset6esrx2bzc4znl2fqeicvt7p3eflutfvvbpyjwjhzlmh4iziq_1600x1200.jpg',
+        user_id=9, caption='Come at me BRO!')
+    photo16 = Photo(
+        url='https://ichef.bbci.co.uk/news/976/cpsprodpb/0646/production/_117860610_bpoty-2021-finalists-15.jpg',
+        user_id=9, caption='Come at me BRO!')
+    photo17 = Photo(
+        url='https://thumbor.forbes.com/thumbor/trim/0x57:1790x1104/fit-in/711x415/smart/https://specials-images.forbesimg.com/imageserve/612e3d4464dcf557704d05fb/Two-Southern-Yellow--billed-Hornbill-birds-chase-the-same-insect-in-the-air/0x0.jpg',
+        user_id=9, caption='Come at me BRO!')
+    photo18 = Photo(
+        url='https://121clicks.com/wp-content/uploads/2013/06/axel_hildebrandt_01.jpg',
+        user_id=9, caption='Come at me BRO!')
 
     db.session.add(photo1)
     db.session.add(photo2)
@@ -48,6 +69,13 @@ def seed_photos():
     db.session.add(photo9)
     db.session.add(photo10)
     db.session.add(photo11)
+    db.session.add(photo12)
+    db.session.add(photo13)
+    db.session.add(photo14)
+    db.session.add(photo15)
+    db.session.add(photo16)
+    db.session.add(photo17)
+    db.session.add(photo18)
 
     db.session.commit()
 

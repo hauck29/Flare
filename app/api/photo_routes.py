@@ -52,7 +52,7 @@ def get_all_photos():
 
 # POST ONE PHOTO
 @photo_routes.route('/', methods=["POST"])
-# @login_required
+@login_required
 def create_photo():
     form = PhotoForm()
     form['csrf_token'].data = request.cookies['csrf_token']
