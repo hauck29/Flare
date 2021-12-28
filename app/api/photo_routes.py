@@ -40,15 +40,6 @@ def get_all_photos():
     else:
         return 'Photos not found', 404
 
-# # READ ALL commentS
-# @photo_routes.route('/')
-# def get_all_comments():
-#     comments = Comment.query.all()
-#     results_dict = {'comment': [comment.to_dict() for comment in comments]}
-#     if results_dict:
-#         return results_dict
-#     else:
-#         return 'comments not found', 404
 
 # POST ONE PHOTO
 @photo_routes.route('/', methods=["POST"])
