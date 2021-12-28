@@ -6,7 +6,6 @@ function DisplayPhoto({ photoId, setShowModal }) {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
-  console.log("$$$$$$%%%%%%%%%%%%%%%%%#@@@@@@@@@@@@", photos);
   const photo = photos[photoId];
   const [editable, isEditable] = useState(false);
   const [caption, setCaption] = useState(photo.caption);

@@ -20,6 +20,7 @@ const Feed = () => {
   const comments = useSelector((state) => Object.values(state.comments));
   const [showModal, setShowModal] = useState(false);
   const [photoId, setPhotoId] = useState("");
+  const [commentId, setCommentId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
@@ -30,6 +31,10 @@ const Feed = () => {
     e.preventDefault();
     setToEditPhoto(!toEditPhoto);
   };
+  const cancelComment = (e) => {
+    e.preventDefault();
+    setToEditComment(!toEditComment);
+  }
 
   const handleDelete = (id) => {
     dispatch(deletePhoto(id));
@@ -70,18 +75,19 @@ const Feed = () => {
         </div>
         <div className="feedDiv">
           {photos?.reverse().map((photo) => (
-            <div className="imgDiv">
+            <div className="imgDiv" key={photo.id}>
               <div className="pNcDiv">
                 <img className="imgClass" src={photo.url} />
                 {photo.caption}
                 <div id="edDiv">
                   <button
-                    onClick={() => setToEditPhoto(!toEditPhoto)}
+                    onClick={() => {setToEditPhoto(!toEditPhoto)
+                                    setPhotoId(photo.id)}}
                     className="del-photo-btn"
                   >
                     Edit
                   </button>
-                  {toEditPhoto && (
+                  {photoId === photo.id?toEditPhoto && (
                     <form
                       onSubmit={() => {
                         handleEditPhoto(photo.id, caption);
@@ -100,7 +106,8 @@ const Feed = () => {
                         Cancel
                       </button>
                     </form>
-                  )}
+                  ):null}
+
                   {"/"}
                   <button
                     onClick={() => handleDelete(photo.id)}
@@ -120,16 +127,17 @@ const Feed = () => {
           <CreateCommentModal />
           <div className="commentsDiv">
             {comments?.reverse().map((comment) => (
-              <div className="commentDiv">
+              <div className="commentDiv" key={comment.id}>
                 {comment.content}
                 <div>
                   <button
-                    onClick={() => setToEditComment(!toEditComment)}
+                    onClick={() => {setToEditComment(!toEditComment)
+                                    setCommentId(comment.id)}}
                     className="del-photo-btn"
                   >
                     Edit
                   </button>
-                  {toEditComment && (
+                  {commentId === comment.id?toEditComment && (
                     <form
                       onSubmit={() => {
                         handleEditComment(comment.id, content);
@@ -144,11 +152,11 @@ const Feed = () => {
                       <button className="question-sumbit-btn" type="submit">
                         Update Comment
                       </button>
-                      <button className="cancel-btn" onClick={cancel}>
+                      <button className="cancel-btn" onClick={cancelComment}>
                         Cancel
                       </button>
                     </form>
-                  )}
+                  ):null}
                   <button
                     onClick={() => handleDeleteComment(comment.id)}
                     type="submit"
