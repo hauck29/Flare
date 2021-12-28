@@ -58,7 +58,7 @@ def create_comment():
     return comment.to_dict()
 
 # UPDATE ONE comment
-@comment_routes.route("/<int:id>", methods=["PUT"])
+@comment_routes.route("/<int:id>/", methods=["PUT"])
 def update_comment(id):
     comment = Comment.query.get(id)
     req = request.get_json()

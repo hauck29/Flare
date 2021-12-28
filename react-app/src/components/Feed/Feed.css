@@ -2,18 +2,7 @@
   display: flex;
   align-items: center;
 }
-/* .addPhotoBtn {
-  height: 30px;
-  margin-left: 50px;
-  text-decoration: none;
-  color: whitesmoke;
-  font-family: cursive;
-  background-color: rgba(0, 0, 0, 0.61);
-  border-radius: 5px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-} */
+
 .addPhotoBtn:hover {
   color: rgba(0, 0, 0, 0.61);
   background-color: whitesmoke;
@@ -21,15 +10,10 @@
 .imgClass {
   width: 200px;
   height: 150px;
-  /* margin: 25px;
-
-  box-shadow: 0 0 25px 15px rgb(0 0 0 / 0.5); */
 }
 .imgClass:hover {
-  transform: translate3D(0, -1px, 0) scale(1.5);
-  /* box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
-    1px 6px 12px rgba(39, 44, 49, 0.04); */
-  transition: all 0.4s ease;
+  /* transform: translate3D(0, -1px, 0) scale(1.5);
+  transition: all 0.4s ease; */
   border: none;
 }
 .feedDiv {
@@ -65,15 +49,16 @@
 .pNcDiv {
   display: grid;
   color: white;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: cursive;
 }
 .createCommentDiv {
   width: 30vw;
   height: 80vh;
-  background-color: rgba(244, 238, 169, 0.61);
+  background-color: rgba(244, 238, 169, 0.25);
   border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
+  box-shadow: inset 0 0 5px whitesmoke;
 }
 #feedMain {
   display: flex;
@@ -99,21 +84,21 @@
   color: white;
   border-radius: 5px;
   padding: 5px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: cursive;
+
+}
+.commentsDiv{
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 20px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 5px whitesmoke;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(244, 238, 169, 0.25);
   border-radius: 10px;

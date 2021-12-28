@@ -64,7 +64,8 @@ export const createPhoto = (photoData) => async (dispatch) => {
   }
 };
 
-export const editPhoto = (id, caption) => async (dispatch) => {
+export const editPhoto = (payload) => async (dispatch) => {
+  let {id, caption} = payload;
   const response = await fetch(`/api/photos/${id}/`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

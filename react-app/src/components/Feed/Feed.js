@@ -24,7 +24,7 @@ const Feed = () => {
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
   const [caption, setCaption] = useState("");
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
 
   const cancel = (e) => {
     e.preventDefault();
@@ -37,8 +37,8 @@ const Feed = () => {
   };
   const handleDeleteComment = (id) => {
     dispatch(deleteComment(id));
-    history.push('/photos');
-  }
+    history.push("/photos");
+  };
 
   const handleEditPhoto = async (id, caption) => {
     const payload = {
@@ -48,6 +48,7 @@ const Feed = () => {
     dispatch(editPhoto(payload));
     setToEditPhoto(!toEditPhoto);
   };
+
   const handleEditComment = async (id, content) => {
     const payload = {
       id,
@@ -81,7 +82,11 @@ const Feed = () => {
                     Edit
                   </button>
                   {toEditPhoto && (
-                    <form onSubmit={handleEditPhoto}>
+                    <form
+                      onSubmit={() => {
+                        handleEditPhoto(photo.id, caption);
+                      }}
+                    >
                       <input
                         onChange={(e) => setCaption(e.target.value)}
                         value={caption}
@@ -115,17 +120,21 @@ const Feed = () => {
           <CreateCommentModal />
           <div className="commentsDiv">
             {comments?.reverse().map((comment) => (
-              <div className='commentDiv'>
-              {comment.content}
-              <div>
-              <button
+              <div className="commentDiv">
+                {comment.content}
+                <div>
+                  <button
                     onClick={() => setToEditComment(!toEditComment)}
                     className="del-photo-btn"
                   >
                     Edit
                   </button>
                   {toEditComment && (
-                    <form onSubmit={handleEditComment}>
+                    <form
+                      onSubmit={() => {
+                        handleEditComment(comment.id, content);
+                      }}
+                    >
                       <input
                         onChange={(e) => setContent(e.target.value)}
                         value={content}
@@ -133,21 +142,21 @@ const Feed = () => {
                       />
 
                       <button className="question-sumbit-btn" type="submit">
-                        Update Photo Caption
+                        Update Comment
                       </button>
                       <button className="cancel-btn" onClick={cancel}>
                         Cancel
                       </button>
                     </form>
                   )}
-              <button
+                  <button
                     onClick={() => handleDeleteComment(comment.id)}
                     type="submit"
                     className="del-photo-btn"
                   >
                     Delete
                   </button>
-                  </div>
+                </div>
               </div>
             ))}
           </div>

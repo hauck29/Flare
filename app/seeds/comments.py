@@ -25,31 +25,35 @@ def seed_comments():
     )
     comment6 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt '
+
     )
     comment7 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam '
+
     )
     comment8 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Magna ac placerat vestibulum lectus mauris ultrices. Id neque aliquam vestibulum morbi blandit '
+
     )
     comment9 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Arcu risus quis varius quam quisque id diam vel. '
+
     )
     comment10 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Eget mi proin sed libero enim sed faucibus. Ac orci '
     )
     comment11 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Eleventh comment'
     )
     comment12 = Comment(
         user_id=5,
-        content='Comment fIfThHhH!'
+        content='Comment number twelve!'
     )
 
     db.session.add(comment1)

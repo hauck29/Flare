@@ -56,11 +56,12 @@ export const createComment = (commentData) => async (dispatch) => {
 };
 
 
-export const editComment = (id, commentData) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${id}`, {
+export const editComment = (payload) => async (dispatch) => {
+  let {id, content} = payload;
+  const response = await fetch(`/api/comments/${id}/`, {
     method: "PUT",
-    body: JSON.stringify(commentData),
-
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(content),
   });
 
   if (response.ok) {

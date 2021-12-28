@@ -59,7 +59,7 @@ def create_photo():
     return photo.to_dict()
 
 # UPDATE ONE PHOTO
-@photo_routes.route("/<int:id>", methods=["PUT"])
+@photo_routes.route("/<int:id>/", methods=["PUT"])
 def update_photo(id):
     photo = Photo.query.get(id)
     req = request.get_json()
