@@ -122,7 +122,7 @@ const Feed = () => {
                         )
                       : null}
 
-                    {"/"}
+                    {" "}
                     <button
                       onClick={() => handleDelete(photo.id)}
                       type="submit"
