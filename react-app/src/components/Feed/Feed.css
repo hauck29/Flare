@@ -1,20 +1,18 @@
-.addPhotoBtnDiv {
-  display: flex;
-  align-items: center;
-}
 
-.addPhotoBtn:hover {
-  color: rgba(0, 0, 0, 0.61);
-  background-color: whitesmoke;
-}
+
 .imgClass {
-  width: 200px;
-  height: 150px;
+  width: 31vw;
+  height: auto;
 }
 .imgClass:hover {
-  /* transform: translate3D(0, -1px, 0) scale(1.5);
-  transition: all 0.4s ease; */
+  transform: translate3D(0, -1px, 0) scale(1.5);
+  transition: all 0.4s ease;
   border: none;
+}
+.pageDiv{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 .feedDiv {
   /* margin-top: 10px; */
@@ -27,9 +25,10 @@
   height: 65vh;
   overflow: scroll;
   overflow-x: hidden;
-
 }
-
+.captionTag{
+  margin-left: 10px;
+}
 .del-photo-btn {
   border: none;
   background-color: transparent;
@@ -45,6 +44,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.61);
+  border: 1px solid olive;
 }
 .pNcDiv {
   display: grid;
@@ -53,8 +53,9 @@
 }
 .createCommentDiv {
   width: 30vw;
-  height: 80vh;
+  height: 75vh;
   background-color: rgba(244, 238, 169, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
@@ -66,15 +67,18 @@
   align-items: center;
   margin: 20px;
   justify-content: space-around;
+
 }
 #edDiv {
   display: flex;
   justify-content: center;
 }
 #feedBackground {
+  /* background-color: rgba(244, 238, 169, 0.25); */
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 15px;
+  box-shadow: inset 0 0 5px whitesmoke;
 }
 .commentDiv{
   display: flex;
@@ -84,11 +88,11 @@
   color: white;
   border-radius: 5px;
   padding: 5px;
-  font-family: cursive;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 1px solid olive
 
 }
-.commentsDiv{
-}
+
 
 ::-webkit-scrollbar {
   width: 20px;
@@ -102,4 +106,25 @@
 ::-webkit-scrollbar-thumb {
   background: rgba(244, 238, 169, 0.25);
   border-radius: 10px;
+}
+.updateBarInput {
+  box-shadow: inset 0 0 5px whitesmoke;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.61);
+  color: white;
+}
+.recIcon{
+  width: 15px;
+  margin-left: 5px;
+}
+.recIcon:hover{
+  transform: translate3D(0, -1px, 0) scale(1.5);
+  transition: all 0.4s ease;
+}
+.editIcon:hover{
+  transform: translate3D(0, -1px, 0) scale(1.5);
+  transition: all 0.4s ease;
+}
+.bottomBorder{
+  width: 50vw;
 }
