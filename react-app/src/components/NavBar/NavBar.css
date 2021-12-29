@@ -11,6 +11,11 @@
   /* width: 50vw; */
   /* margin-left: 60vw; */
   margin-right: 2vw;
+  margin-left: 2vw;
+  background-color: rgba(0, 0, 0, 0.61);
+  border-radius: 10px;
+  height: 25px;
+  width: 15vw;
 }
 ul {
   list-style-type: none;

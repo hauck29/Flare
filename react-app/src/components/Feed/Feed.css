@@ -1,11 +1,12 @@
 
 
 .imgClass {
-  width: 31vw;
+  width: 51vw;
   height: auto;
+  border-radius: 5px;
 }
 .imgClass:hover {
-  transform: translate3D(0, -1px, 0) scale(1.5);
+  transform: translate3D(0, -1px, 0) scale(1.15);
   transition: all 0.4s ease;
   border: none;
 }
@@ -45,6 +46,12 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.61);
   border: 1px solid olive;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.imgDiv:hover{
+  /* transform: translate3D(0, -1px, 0) scale(1.5);
+  transition: all 0.4s ease; */
 }
 .pNcDiv {
   display: grid;
@@ -127,4 +134,8 @@
 }
 .bottomBorder{
   width: 50vw;
+}
+.belowPicDiv{
+  display: flex;
+  justify-content: space-between;
 }

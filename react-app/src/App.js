@@ -42,12 +42,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/photos' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
           <Feed />
         </ProtectedRoute>
-        <Route path='/' exact={true}>
+        {/* <Route path='/' exact={true}>
           <SplashPage />
-        </Route>
+        </Route> */}
         <Route path='/newPhoto' exact={true}>
           <UploadForm />
         </Route>
