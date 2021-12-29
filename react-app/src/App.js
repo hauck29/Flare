@@ -45,12 +45,6 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <Feed />
         </ProtectedRoute>
-        {/* <Route path='/' exact={true}>
-          <SplashPage />
-        </Route> */}
-        <Route path='/newPhoto' exact={true}>
-          <UploadForm />
-        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -60,6 +60,7 @@ def create_photo():
 
 # UPDATE ONE PHOTO
 @photo_routes.route("/<int:id>/", methods=["PUT"])
+@login_required
 def update_photo(id):
     photo = Photo.query.get(id)
     req = request.get_json()
@@ -72,6 +73,7 @@ def update_photo(id):
 
 # DELETE ONE PHOTO
 @photo_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
 def delete_photo(id):
     photo = Photo.query.get(id)
     if photo:

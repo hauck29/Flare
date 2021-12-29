@@ -43,7 +43,7 @@ def get_all_comments():
 
 # POST ONE comment
 @comment_routes.route('/', methods=["POST"])
-# @login_required
+@login_required
 def create_comment():
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -59,6 +59,7 @@ def create_comment():
 
 # UPDATE ONE comment
 @comment_routes.route("/<int:id>/", methods=["PUT"])
+@login_required
 def update_comment(id):
     comment = Comment.query.get(id)
     req = request.get_json()
@@ -71,6 +72,7 @@ def update_comment(id):
 
 # DELETE ONE comment
 @comment_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
 def delete_comment(id):
     print('id', id)
     comment = Comment.query.get(id)

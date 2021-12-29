@@ -22,20 +22,17 @@ const NavBar = () => {
           <input className='searchBarInput' type="text" placeholder="Search for birds here..."></input>
         </div>
       <ul className='navListBox'>
-        {/* <li>
-          <NavLink className='navElementBox' to='/photos' exact={true} activeClassName='active'>
+        <li>
+          <NavLink className='navElementBox' to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li> */}
+        </li>
         <li>
           <LoginFormModal />
-
         </li>
         <li>
           <SignupFormModal />
-
         </li>
-
         <li className='logoutBtn'>
           <LogoutButton />
         </li>

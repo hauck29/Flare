@@ -12,7 +12,7 @@ const CommentForm = () => {
 
   const cancel = (e) => {
     e.preventDefault();
-    history.push("/photos");
+    history.push("/");
   };
 
   const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ const CommentForm = () => {
       content,
     };
     dispatch(createComment(payload));
-    history.push("/photos");
+    history.push("/");
   };
 
   return (

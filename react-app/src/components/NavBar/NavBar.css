@@ -8,14 +8,12 @@
 .navListBox {
   display: flex;
   justify-content: space-between;
-  /* width: 50vw; */
-  /* margin-left: 60vw; */
   margin-right: 2vw;
   margin-left: 2vw;
   background-color: rgba(0, 0, 0, 0.61);
   border-radius: 10px;
-  height: 25px;
-  width: 15vw;
+  width: fit-content;
+  block-size: fit-content;
 }
 ul {
   list-style-type: none;
@@ -29,8 +27,8 @@ li {
   color: white;
   font-family: cursive;
   font-size: small;
-  margin: 10px;
-  width: 100px;
+  display: flex;
+  justify-content: center;
 }
 .flareWord1 {
   font-size: 50px;

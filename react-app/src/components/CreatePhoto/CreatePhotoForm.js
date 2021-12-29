@@ -13,7 +13,7 @@ const UploadForm = () => {
 
   const cancel = (e) => {
     e.preventDefault();
-    history.push("/photos");
+    history.push("/");
   };
 
   const handleSubmit = (e) => {
@@ -31,7 +31,7 @@ const UploadForm = () => {
       caption,
     };
     dispatch(createPhoto(payload));
-    history.push("/photos");
+    history.push("/");
   };
 
   return (

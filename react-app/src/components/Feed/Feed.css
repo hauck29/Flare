@@ -139,3 +139,12 @@
   display: flex;
   justify-content: space-between;
 }
+.usersLinkDiv{
+  margin-left: 6vw;
+}
+.usersElementBox {
+  text-decoration: none;
+  color: white;
+  font-family: cursive;
+  font-size: small;
+}
