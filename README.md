@@ -2,7 +2,7 @@
 
 https://flarebird.herokuapp.com/
 
-<img src='https://i.imgur.com/Ebcnw2d.jpg'>
+<!-- ![splash](https://imgur.com/Kkar9b7) -->
 
 This is the README for the final solo project from App Academy.
 The project was inspired by Flickr and build using Javascript,
