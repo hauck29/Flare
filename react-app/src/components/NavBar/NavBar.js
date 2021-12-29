@@ -5,6 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import '../NavBar/NavBar.css';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal/indexSignupForm'
+import SignupForm from '../SignupFormModal/SignUpForm'
 
 const NavBar = () => {
   return (
@@ -22,11 +23,11 @@ const NavBar = () => {
           <input className='searchBarInput' type="text" placeholder="Search for birds here..."></input>
         </div>
       <ul className='navListBox'>
-        <li>
+        {/* <li>
           <NavLink className='navElementBox' to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <LoginFormModal />
         </li>

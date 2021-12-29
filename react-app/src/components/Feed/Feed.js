@@ -66,15 +66,7 @@ const Feed = () => {
     dispatch(getPhotos(), dispatch(getComments()));
   }, [dispatch]);
 
-  //if(!sessionUser){
 
-  // }
-  //   return (
-  //     <>
-  //       <h1>LOG IN</h1>
-  //     </>
-  //   )
-  // }
   if (sessionUser) {
     return (
       <>

@@ -43,12 +43,13 @@ const LoginForm = () => {
   }
 
   return (
+    <>
     <form
     onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
-        ))}
+          ))}
       </div>
       <div>
         {/* <label htmlFor='email'>Email</label> */}
@@ -79,6 +80,7 @@ const LoginForm = () => {
             Demo-Login
           </button>
     </form>
+    </>
   );
 };
 
