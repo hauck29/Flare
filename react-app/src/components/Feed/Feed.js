@@ -12,6 +12,10 @@ import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
+import recycleIcon from "./recycle.png";
+import editIcon from "./edit.png";
+import githubLogo from "../SplashPage/githubLogo.png";
+import linkedInLogo from "../SplashPage/linkedInLogo.png";
 
 const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -34,7 +38,7 @@ const Feed = () => {
   const cancelComment = (e) => {
     e.preventDefault();
     setToEditComment(!toEditComment);
-  }
+  };
 
   const handleDelete = (id) => {
     dispatch(deletePhoto(id));
@@ -68,109 +72,135 @@ const Feed = () => {
   }, [dispatch]);
 
   return (
-    <div id="feedMain">
-      <div id="feedBackground">
-        <div className="addPhotoBtnDiv">
-          <CreatePhotoModal />
-        </div>
-        <div className="feedDiv">
-          {photos?.reverse().map((photo) => (
-            <div className="imgDiv" key={photo.id}>
-              <div className="pNcDiv">
-                <img className="imgClass" src={photo.url} />
-                {photo.caption}
-                <div id="edDiv">
-                  <button
-                    onClick={() => {setToEditPhoto(!toEditPhoto)
-                                    setPhotoId(photo.id)}}
-                    className="del-photo-btn"
-                  >
-                    Edit
-                  </button>
-                  {photoId === photo.id?toEditPhoto && (
-                    <form
-                      onSubmit={() => {
-                        handleEditPhoto(photo.id, caption);
-                      }}
-                    >
-                      <input
-                        onChange={(e) => setCaption(e.target.value)}
-                        value={caption}
-                        placeholder="Enter new caption"
-                      />
-
-                      <button className="question-sumbit-btn" type="submit">
-                        Update Photo Caption
-                      </button>
-                      <button className="cancel-btn" onClick={cancel}>
-                        Cancel
-                      </button>
-                    </form>
-                  ):null}
-
-                  {"/"}
-                  <button
-                    onClick={() => handleDelete(photo.id)}
-                    type="submit"
-                    className="del-photo-btn"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <>
+    <div className='pageDiv'>
+    <div className="welcomeMessage">
+        <div className="welcomeWrap">Welcome {sessionUser?.username}</div>
       </div>
-      <div className="commentsBackground">
-        <div className="createCommentDiv">
-          <CreateCommentModal />
-          <div className="commentsDiv">
-            {comments?.reverse().map((comment) => (
-              <div className="commentDiv" key={comment.id}>
-                {comment.content}
-                <div>
-                  <button
-                    onClick={() => {setToEditComment(!toEditComment)
-                                    setCommentId(comment.id)}}
-                    className="del-photo-btn"
-                  >
-                    Edit
-                  </button>
-                  {commentId === comment.id?toEditComment && (
-                    <form
-                      onSubmit={() => {
-                        handleEditComment(comment.id, content);
+      <div id="feedMain">
+        <div id="feedBackground">
+          <div className="addPhotoBtnDiv">
+            <CreatePhotoModal />
+          </div>
+          <div className="feedDiv">
+            {photos?.reverse().map((photo) => (
+              <div className="imgDiv" key={photo.id}>
+                <div className="pNcDiv">
+                  <img className="imgClass" src={photo.url} />
+                  <p className="captionTag">{photo.caption}</p>
+                  <div id="edDiv">
+                    <button
+                      onClick={() => {
+                        setToEditPhoto(!toEditPhoto);
+                        setPhotoId(photo.id);
                       }}
+                      className="del-photo-btn"
                     >
-                      <input
-                        onChange={(e) => setContent(e.target.value)}
-                        value={content}
-                        placeholder="Enter new comment"
-                      />
+                      <img className="recIcon" src={editIcon}></img>
+                    </button>
+                    {photoId === photo.id
+                      ? toEditPhoto && (
+                          <form
+                            onSubmit={() => {
+                              handleEditPhoto(photo.id, caption);
+                            }}
+                          >
+                            <input
+                              className="updateBarInput"
+                              onChange={(e) => setCaption(e.target.value)}
+                              value={caption}
+                              placeholder="Enter new caption"
+                            />
 
-                      <button className="question-sumbit-btn" type="submit">
-                        Update Comment
-                      </button>
-                      <button className="cancel-btn" onClick={cancelComment}>
-                        Cancel
-                      </button>
-                    </form>
-                  ):null}
-                  <button
-                    onClick={() => handleDeleteComment(comment.id)}
-                    type="submit"
-                    className="del-photo-btn"
-                  >
-                    Delete
-                  </button>
+                            <button className="postBtn" type="submit">
+                              Update Photo Caption
+                            </button>
+                            <button className="postBtn" onClick={cancel}>
+                              Cancel
+                            </button>
+                          </form>
+                        )
+                      : null}
+
+                    {"/"}
+                    <button
+                      onClick={() => handleDelete(photo.id)}
+                      type="submit"
+                      className="del-photo-btn"
+                    >
+                      <img className="recIcon" src={recycleIcon}></img>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+        <div className="commentsBackground">
+          <div className="createCommentDiv">
+            <CreateCommentModal />
+            <div className="commentsDiv">
+              {comments?.reverse().map((comment) => (
+                <div className="commentDiv" key={comment.id}>
+                  {comment.content}
+                  <div>
+                    <button
+                      onClick={() => {
+                        setToEditComment(!toEditComment);
+                        setCommentId(comment.id);
+                      }}
+                      className="del-photo-btn"
+                    >
+                      <img className="recIcon" src={editIcon}></img>
+                    </button>
+                    {commentId === comment.id
+                      ? toEditComment && (
+                          <form
+                            onSubmit={() => {
+                              handleEditComment(comment.id, content);
+                            }}
+                          >
+                            <input
+                              className="updateBarInput"
+                              onChange={(e) => setContent(e.target.value)}
+                              value={content}
+                              placeholder={comment.content}
+                            />
+
+                            <button className="postBtn" type="submit">
+                              Update Comment
+                            </button>
+                            <button className="postBtn" onClick={cancelComment}>
+                              Cancel
+                            </button>
+                          </form>
+                        )
+                      : null}
+                    <button
+                      onClick={() => handleDeleteComment(comment.id)}
+                      type="submit"
+                      className="del-photo-btn"
+                    >
+                      <img className="recIcon" src={recycleIcon}></img>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="bottomBorder">
+        <p className="credits"> © 2021 Tony Hauck</p>
+        <a href="https://github.com/hauck29">
+          <img className="gLogo" src={githubLogo}></img>
+        </a>
+        <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/">
+          <img className="lLogo" src={linkedInLogo}></img>
+        </a>
+      </div>
+      </div>
+    </>
   );
 };
 
