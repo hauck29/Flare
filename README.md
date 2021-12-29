@@ -8,7 +8,7 @@ This is the README for the final solo project from App Academy.
 The project was inspired by Flickr and build using Javascript,
 React.js and Redux for the front end and Python with Flask for the backend.
 
-<img src=''>
+<img src='https://i.imgur.com/krwukQD.png'>
 
 # Project Installation
 
