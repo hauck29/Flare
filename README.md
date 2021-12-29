@@ -1,4 +1,4 @@
-# Flare (Flickr) - Flask React Solo Project
+# FlareBird (Flickr) - Flask React Solo Project - Anthony Hauck
 
 https://flarebird.herokuapp.com/
 
@@ -71,28 +71,29 @@ React.js and Redux for the front end and Python with Flask for the backend.
 
 # What You Can Do
 
->You can log in as a demo user with the `Demo Login` button on the login form or landing page.
+>You can log in as a demo user with the `Demo Login` button on the login modal.
 
 >You can log in as a user of your choice, using the credentials you selected when creating an account.
 
-<img src=''>
+<img src='https://i.imgur.com/4KN6ZVx.png'>
 
->You can add posts with the `Add` button
-<img src=''>
+>You can add photos with the `Post` button
+<img src='https://i.imgur.com/x7sgfHJ.png'>
 
->You can edit your posts with the `Edit` button.
-<img src=''>
+>You can edit your photos with the `Pencil and Paper` icon and you can delete your photos with the `Recycle` icon.
+<img src='https://i.imgur.com/aLEHJ4i.png'>
 
->You can delete your posts with the `Delete` button.
-<img src=''>
+>You can add comments with the `Add a comment` button.
+<img src='https://i.imgur.com/Y2DWVBz.png'>
 
->You can add comments in the `Add a comment` block with the `Submit` button.
-<img src=''>
+>You can edit your comments with the `Pencil and Paper` icon.
+<img src='https://i.imgur.com/OEJM2Ug.png'>
 
->You can edit your comments with the `Edit` button.
+>You can delete your comments with the `Recycle` icon.
+<img src='https://i.imgur.com/YTiBAbc.png'>
 
->You can delete your comments with the `Delete` button.
-<img src=''>
+>You can see a list of all users with the `Users` button, below the `Welcome` message.
+<img src='https://i.imgur.com/nMNMN1l.png'>
 
 # Technical Details
 >This project was done during the weeks of December 13th - 30th, 2021.
