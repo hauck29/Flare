@@ -3,12 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import {
   getComments,
-  createComment,
   deleteComment,
   editComment,
 } from "../../store/comments";
 import "../Feed/Feed.css";
-import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
