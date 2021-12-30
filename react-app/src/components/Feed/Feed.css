@@ -1,7 +1,7 @@
 
 
 .imgClass {
-  width: 51vw;
+  width: 40vw;
   height: auto;
   border-radius: 5px;
 }
@@ -147,4 +147,7 @@
   color: white;
   font-family: cursive;
   font-size: small;
+}
+button:hover{
+  cursor: pointer;
 }

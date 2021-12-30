@@ -22,9 +22,10 @@ const UploadForm = ({setShowModal}) => {
       setErrors(["You must enter in a valid URL to post a photo"]);
       return errors;
     }
-  //   if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
-  //     setErrors(['Must be a valid image url'])
-  // }
+    if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
+      setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
+      return errors;
+  }
     const payload = {
       user_id: user.id,
       url,
