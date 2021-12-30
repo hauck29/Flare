@@ -11,7 +11,7 @@ function CreatePhotoModal() {
       <button className='postBtn' onClick={() => setShowModal(true)}>Post A New Photo</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <UploadForm />
+          <UploadForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

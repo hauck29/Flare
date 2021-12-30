@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 function User() {
   const [user, setUser] = useState({});
@@ -21,6 +22,9 @@ function User() {
   }
 
   return (
+    <>
+    <NavLink to={'/'}>Return to Photos</NavLink>
+
     <ul>
       <li>
         <strong>User Id</strong> {userId}
@@ -32,6 +36,7 @@ function User() {
         <strong>Email</strong> {user.email}
       </li>
     </ul>
+    </>
   );
 }
 export default User;
