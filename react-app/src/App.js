@@ -13,6 +13,7 @@ import SplashPage from './components/SplashPage/SplashPage'
 import Feed from './components/Feed/Feed'
 import UploadForm from './components/CreatePhoto/CreatePhotoForm'
 import DisplayPhoto from './components/DisplayPhoto/DisplayPhoto'
+import './App.css';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/login' exact={true}>
+          <div className='h1'><h1>Log In or Sign Up to begin</h1></div>
           <LoginForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >

@@ -50,14 +50,17 @@ li {
   color: olive;
   text-decoration: underline #ebd39d;
 }
+.flareWordContainer{
+  display: flex;
+}
 .searchBar {
   display: flex;
   height: 25px;
   margin-top: 30px;
   justify-content: center;
   position: relative;
-  width: 100%;
-  border: 1px grey solid;
+  width: 50%;
+  /* border: 1px grey solid; */
   border-radius: 5px;
 }
 .searchBarInput {

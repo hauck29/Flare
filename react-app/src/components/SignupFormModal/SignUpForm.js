@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 
 const SignUpForm = () => {
@@ -11,15 +11,19 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if(password !== repeatPassword){
+      return setErrors(["Confirm Password and Password fields MUST match"]);
+    }else if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data);
       }
     }
+    history.push('/');
   };
 
   const updateUsername = (e) => {

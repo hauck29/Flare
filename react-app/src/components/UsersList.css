@@ -1,0 +1,35 @@
+.rtp{
+    color: rgb(197, 197, 197);
+    margin-left: 250px;
+}
+.rtpBack{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+h1{
+    color: olive;
+    width: 100vw;
+    margin: 50px;
+}
+.h1D{
+    display: flex;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+ul{
+    height: 70vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+li{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    margin: 5px;
+    margin-left: 100px;
+}
+a{
+    color: rgb(197, 197, 197);
+}

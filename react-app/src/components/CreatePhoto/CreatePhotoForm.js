@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createPhoto } from "../../store/photos";
 import { useHistory } from "react-router-dom";
 
-const UploadForm = () => {
+const UploadForm = ({setShowModal}) => {
   const [url, setUrl] = useState("");
   const [caption, setCaption] = useState("");
   const history = useHistory();
@@ -22,16 +22,17 @@ const UploadForm = () => {
       setErrors(["You must enter in a valid URL to post a photo"]);
       return errors;
     }
-    if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
-      setErrors(['Must be a valid image url'])
-  }
+  //   if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
+  //     setErrors(['Must be a valid image url'])
+  // }
     const payload = {
       user_id: user.id,
       url,
       caption,
     };
     dispatch(createPhoto(payload));
-    history.push("/");
+    // history.push("/");
+    setShowModal(false);
   };
 
   return (
