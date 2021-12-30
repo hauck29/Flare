@@ -25,7 +25,15 @@ const UploadForm = ({setShowModal}) => {
     if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
       setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
       return errors;
-  }
+    }
+    if(caption.length > 255){
+      setErrors(['The photo caption must be fewer than 255 characters.'])
+      return errors;
+    }
+    if(url.length > 255){
+      setErrors(['The photo url must be fewer than 255 characters.'])
+      return errors;
+    }
     const payload = {
       user_id: user.id,
       url,

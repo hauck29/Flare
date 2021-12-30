@@ -21,6 +21,10 @@ const CommentForm = () => {
       setErrors(["You must enter in a comment to post it"]);
       return errors;
     }
+    if(content.length > 255){
+      setErrors(['The comment must be fewer than 255 characters.'])
+      return errors;
+    }
     const payload = {
       user_id: user.id,
       content,

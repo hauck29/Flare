@@ -19,11 +19,12 @@ const Feed = () => {
   const comments = useSelector((state) => Object.values(state.comments));
   const [showModal, setShowModal] = useState(false);
   const [photoId, setPhotoId] = useState("");
+  // const photo = photos[pId]
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
-  const [caption, setCaption] = useState("");
+  const [caption, setCaption] = useState('');
   const [content, setContent] = useState("");
 
   const cancel = (e) => {
