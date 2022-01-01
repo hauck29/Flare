@@ -16,15 +16,15 @@ const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
+  const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
-  const [showModal, setShowModal] = useState(false);
+  const commentsObj = useSelector((state) => state.comments);
   const [photoId, setPhotoId] = useState("");
-  // const photo = photos[pId]
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
-  const [caption, setCaption] = useState('');
+  const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
 
   const cancel = (e) => {
@@ -67,7 +67,6 @@ const Feed = () => {
     dispatch(getPhotos(), dispatch(getComments()));
   }, [dispatch]);
 
-
   if (sessionUser) {
     return (
       <>
@@ -98,15 +97,17 @@ const Feed = () => {
                       <div className="belowPicDiv">
                         <p className="captionTag">{photo.caption}</p>
                         <div id="edDiv">
-                          <button
-                            onClick={() => {
-                              setToEditPhoto(!toEditPhoto);
-                              setPhotoId(photo.id);
-                            }}
-                            className="del-photo-btn"
-                          >
-                            <img className="recIcon" src={editIcon}></img>
-                          </button>
+                          {sessionUser.id === photo.user_id && (
+                            <button
+                              onClick={() => {
+                                setToEditPhoto(!toEditPhoto);
+                                setPhotoId(photo.id);
+                              }}
+                              className="del-photo-btn"
+                            >
+                              <img className="recIcon" src={editIcon}></img>
+                            </button>
+                          )}
                           {photoId === photo.id
                             ? toEditPhoto && (
                                 <form
@@ -117,7 +118,7 @@ const Feed = () => {
                                   <input
                                     className="updateBarInput"
                                     onChange={(e) => setCaption(e.target.value)}
-                                    value={caption}
+                                    value={photosObj[photo.id].caption}
                                     placeholder="Enter new caption"
                                   />
 
@@ -130,13 +131,15 @@ const Feed = () => {
                                 </form>
                               )
                             : null}{" "}
-                          <button
-                            onClick={() => handleDelete(photo.id)}
-                            type="submit"
-                            className="del-photo-btn"
-                          >
-                            <img className="recIcon" src={recycleIcon}></img>
-                          </button>
+                          {sessionUser.id === photo.user_id && (
+                            <button
+                              onClick={() => handleDelete(photo.id)}
+                              type="submit"
+                              className="del-photo-btn"
+                            >
+                              <img className="recIcon" src={recycleIcon}></img>
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -152,15 +155,17 @@ const Feed = () => {
                     <div className="commentDiv" key={comment.id}>
                       {comment.content}
                       <div>
-                        <button
-                          onClick={() => {
-                            setToEditComment(!toEditComment);
-                            setCommentId(comment.id);
-                          }}
-                          className="del-photo-btn"
-                        >
-                          <img className="recIcon" src={editIcon}></img>
-                        </button>
+                        {sessionUser.id === comment.user_id && (
+                          <button
+                            onClick={() => {
+                              setToEditComment(!toEditComment);
+                              setCommentId(comment.id);
+                            }}
+                            className="del-photo-btn"
+                          >
+                            <img className="recIcon" src={editIcon}></img>
+                          </button>
+                        )}
                         {commentId === comment.id
                           ? toEditComment && (
                               <form
@@ -171,7 +176,7 @@ const Feed = () => {
                                 <input
                                   className="updateBarInput"
                                   onChange={(e) => setContent(e.target.value)}
-                                  value={content}
+                                  value={commentsObj[comment.id].content}
                                   // placeholder={comment.content}
                                 />
 
@@ -187,13 +192,15 @@ const Feed = () => {
                               </form>
                             )
                           : null}
-                        <button
-                          onClick={() => handleDeleteComment(comment.id)}
-                          type="submit"
-                          className="del-photo-btn"
-                        >
-                          <img className="recIcon" src={recycleIcon}></img>
-                        </button>
+                        {sessionUser.id === CreateCommentModal.user_id && (
+                          <button
+                            onClick={() => handleDeleteComment(comment.id)}
+                            type="submit"
+                            className="del-photo-btn"
+                          >
+                            <img className="recIcon" src={recycleIcon}></img>
+                          </button>
+                        )}
                       </div>
                     </div>
                   ))}
