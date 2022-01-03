@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../store/comments";
 import { useHistory } from "react-router-dom";
 
-const CommentForm = () => {
+const CommentForm = ({setShowModal}) => {
   const [content, setContent] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
@@ -30,7 +30,8 @@ const CommentForm = () => {
       content,
     };
     dispatch(createComment(payload));
-    history.push("/");
+    // history.push("/");
+    setShowModal(false)
   };
 
   return (

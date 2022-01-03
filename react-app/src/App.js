@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
-import LoginFormModal from './components/LoginFormModal';
 import SignUpForm from './components/SignupFormModal/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -39,7 +38,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/login' exact={true}>
-          <div className='h1'><h1>Log In or Sign Up to begin</h1></div>
+          <div className='h1'><h1>Welcome to FlareBird. Log In or Sign Up to begin</h1></div>
           <LoginForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >

@@ -11,7 +11,7 @@ function CreateCommentModal() {
       <button className='postBtn' onClick={() => setShowModal(true)}>Post A New Comment</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CommentForm />
+          <CommentForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

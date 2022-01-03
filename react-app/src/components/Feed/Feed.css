@@ -1,22 +1,22 @@
-
-
 .imgClass {
   width: 40vw;
   height: auto;
   border-radius: 5px;
+  transition: all 0.4s ease;
 }
 .imgClass:hover {
-  transform: translate3D(0, -1px, 0) scale(1.15);
-  transition: all 0.4s ease;
+  transform: translate3D(0, -1px, 0) scale(1.05);
   border: none;
+  box-shadow: 0 0 10px 5px whitesmoke;
 }
+
+
 .pageDiv{
   height: 80vh;
   display: flex;
   flex-direction: column;
 }
 .feedDiv {
-  /* margin-top: 10px; */
   margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -49,10 +49,6 @@
   border-radius: 5px;
   margin-bottom: 10px;
 }
-.imgDiv:hover{
-  /* transform: translate3D(0, -1px, 0) scale(1.5);
-  transition: all 0.4s ease; */
-}
 .pNcDiv {
   display: grid;
   color: white;
@@ -62,11 +58,10 @@
   width: 30vw;
   height: 75vh;
   background-color: rgba(244, 238, 169, 0.25);
-  /* background-color: rgba(0, 0, 0, 0.5); */
   border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
-  box-shadow: inset 0 0 5px 3px darkgrey, 0 0 25px 5px ;
+  box-shadow: inset 0 0 5px 3px whitesmoke, 0 0 25px 5px ;
 }
 #feedMain {
   display: flex;
@@ -81,7 +76,6 @@
   justify-content: center;
 }
 #feedBackground {
-  /* background-color: rgba(244, 238, 169, 0.25); */
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   border-radius: 15px;
@@ -99,17 +93,13 @@
   border: 1px solid olive
 
 }
-
-
 ::-webkit-scrollbar {
   width: 20px;
 }
-
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px whitesmoke;
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: rgba(244, 238, 169, 0.25);
   border-radius: 10px;

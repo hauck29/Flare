@@ -192,7 +192,7 @@ const Feed = () => {
                               </form>
                             )
                           : null}
-                        {sessionUser.id === CreateCommentModal.user_id && (
+                        {sessionUser.id === comment.user_id && (
                           <button
                             onClick={() => handleDeleteComment(comment.id)}
                             type="submit"
