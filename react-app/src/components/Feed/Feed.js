@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
+import { getPhotoComments, deletephotoComments, editphotoComments } from '../../store/photoComments';
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
+import CreatePhotoCommentModal from '../CreatePC';
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -64,7 +66,8 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    dispatch(getPhotos(), dispatch(getComments()));
+    dispatch(getPhotos(), dispatch(getComments(),
+    dispatch(getPhotoComments())));
   }, [dispatch]);
 
   if (sessionUser) {
