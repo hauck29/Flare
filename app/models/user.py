@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
 
     photos = db.relationship('Photo', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
+    photoComments = db.relationship('PhotoComment', back_populates='user')
 
     @property
     def password(self):
