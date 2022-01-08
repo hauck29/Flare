@@ -21,6 +21,7 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
+  const photoComments = useSelector((state) => Object.values(state.photoComments));
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
@@ -145,6 +146,14 @@ const Feed = () => {
                           )}
                         </div>
                       </div>
+                    </div>
+                    <div className='createPhotoCommentDiv'>
+                      <CreatePhotoCommentModal />
+                      {photoComments?.reverse().map((photoComment) => (
+                        <div className='photoCommentsDiv' key={photoComment.id}>
+                          {photoComment.content}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
