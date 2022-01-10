@@ -8,7 +8,7 @@
 .navListBox {
   margin-right: 2vw;
   margin-left: 2vw;
-  background-color: rgba(0, 0, 0, 0.61);
+  /* background-color: rgba(0, 0, 0, 0.61); */
   border-radius: 10px;
   block-size: fit-content;
 }
@@ -34,13 +34,13 @@ li {
   color: olive;
   text-decoration: underline #ebd39d;
   /* box-shadow: 0 0 10px white; */
-  text-shadow: 0 0 10px white;
+  text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white;
 }
 .flareWord2 {
   font-size: 50px;
   font-family: cursive;
   color: #ebd39d;
-  text-shadow: 0 0 10px white;
+  text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white;
 }
 .flareWord3 {
   font-size: 50px;
@@ -48,7 +48,7 @@ li {
   margin-right: 50px;
   color: olive;
   text-decoration: underline #ebd39d;
-  text-shadow: 0 0 10px white;
+  text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white;
 }
 .flareWordContainer{
   display: flex;
