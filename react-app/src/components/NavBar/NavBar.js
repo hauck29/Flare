@@ -24,8 +24,7 @@ const NavBar = () => {
               ird
           </div>
           </div>
-          <div className='searchBar'>
-          </div>
+          
         <ul className='navListBox'>
 
           <li className='logoutBtn'>

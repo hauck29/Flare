@@ -36,9 +36,9 @@ const CommentForm = ({setShowModal}) => {
 
   return (
     <div className="add-photo">
-      <ul>
+      <ul className='ul'>
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <li className='li' key={idx}>{error}</li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>

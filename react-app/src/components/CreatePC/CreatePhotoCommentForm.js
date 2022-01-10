@@ -4,7 +4,7 @@ import { createphotoComment } from "../../store/photoComments";
 import { useHistory } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
-  const [content, setContent] = useState("");
+  const [pcontent, setPcontent] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
@@ -18,18 +18,18 @@ const PhotoCommentForm = ({setShowModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (content.length < 1) {
+    if (pcontent.length < 1) {
       setErrors(["You must enter in a comment to post it"]);
       return errors;
     }
-    if(content.length > 255){
+    if(pcontent.length > 255){
       setErrors(['The comment must be fewer than 255 characters.'])
       return errors;
     }
     const payload = {
       user_id: user.id,
       // photo_id: photo.id,
-      content,
+      pcontent,
     };
     dispatch(createphotoComment(payload));
     // history.push("/");
@@ -38,15 +38,15 @@ const PhotoCommentForm = ({setShowModal}) => {
 
   return (
     <div className="add-photo">
-      <ul>
+      <ul className='ul'>
         {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+          <li className='li' key={idx}>{error}</li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
         <input className='loginInput'
-          onChange={(e) => setContent(e.target.value)}
-          value={content}
+          onChange={(e) => setPcontent(e.target.value)}
+          value={pcontent}
           placeholder="Enter a Comment"
         />
 

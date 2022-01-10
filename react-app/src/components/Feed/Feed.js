@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
-import { getPhotoComments, deletephotoComments, editphotoComments } from '../../store/photoComments';
+import {
+  getPhotoComments,
+  deletephotoComment,
+  editphotoComment,
+} from "../../store/photoComments";
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
-import CreatePhotoCommentModal from '../CreatePC';
+import CreatePhotoCommentModal from "../CreatePC";
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -21,14 +25,20 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
-  const photoComments = useSelector((state) => Object.values(state.photoComments));
+  const photoComments = useSelector((state) =>
+    Object.values(state.photoComments)
+  );
+  const photoCommentsObj = useSelector((state) => state.photoComments);
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
+  const [photoCommentId, setPhotoCommentId] = useState('');
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
+  const [toEditPhotoComment, setToEditPhotoComment] = useState(false);
   const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
+  const [pcontent, setPcontent] = useState('');
 
   const cancel = (e) => {
     e.preventDefault();
@@ -38,6 +48,10 @@ const Feed = () => {
     e.preventDefault();
     setToEditComment(!toEditComment);
   };
+  const cancelPhotoComment = (e) => {
+    e.preventDefault();
+    setToEditPhotoComment(!toEditPhotoComment);
+  };
 
   const handleDelete = (id) => {
     dispatch(deletePhoto(id));
@@ -45,6 +59,10 @@ const Feed = () => {
   };
   const handleDeleteComment = (id) => {
     dispatch(deleteComment(id));
+    history.push("/");
+  };
+  const handleDeletePhotoComment = (id) => {
+    dispatch(deletephotoComment(id));
     history.push("/");
   };
 
@@ -65,10 +83,20 @@ const Feed = () => {
     dispatch(editComment(payload));
     setToEditComment(!toEditComment);
   };
+  const handleEditPhotoComment = async (id, pcontent) => {
+    const payload = {
+      id,
+      pcontent,
+    };
+    dispatch(editphotoComment(payload));
+    setToEditPhotoComment(!toEditPhotoComment);
+  };
 
   useEffect(() => {
-    dispatch(getPhotos(), dispatch(getComments(),
-    dispatch(getPhotoComments())));
+    dispatch(
+      getPhotos(),
+      dispatch(getComments(), dispatch(getPhotoComments()))
+    );
   }, [dispatch]);
 
   if (sessionUser) {
@@ -122,7 +150,8 @@ const Feed = () => {
                                   <input
                                     className="updateBarInput"
                                     onChange={(e) => setCaption(e.target.value)}
-                                    value={photosObj[photo.id].caption}
+                                    value={caption}
+                                    // value={photosObj[photo.id].caption}
                                     placeholder="Enter new caption"
                                   />
 
@@ -147,11 +176,62 @@ const Feed = () => {
                         </div>
                       </div>
                     </div>
-                    <div className='createPhotoCommentDiv'>
+                    <div className="createPhotoCommentDiv">
                       <CreatePhotoCommentModal />
                       {photoComments?.reverse().map((photoComment) => (
-                        <div className='photoCommentsDiv' key={photoComment.id}>
-                          {photoComment.content}
+                        <div className="photoCommentsDiv" key={photoComment.id}>
+                          {/* photoComment.photo_id === photo.id && */}
+
+                          {photoComment.pcontent}
+                          {sessionUser.id === photoComment.user_id && (
+                          <button
+                            onClick={() => {
+                              setToEditPhotoComment(!toEditPhotoComment);
+                              setPhotoCommentId(photoComment.id);
+                            }}
+                            className="del-photo-btn"
+                          >
+                            <img className="recIcon" src={editIcon}></img>
+                          </button>
+                        )}
+                        {photoCommentId === photoComment.id
+                          ? toEditPhotoComment && (
+                              <form
+                                onSubmit={() => {
+                                  handleEditPhotoComment(photoComment.id, pcontent);
+                                }}
+                              >
+                                <input
+                                  className="updateBarInput"
+                                  onChange={(e) => setContent(e.target.value)}
+                                  value={pcontent}
+                                  // value={photoCommentsObj[photoComment.id].pcontent}
+                                  // placeholder={comment.content}
+                                />
+
+                                <button className="postBtn" type="submit">
+                                  Update Comment
+                                </button>
+                                <button
+                                  className="postBtn"
+                                  onClick={cancelPhotoComment}
+                                >
+                                  Cancel
+                                </button>
+                              </form>
+                            )
+                          : null}
+                          {sessionUser.id === photoComment.user_id && (
+                            <button
+                              onClick={() =>
+                                handleDeletePhotoComment(photoComment.id)
+                              }
+                              type="submit"
+                              className="del-photo-btn"
+                            >
+                              <img className="recIcon" src={recycleIcon}></img>
+                            </button>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -188,7 +268,8 @@ const Feed = () => {
                                 <input
                                   className="updateBarInput"
                                   onChange={(e) => setContent(e.target.value)}
-                                  value={commentsObj[comment.id].content}
+                                  value={content}
+                                  // value={commentsObj[comment.id].content}
                                   // placeholder={comment.content}
                                 />
 

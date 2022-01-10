@@ -6,13 +6,10 @@
   border-radius: 5px;
 }
 .navListBox {
-  display: flex;
-  justify-content: space-between;
   margin-right: 2vw;
   margin-left: 2vw;
   background-color: rgba(0, 0, 0, 0.61);
   border-radius: 10px;
-  width: fit-content;
   block-size: fit-content;
 }
 ul {
@@ -36,12 +33,14 @@ li {
   margin-left: 50px;
   color: olive;
   text-decoration: underline #ebd39d;
+  /* box-shadow: 0 0 10px white; */
+  text-shadow: 0 0 10px white;
 }
 .flareWord2 {
   font-size: 50px;
   font-family: cursive;
   color: #ebd39d;
-
+  text-shadow: 0 0 10px white;
 }
 .flareWord3 {
   font-size: 50px;
@@ -49,23 +48,11 @@ li {
   margin-right: 50px;
   color: olive;
   text-decoration: underline #ebd39d;
+  text-shadow: 0 0 10px white;
 }
 .flareWordContainer{
   display: flex;
-}
-.searchBar {
-  display: flex;
-  height: 25px;
-  margin-top: 30px;
-  justify-content: center;
-  position: relative;
-  width: 50%;
-  /* border: 1px grey solid; */
-  border-radius: 5px;
-}
-.searchBarInput {
-  border: none;
-  width: 100%;
-  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  border-radius: 10px;
 }

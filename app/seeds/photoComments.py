@@ -6,66 +6,66 @@ def seed_photoComments():
     PhotoComment1 = PhotoComment(
         user_id=1,
         photo_id=1,
-        content='PhotoComment for Owl One'
+        pcontent='PhotoComment for Owl One'
     )
     PhotoComment2 = PhotoComment(
         user_id=2,
         photo_id=1,
-        content='TWO PhotoComment'
+        pcontent='TWO PhotoComment'
     )
     PhotoComment3 = PhotoComment(
         user_id=3,
         photo_id=1,
-        content='PhotoComment THREE'
+        pcontent='PhotoComment THREE'
     )
     PhotoComment4 = PhotoComment(
         user_id=4,
         photo_id=1,
-        content='PhotoComment 4'
+        pcontent='PhotoComment 4'
     )
     PhotoComment5 = PhotoComment(
         user_id=5,
         photo_id=2,
-        content='PhotoComment fIfThHhH!'
+        pcontent='PhotoComment fIfThHhH!'
     )
     PhotoComment6 = PhotoComment(
         user_id=5,
         photo_id=3,
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt '
+        pcontent='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt '
 
     )
     PhotoComment7 = PhotoComment(
         user_id=5,
         photo_id=1,
-        content='Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam '
+        pcontent='Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Diam '
 
     )
     PhotoComment8 = PhotoComment(
         user_id=5,
         photo_id=1,
-        content='Magna ac placerat vestibulum lectus mauris ultrices. Id neque aliquam vestibulum morbi blandit '
+        pcontent='Magna ac placerat vestibulum lectus mauris ultrices. Id neque aliquam vestibulum morbi blandit '
 
     )
     PhotoComment9 = PhotoComment(
         user_id=5,
         photo_id=4,
-        content='Arcu risus quis varius quam quisque id diam vel. '
+        pcontent='Arcu risus quis varius quam quisque id diam vel. '
 
     )
     PhotoComment10 = PhotoComment(
         user_id=5,
         photo_id=4,
-        content='Eget mi proin sed libero enim sed faucibus. Ac orci '
+        pcontent='Eget mi proin sed libero enim sed faucibus. Ac orci '
     )
     PhotoComment11 = PhotoComment(
         user_id=5,
         photo_id=4,
-        content='Eleventh PhotoComment'
+        pcontent='Eleventh PhotoComment'
     )
     PhotoComment12 = PhotoComment(
         user_id=5,
         photo_id=4,
-        content='PhotoComment number twelve!'
+        pcontent='PhotoComment number twelve!'
     )
 
     db.session.add(PhotoComment1)
@@ -84,6 +84,6 @@ def seed_photoComments():
     db.session.commit()
 
 
-def undo_PhotoComments():
+def undo_photoComments():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
