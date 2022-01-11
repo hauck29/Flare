@@ -181,9 +181,10 @@ const Feed = () => {
                     <div className="createPhotoCommentDiv">
                       <CreatePhotoCommentModal />
                       {photoComments?.reverse().map((photoComment) => (
+
                         <div className="photoCommentsDiv" key={photoComment.id}>
-                          {photoComment.photo_id === photo.id &&
-                            photoComment.pcontent}
+                          {photoComment?.photo_id === photo.id &&
+                            photoComment?.pcontent}
                           {sessionUser.id === photoComment.user_id && (
                             <button
                               onClick={() => {
@@ -207,7 +208,7 @@ const Feed = () => {
                                 >
                                   <input
                                     className="updateBarInput"
-                                    onChange={(e) => setContent(e.target.value)}
+                                    onChange={(e) => setPcontent(e.target.value)}
                                     value={pcontent}
                                     // value={photoCommentsObj[photoComment.id].pcontent}
                                     // placeholder={comment.content}
