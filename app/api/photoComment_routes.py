@@ -48,18 +48,18 @@ def create_comment():
     db.session.commit()
     return photoComment.to_dict()
 
-# # UPDATE ONE comment
-# @comment_routes.route("/<int:id>/", methods=["PUT"])
-# @login_required
-# def update_comment(id):
-#     comment = Comment.query.get(id)
-#     req = request.get_json()
-#     if comment:
-#         comment.content = req
-#         db.session.commit()
-#         return comment.to_dict()
-#     else:
-#         return "comment not found", 404
+# UPDATE ONE comment
+@photoComment_routes.route("/<int:id>/", methods=["PUT"])
+@login_required
+def update_comment(id):
+    photoComment = PhotoComment.query.get(id)
+    req = request.get_json()
+    if photoComment:
+        photoComment.pcontent = req
+        db.session.commit()
+        return photoComment.to_dict()
+    else:
+        return "comment not found", 404
 
 # DELETE ONE comment
 @photoComment_routes.route("/<int:id>", methods=["DELETE"])

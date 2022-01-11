@@ -27,6 +27,18 @@ const NavBar = () => {
     <div class="bird-container bird-container--four">
         <div class="bird bird--four"></div>
     </div>
+    <div class="bird-container bird-container--five">
+        <div class="bird bird--five"></div>
+    </div>
+    <div class="bird-container bird-container--six">
+        <div class="bird bird--six"></div>
+    </div>
+    <div class="bird-container bird-container--seven">
+        <div class="bird bird--seven"></div>
+    </div>
+    <div class="bird-container bird-container--eight">
+        <div class="bird bird--eight"></div>
+    </div>
 </div>
         <nav className="navOutterBox">
           <div className="flareWordContainer">
@@ -60,6 +72,18 @@ const NavBar = () => {
 
     <div class="bird-container bird-container--four">
         <div class="bird bird--four"></div>
+    </div>
+    <div class="bird-container bird-container--five">
+        <div class="bird bird--five"></div>
+    </div>
+    <div class="bird-container bird-container--six">
+        <div class="bird bird--six"></div>
+    </div>
+    <div class="bird-container bird-container--seven">
+        <div class="bird bird--seven"></div>
+    </div>
+    <div class="bird-container bird-container--eight">
+        <div class="bird bird--eight"></div>
     </div>
 </div>
         <nav className="navOutterBox">
