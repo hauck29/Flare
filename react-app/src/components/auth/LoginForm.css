@@ -1,30 +1,40 @@
-.loginFormDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 100px;
-    background-color: #b2a68d;
-    height: 300px;
-    width: 500px;
-    border-radius: 15px;
+.loginFormDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+  background-color: rgba(178, 166, 141, 0.5);
+  height: 300px;
+  width: 500px;
+  border-radius: 15px;
+}
+.loginInput {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin: 10px;
+  background-color: #f4eea9;
+}
+.loginBtn {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 20%;
+  height: 10%;
+  border-radius: 5px;
+  font-family: cursive;
+  transition: 1s ease;
+}
+.loginBtn:hover {
+  box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white,
+    inset 0 0 10px white;
+  border-radius: 50%;
+  transform: translate3D(0, -1px, 0) scale(1.1);
+}
+.loginOutterDiv {
+  display: flex;
+  justify-content: center;
+}
 
-}
-.loginInput{
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    margin: 10px;
-    background-color: #F4EEA9;
-}
-.loginBtn{
-    border: none;
-    background-color: olive;
-    color: #F4EEA9;
-    width: 20%;
-    border-radius: 5px;
-}
-.loginOutterDiv{
-    display: flex;
-    justify-content: center;
-}
+

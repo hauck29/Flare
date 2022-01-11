@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
 import CreatePhotoCommentModal from "../CreatePC";
+import PhotoCommentForm from '../CreatePC/CreatePhotoCommentForm';
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -31,14 +32,14 @@ const Feed = () => {
   const photoCommentsObj = useSelector((state) => state.photoComments);
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
-  const [photoCommentId, setPhotoCommentId] = useState('');
+  const [photoCommentId, setPhotoCommentId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
   const [toEditPhotoComment, setToEditPhotoComment] = useState(false);
   const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
-  const [pcontent, setPcontent] = useState('');
+  const [pcontent, setPcontent] = useState("");
 
   const cancel = (e) => {
     e.preventDefault();
@@ -128,6 +129,7 @@ const Feed = () => {
                       <img className="imgClass" src={photo.url} />
                       <div className="belowPicDiv">
                         <p className="captionTag">{photo.caption}</p>
+                        <p>Photo Number: {photo.id}</p>
                         <div id="edDiv">
                           {sessionUser.id === photo.user_id && (
                             <button
@@ -180,47 +182,49 @@ const Feed = () => {
                       <CreatePhotoCommentModal />
                       {photoComments?.reverse().map((photoComment) => (
                         <div className="photoCommentsDiv" key={photoComment.id}>
-                          {/* photoComment.photo_id === photo.id && */}
-
-                          {photoComment.pcontent}
+                          {photoComment.photo_id === photo.id &&
+                            photoComment.pcontent}
                           {sessionUser.id === photoComment.user_id && (
-                          <button
-                            onClick={() => {
-                              setToEditPhotoComment(!toEditPhotoComment);
-                              setPhotoCommentId(photoComment.id);
-                            }}
-                            className="del-photo-btn"
-                          >
-                            <img className="recIcon" src={editIcon}></img>
-                          </button>
-                        )}
-                        {photoCommentId === photoComment.id
-                          ? toEditPhotoComment && (
-                              <form
-                                onSubmit={() => {
-                                  handleEditPhotoComment(photoComment.id, pcontent);
-                                }}
-                              >
-                                <input
-                                  className="updateBarInput"
-                                  onChange={(e) => setContent(e.target.value)}
-                                  value={pcontent}
-                                  // value={photoCommentsObj[photoComment.id].pcontent}
-                                  // placeholder={comment.content}
-                                />
-
-                                <button className="postBtn" type="submit">
-                                  Update Comment
-                                </button>
-                                <button
-                                  className="postBtn"
-                                  onClick={cancelPhotoComment}
+                            <button
+                              onClick={() => {
+                                setToEditPhotoComment(!toEditPhotoComment);
+                                setPhotoCommentId(photoComment.id);
+                              }}
+                              className="del-photo-btn"
+                            >
+                              <img className="recIcon" src={editIcon}></img>
+                            </button>
+                          )}
+                          {photoCommentId === photoComment.id
+                            ? toEditPhotoComment && (
+                                <form
+                                  onSubmit={() => {
+                                    handleEditPhotoComment(
+                                      photoComment.id,
+                                      pcontent
+                                    );
+                                  }}
                                 >
-                                  Cancel
-                                </button>
-                              </form>
-                            )
-                          : null}
+                                  <input
+                                    className="updateBarInput"
+                                    onChange={(e) => setContent(e.target.value)}
+                                    value={pcontent}
+                                    // value={photoCommentsObj[photoComment.id].pcontent}
+                                    // placeholder={comment.content}
+                                  />
+
+                                  <button className="postBtn" type="submit">
+                                    Update Comment
+                                  </button>
+                                  <button
+                                    className="postBtn"
+                                    onClick={cancelPhotoComment}
+                                  >
+                                    Cancel
+                                  </button>
+                                </form>
+                              )
+                            : null}
                           {sessionUser.id === photoComment.user_id && (
                             <button
                               onClick={() =>

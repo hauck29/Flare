@@ -5,4 +5,30 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    width: fit-content;
+    text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 30px white, 0 0 75px white;
+    position: relative;
 }
+
+.h1::before{
+    content: '';
+    position: absolute;
+    background: white;
+    top: 70%;
+    left: 4%;
+    width: 50%;
+    height: 10%;
+    transform: perspective(1em) rotateX(10deg) flip;
+    filter: blur(1em);
+}
+/* .h1::after{
+    content: '';
+    position: absolute;
+    background: white;
+    bottom: 70%;
+    left: 9%;
+    width: 40%;
+    height: 10%;
+    transform: perspective(1em) rotateX(40deg);
+    filter: blur(1em);
+} */

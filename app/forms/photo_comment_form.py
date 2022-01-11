@@ -6,4 +6,4 @@ class PhotoCommentForm(FlaskForm):
 
 	user_id=IntegerField("user_id", validators=[DataRequired()])
 	photo_id=IntegerField("photo_id", validators=[DataRequired()])
-	content=StringField("content")
+	pcontent=StringField("pcontent")

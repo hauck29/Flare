@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
   const [pcontent, setPcontent] = useState("");
+  const [photoId, setPhotoId] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
@@ -28,7 +29,7 @@ const PhotoCommentForm = ({setShowModal}) => {
     }
     const payload = {
       user_id: user.id,
-      // photo_id: photo.id,
+      photo_id: photoId,
       pcontent,
     };
     dispatch(createphotoComment(payload));
@@ -49,7 +50,10 @@ const PhotoCommentForm = ({setShowModal}) => {
           value={pcontent}
           placeholder="Enter a Comment"
         />
-
+        <input className='loginInput'
+          onChange={(e) => setPhotoId(e.target.value)}
+          placeholder="Enter a Photo ID"
+        />
         <div className="add-p-btns">
           <button className="loginBtn" type="submit">
             Add Comment
