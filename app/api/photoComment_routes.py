@@ -40,7 +40,7 @@ def create_comment():
     photoComment = PhotoComment(
         user_id=form.data['user_id'],
         photo_id=form.data['photo_id'],
-        content=form.data['content'],
+        pcontent=form.data['pcontent'],
         createdAt=datetime.now(),
         updatedAt=datetime.now(),
     )

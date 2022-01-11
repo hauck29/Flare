@@ -7,7 +7,7 @@ class PhotoComment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     photo_id = db.Column(db.Integer, db.ForeignKey('photos.id'), nullable=False)
-    content = db.Column(db.String(255), nullable=False)
+    pcontent = db.Column(db.String(255), nullable=False)
     createdAt = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.now, nullable=False)
 
@@ -20,5 +20,5 @@ class PhotoComment(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'photo_id': self.photo_id,
-            'content': self.content,
+            'pcontent': self.pcontent,
         }

@@ -16,3 +16,16 @@
 .loginBtn{
     width: 100px;
 }
+.ul{
+    padding: 0;
+    height: 10vh;
+    width: 30vw;
+}
+.li{
+    height: 5vh;
+    width: 20vw;
+}
+.add-photo{
+    display: flex;
+    flex-direction: column;
+}

@@ -57,11 +57,11 @@ export const createphotoComment = (photoCommentData) => async (dispatch) => {
 
 
 export const editphotoComment = (payload) => async (dispatch) => {
-  let {id, content} = payload;
+  let {id, pcontent} = payload;
   const response = await fetch(`/api/photoComments/${id}/`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(content),
+    body: JSON.stringify(pcontent),
   });
 
   if (response.ok) {
