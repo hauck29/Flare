@@ -105,7 +105,7 @@ const Feed = () => {
       <>
         <div className="pageDiv">
           <div className="welcomeMessage">
-            <div className="welcomeWrap">Welcome {sessionUser?.username}</div>
+            <div className="welcomeWrap">Welcome, {sessionUser?.username}</div>
           </div>
           <div className="usersLinkDiv">
             <NavLink
@@ -114,11 +114,12 @@ const Feed = () => {
               exact={true}
               activeClassName="active"
             >
-              Users
+              User Reference List
             </NavLink>
           </div>
           <div id="feedMain">
             <div id="feedBackground">
+              <div><p className='photoTitle'>Aviary</p></div>
               <div className="addPhotoBtnDiv">
                 <CreatePhotoModal />
               </div>
@@ -126,58 +127,7 @@ const Feed = () => {
                 {photos?.reverse().map((photo) => (
                   <div className="imgDiv" key={photo.id}>
                     <div className="pNcDiv">
-                      <img className="imgClass" src={photo.url} />
-                      <div className="belowPicDiv">
-                        <p className="captionTag">{photo.caption}</p>
-                        <p>Photo Number: {photo.id}</p>
-                        <div id="edDiv">
-                          {sessionUser.id === photo.user_id && (
-                            <button
-                              onClick={() => {
-                                setToEditPhoto(!toEditPhoto);
-                                setPhotoId(photo.id);
-                              }}
-                              className="del-photo-btn"
-                            >
-                              <img className="recIcon" src={editIcon}></img>
-                            </button>
-                          )}
-                          {photoId === photo.id
-                            ? toEditPhoto && (
-                                <form
-                                  onSubmit={() => {
-                                    handleEditPhoto(photo.id, caption);
-                                  }}
-                                >
-                                  <input
-                                    className="updateBarInput"
-                                    onChange={(e) => setCaption(e.target.value)}
-                                    value={caption}
-                                    // value={photosObj[photo.id].caption}
-                                    placeholder="Enter new caption"
-                                  />
 
-                                  <button className="postBtn" type="submit">
-                                    Update Photo Caption
-                                  </button>
-                                  <button className="postBtn" onClick={cancel}>
-                                    Cancel
-                                  </button>
-                                </form>
-                              )
-                            : null}{" "}
-                          {sessionUser.id === photo.user_id && (
-                            <button
-                              onClick={() => handleDelete(photo.id)}
-                              type="submit"
-                              className="del-photo-btn"
-                            >
-                              <img className="recIcon" src={recycleIcon}></img>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    </div>
                     <div className="createPhotoCommentDiv">
                       <CreatePhotoCommentModal />
                       {photoComments?.reverse().map((photoComment) => (
@@ -241,11 +191,66 @@ const Feed = () => {
                       ))}
                     </div>
                   </div>
+                  <div>
+                <img className="imgClass" src={photo.url} />
+                <div className="belowPicDiv">
+                    <p className="captionTag">{photo.caption}</p>
+                    <p>Photo Number: {photo.id}</p>
+                    <div id="edDiv">
+                      {sessionUser.id === photo.user_id && (
+                        <button
+                          onClick={() => {
+                            setToEditPhoto(!toEditPhoto);
+                            setPhotoId(photo.id);
+                          }}
+                          className="del-photo-btn"
+                        >
+                          <img className="recIcon" src={editIcon}></img>
+                        </button>
+                      )}
+                      {photoId === photo.id
+                        ? toEditPhoto && (
+                            <form
+                              onSubmit={() => {
+                                handleEditPhoto(photo.id, caption);
+                              }}
+                            >
+                              <input
+                                className="updateBarInput"
+                                onChange={(e) => setCaption(e.target.value)}
+                                value={caption}
+                                // value={photosObj[photo.id].caption}
+                                placeholder="Enter new caption"
+                              />
+
+                              <button className="postBtn" type="submit">
+                                Update Photo Caption
+                              </button>
+                              <button className="postBtn" onClick={cancel}>
+                                Cancel
+                              </button>
+                            </form>
+                          )
+                        : null}{" "}
+                      {sessionUser.id === photo.user_id && (
+                        <button
+                          onClick={() => handleDelete(photo.id)}
+                          type="submit"
+                          className="del-photo-btn"
+                        >
+                          <img className="recIcon" src={recycleIcon}></img>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  </div>
+                </div>
                 ))}
               </div>
             </div>
             <div className="commentsBackground">
               <div className="createCommentDiv">
+            <div><p className='photoTitle'>Group Chat</p></div>
                 <CreateCommentModal />
                 <div className="commentsDiv">
                   {comments?.reverse().map((comment) => (
