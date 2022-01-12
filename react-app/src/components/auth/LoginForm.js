@@ -40,7 +40,7 @@ const LoginForm = () => {
   }
 
   return (
-    
+
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
@@ -48,6 +48,7 @@ const LoginForm = () => {
         ))}
       </div>
       <div className='loginOutterDiv'>
+      <span class="pulse">
         <div className="loginFormDiv">
           <div>
             <label htmlFor="email"></label>
@@ -79,6 +80,7 @@ const LoginForm = () => {
           </button>
 
         </div>
+        </span>
       </div>
     </form>
   );
