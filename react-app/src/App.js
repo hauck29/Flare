@@ -38,7 +38,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/login' exact={true}>
-          <div className='h1'><h1>Welcome to FlareBird. Log In or Sign Up to begin</h1></div>
+          <div className='h1'><h1>Welcome to FlareBird, a photo aviary. Log In or Sign Up to begin!</h1></div>
           <LoginForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
