@@ -1,43 +1,41 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import "../NavBar/NavBar.css";
 import SignupFormModal from "../SignupFormModal/indexSignupForm";
-import SignupForm from "../SignupFormModal/SignUpForm";
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   if (sessionUser) {
     return (
       <>
-          <div class="container">
-    <div class="bird-container bird-container--one">
-        <div class="bird bird--one"></div>
+          <div className="container">
+    <div className="bird-container bird-container--one">
+        <div className="bird bird--one"></div>
     </div>
 
-    <div class="bird-container bird-container--two">
-        <div class="bird bird--two"></div>
+    <div className="bird-container bird-container--two">
+        <div className="bird bird--two"></div>
     </div>
 
-    <div class="bird-container bird-container--three">
-        <div class="bird bird--three"></div>
+    <div className="bird-container bird-container--three">
+        <div className="bird bird--three"></div>
     </div>
 
-    <div class="bird-container bird-container--four">
-        <div class="bird bird--four"></div>
+    <div className="bird-container bird-container--four">
+        <div className="bird bird--four"></div>
     </div>
-    <div class="bird-container bird-container--five">
-        <div class="bird bird--five"></div>
+    <div className="bird-container bird-container--five">
+        <div className="bird bird--five"></div>
     </div>
-    <div class="bird-container bird-container--six">
-        <div class="bird bird--six"></div>
+    <div className="bird-container bird-container--six">
+        <div className="bird bird--six"></div>
     </div>
-    <div class="bird-container bird-container--seven">
-        <div class="bird bird--seven"></div>
+    <div className="bird-container bird-container--seven">
+        <div className="bird bird--seven"></div>
     </div>
-    <div class="bird-container bird-container--eight">
-        <div class="bird bird--eight"></div>
+    <div className="bird-container bird-container--eight">
+        <div className="bird bird--eight"></div>
     </div>
 </div>
         <nav className="navOutterBox">
@@ -57,33 +55,33 @@ const NavBar = () => {
   } else {
     return (
       <>
-       <div class="container">
-    <div class="bird-container bird-container--one">
-        <div class="bird bird--one"></div>
+       <div className="container">
+    <div className="bird-container bird-container--one">
+        <div className="bird bird--one"></div>
     </div>
 
-    <div class="bird-container bird-container--two">
-        <div class="bird bird--two"></div>
+    <div className="bird-container bird-container--two">
+        <div className="bird bird--two"></div>
     </div>
 
-    <div class="bird-container bird-container--three">
-        <div class="bird bird--three"></div>
+    <div className="bird-container bird-container--three">
+        <div className="bird bird--three"></div>
     </div>
 
-    <div class="bird-container bird-container--four">
-        <div class="bird bird--four"></div>
+    <div className="bird-container bird-container--four">
+        <div className="bird bird--four"></div>
     </div>
-    <div class="bird-container bird-container--five">
-        <div class="bird bird--five"></div>
+    <div className="bird-container bird-container--five">
+        <div className="bird bird--five"></div>
     </div>
-    <div class="bird-container bird-container--six">
-        <div class="bird bird--six"></div>
+    <div className="bird-container bird-container--six">
+        <div className="bird bird--six"></div>
     </div>
-    <div class="bird-container bird-container--seven">
-        <div class="bird bird--seven"></div>
+    <div className="bird-container bird-container--seven">
+        <div className="bird bird--seven"></div>
     </div>
-    <div class="bird-container bird-container--eight">
-        <div class="bird bird--eight"></div>
+    <div className="bird-container bird-container--eight">
+        <div className="bird bird--eight"></div>
     </div>
 </div>
         <nav className="navOutterBox">

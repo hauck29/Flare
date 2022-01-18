@@ -25,6 +25,7 @@
   border-radius: 5px;
   font-family: cursive;
   transition: 1s ease;
+  margin: 10px;
 }
 .loginBtn:hover {
   box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white,

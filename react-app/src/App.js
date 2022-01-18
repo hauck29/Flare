@@ -8,10 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import SplashPage from './components/SplashPage/SplashPage'
+import './components/SplashPage/SplashPage.css'
 import Feed from './components/Feed/Feed'
-import UploadForm from './components/CreatePhoto/CreatePhotoForm'
-import DisplayPhoto from './components/DisplayPhoto/DisplayPhoto'
 import './App.css';
 
 function App() {

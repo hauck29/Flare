@@ -13,13 +13,13 @@
 .h1::before{
     content: '';
     position: absolute;
-    background: white;
+    background: whitesmoke;
     top: 70%;
     left: 4%;
-    width: 50%;
+    width: 41%;
     height: 10%;
     transform: perspective(1em) rotateX(10deg) flip;
-    filter: blur(1em);
+    filter: blur(1.5em);
 }
 /* .h1::after{
     content: '';

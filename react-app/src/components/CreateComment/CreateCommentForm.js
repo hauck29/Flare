@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../store/comments";
-import { useHistory } from "react-router-dom";
+
 
 const CommentForm = ({setShowModal}) => {
   const [content, setContent] = useState("");
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
-
-  const cancel = (e) => {
-    e.preventDefault();
-    history.push("/");
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

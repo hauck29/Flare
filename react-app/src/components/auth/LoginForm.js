@@ -48,7 +48,7 @@ const LoginForm = () => {
         ))}
       </div>
       <div className='loginOutterDiv'>
-      <span class="pulse">
+      <span className="pulse">
         <div className="loginFormDiv">
           <div>
             <label htmlFor="email"></label>

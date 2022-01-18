@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPhoto } from "../../store/photos";
-import { useHistory } from "react-router-dom";
 
 const UploadForm = ({setShowModal}) => {
   const [url, setUrl] = useState("");
   const [caption, setCaption] = useState("");
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
-
-  const cancel = (e) => {
-    e.preventDefault();
-    history.push("/");
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
