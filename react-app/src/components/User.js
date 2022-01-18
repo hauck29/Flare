@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
+import "./User.css";
 
 function User() {
   const [user, setUser] = useState({});
@@ -23,18 +24,27 @@ function User() {
 
   return (
     <>
-    <NavLink to={'/'}>Return to Photos</NavLink>
+    <div className="rtpBack">
+              <NavLink className='rtp' to={'/'}>Return to Photos</NavLink>
+    <NavLink
+              className="rtp"
+              to="/users"
+              exact={true}
+              activeClassName="active"
+            >
+              Return to User Reference List
+            </NavLink>
 
-{/* whoever made the starter for this project decided to do in line styling below.... noob */}
+    </div>
     <ul>
       <li>
-        <strong>User Id: </strong> {userId}
+        <strong>User Id: </strong><pre>   {userId}</pre>
       </li>
       <li>
-        <strong>Username: </strong> {user.username}
+        <strong>Username: </strong><pre>   {user.username}</pre>
       </li>
       <li>
-        <strong>Email: </strong> {user.email}
+        <strong>Email: </strong><pre>   {user.email}</pre>
       </li>
     </ul>
     </>

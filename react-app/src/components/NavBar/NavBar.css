@@ -77,9 +77,9 @@ li {
           animation-iteration-count: infinite;
 }
 .bird--one {/*is actually a sun*/
-  background-image: url(https://www.clipartmax.com/png/full/9-98075_happy-sun-svg-scrapbook-cut-file-cute-clipart-files-psychedelic-tour-posters.png);
+  background-image: url(https://cdn.picpng.com/moon/moon-full-moon-cloudy-clouds-101105.png);
   border-radius: 50%;
-  width: 120px;
+  width: 175px;
   -webkit-animation-duration: 0s;
           animation-duration: 0s;
   -webkit-animation-delay: -0.5s;
@@ -144,23 +144,25 @@ li {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
-.bird-container--one {
+.bird-container--one { /*Sun*/
   -webkit-animation-duration: 115s;
           animation-duration: 115s;
   -webkit-animation-delay: 0;
           animation-delay: 0;
 }
-.bird-container--two {
-  -webkit-animation-duration: 60s;
-          animation-duration: 60s;
+.bird-container--two {/*fast cloud*/
+  -webkit-animation-duration: 45s;
+          animation-duration: 45s;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
+  opacity: 60%;
 }
-.bird-container--three {
-  -webkit-animation-duration: 60;
-          animation-duration: 60s;
+.bird-container--three {/*slow cloud*/
+  -webkit-animation-duration: 65s;
+          animation-duration: 65s;
   -webkit-animation-delay: 9.5s;
           animation-delay: 9.5s;
+  opacity: 50%;
 }
 .bird-container--four {
   -webkit-animation-duration: 16s;

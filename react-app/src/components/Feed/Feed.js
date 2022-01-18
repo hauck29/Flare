@@ -12,7 +12,6 @@ import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
 import CreatePhotoCommentModal from "../CreatePC";
-import PhotoCommentForm from '../CreatePC/CreatePhotoCommentForm';
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -23,13 +22,13 @@ const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
-  const photosObj = useSelector((state) => state.photos);
+  // const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
-  const commentsObj = useSelector((state) => state.comments);
+  // const commentsObj = useSelector((state) => state.comments);
   const photoComments = useSelector((state) =>
     Object.values(state.photoComments)
   );
-  const photoCommentsObj = useSelector((state) => state.photoComments);
+  // const photoCommentsObj = useSelector((state) => state.photoComments);
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const [photoCommentId, setPhotoCommentId] = useState("");
@@ -143,7 +142,7 @@ const Feed = () => {
                               }}
                               className="del-photo-btn"
                             >
-                              <img className="recIcon" src={editIcon}></img>
+                              <img className="recIcon" src={editIcon} alt=''></img>
                             </button>
                           )}
                           {photoCommentId === photoComment.id
@@ -184,7 +183,7 @@ const Feed = () => {
                               type="submit"
                               className="del-photo-btn"
                             >
-                              <img className="recIcon" src={recycleIcon}></img>
+                              <img className="recIcon" src={recycleIcon} alt=''></img>
                             </button>
                           )}
                         </div>
@@ -192,7 +191,7 @@ const Feed = () => {
                     </div>
                   </div>
                   <div>
-                <img className="imgClass" src={photo.url} />
+                <img className="imgClass" src={photo.url} alt=''/>
                 <div className="belowPicDiv">
                     <p className="captionTag">{photo.caption}</p>
                     <p>Photo Number: {photo.id}</p>
@@ -205,7 +204,7 @@ const Feed = () => {
                           }}
                           className="del-photo-btn"
                         >
-                          <img className="recIcon" src={editIcon}></img>
+                          <img className="recIcon" src={editIcon} alt=''></img>
                         </button>
                       )}
                       {photoId === photo.id
@@ -238,7 +237,7 @@ const Feed = () => {
                           type="submit"
                           className="del-photo-btn"
                         >
-                          <img className="recIcon" src={recycleIcon}></img>
+                          <img className="recIcon" src={recycleIcon} alt=''></img>
                         </button>
                       )}
                     </div>
@@ -249,8 +248,8 @@ const Feed = () => {
               </div>
             </div>
             <div className="commentsBackground">
-              <div className="createCommentDiv">
             <div><p className='photoTitle'>Group Chat</p></div>
+              <div className="createCommentDiv">
                 <CreateCommentModal />
                 <div className="commentsDiv">
                   {comments?.reverse().map((comment) => (
@@ -265,7 +264,7 @@ const Feed = () => {
                             }}
                             className="del-photo-btn"
                           >
-                            <img className="recIcon" src={editIcon}></img>
+                            <img className="recIcon" src={editIcon} alt=''></img>
                           </button>
                         )}
                         {commentId === comment.id
@@ -301,7 +300,7 @@ const Feed = () => {
                             type="submit"
                             className="del-photo-btn"
                           >
-                            <img className="recIcon" src={recycleIcon}></img>
+                            <img className="recIcon" src={recycleIcon} alt=''></img>
                           </button>
                         )}
                       </div>
@@ -314,10 +313,10 @@ const Feed = () => {
           <div className="bottomBorder">
             <p className="credits"> © 2021 Tony Hauck</p>
             <a href="https://github.com/hauck29">
-              <img className="gLogo" src={githubLogo}></img>
+              <img className="gLogo" src={githubLogo} alt=''></img>
             </a>
             <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/">
-              <img className="lLogo" src={linkedInLogo}></img>
+              <img className="lLogo" src={linkedInLogo} alt=''></img>
             </a>
           </div>
         </div>

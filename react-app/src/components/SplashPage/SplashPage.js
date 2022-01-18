@@ -1,6 +1,4 @@
-import LoginForm from "../auth/LoginForm";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import "../SplashPage/SplashPage.css";
 import React from "react";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -25,8 +23,8 @@ const SplashPage = () => {
         <a href="https://github.com/hauck29">
           <img className="gLogo" src={githubLogo}></img>
         </a>
-        <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/">
-          <img className="lLogo" src={linkedInLogo}></img>
+        <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/" alt=''>
+          <img className="lLogo" src={linkedInLogo} alt=''></img>
         </a>
       </div>
     </>

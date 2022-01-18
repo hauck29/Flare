@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createphotoComment } from "../../store/photoComments";
-import { useHistory } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
   const [pcontent, setPcontent] = useState("");
   const [photoId, setPhotoId] = useState('');
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-  const photos = useSelector((state) => state.photos);
-  const [errors, setErrors] = useState([]);
 
-  const cancel = (e) => {
-    e.preventDefault();
-    history.push("/");
-  };
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
