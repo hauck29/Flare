@@ -128,6 +128,7 @@ const Feed = () => {
                     <div className="pNcDiv">
 
                     <div className="createPhotoCommentDiv">
+                    <div><p className='photoTitle'>Photo Comments</p></div>
                       <CreatePhotoCommentModal />
                       {photoComments?.reverse().map((photoComment) => (
 
