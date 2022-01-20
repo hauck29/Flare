@@ -3,7 +3,7 @@
   height: auto;
   border-radius: 5px;
   transition: all 0.4s ease;
-  margin: 20px;
+  margin-right: 20px;
 }
 .imgClass:hover {
   transform: translate3D(0, -1px, 0) scale(1.05);
@@ -17,7 +17,6 @@
   background-color: rgba(100, 100, 100, .25);
   box-shadow: 0 0 10px  rgba(0,0,0,0.5), 0 0 15px  rgba(0,0,0,0.5), 0 0 25px  darkgrey;
 
-
 }
 .pageDiv{
   height: 80vh;
@@ -26,12 +25,13 @@
 }
 .feedDiv {
   margin-bottom: 10px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 60vw;
-  height: 70.5vh;
+  height: 63.25vh;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -58,29 +58,17 @@ p {
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.61);
-  border: 1px solid olive;
+  border: 1px solid rgb(136, 136, 136);
   border-radius: 5px;
   margin-bottom: 10px;
   width: 57vw;
+  height: 65vh;
   transition: all 0.4s ease;
+  padding-right: 10px;
 }
 .imgDiv:hover{
-  background-color: rgba(126, 126, 126, 0.61);
     box-shadow: 0 0 0 rgba(204,169,44, 0.4);
     animation: pulse 1s infinite;
-
-
-  @-webkit-keyframes pulse {
-    0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    }
-  }
   @keyframes pulse {
     0% {
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
@@ -100,26 +88,23 @@ p {
   display: grid;
   color: white;
   font-family: cursive;
+  padding-bottom: 6.5vh
 }
 .createCommentDiv {
   width: 30vw;
-  height: 75vh;
-  /* background-color: rgba(244, 238, 169, 0.25); */
+  height: 70vh;
   backdrop-filter: blur(5px);
   border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
   transition: all 0.4s ease;
 }
-/* .createCommentDiv:hover{
-  box-shadow: inset 0 0 5px 3px whitesmoke, 0 0 25px 5px white;
-  transform: translate3D(0, -1px, 0) scale(1.05);
-} */
+
 .createPhotoCommentDiv {
   margin: 20px;
   width: 25vw;
-  height: 35vh;
-  background-color: rgba(244, 238, 169, 0.25);
+  height: 40vh;
+  background-color: rgba(148, 148, 148, 0.25);
   border-radius: 10px;
   overflow: scroll;
   overflow-x: hidden;
@@ -134,7 +119,6 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* margin: 10px; */
   justify-content: space-around;
 }
 #edDiv {
@@ -142,7 +126,6 @@ p {
   justify-content: center;
 }
 #feedBackground {
-  /* background-color: rgba(0, 0, 0, 0.5); */
   backdrop-filter: blur(5px);
   border-radius: 15px;
   transition: all 0.4s ease;
@@ -161,27 +144,14 @@ p {
   border-radius: 5px;
   padding: 5px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 1px solid olive;
+  border: 1px solid rgb(136, 136, 136);
   transition: all 0.4s ease;
 }
 .commentDiv:hover{
-  background-color: rgba(126, 126, 126, 0.61);
-  border: 1px solid olive, inset 1px solid white;
+  background-color: rgba(255, 255, 255);
+  color: rgba(0, 0, 0, 0.61);
   box-shadow: 0 0 0 rgba(204,169,44, 0.4);
     animation: pulse 1s infinite;
-
-
-  @-webkit-keyframes pulse {
-    0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    }
-  }
   @keyframes pulse {
     0% {
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
@@ -207,12 +177,12 @@ p {
   border-radius: 5px;
   padding: 5px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 1px solid olive;
+  border: 1px solid rgb(136, 136, 136);
   transition: all 0.4s ease;
 }
 .photoCommentsDiv:hover{
-  background-color: rgba(126, 126, 126, 0.61);
-  font-size: medium;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.61);
 }
 ::-webkit-scrollbar {
   width: 20px;
@@ -222,7 +192,7 @@ p {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(244, 238, 169, 0.25);
+  background: rgba(136, 136, 136, 0.35);
   border-radius: 10px;
   transition: all 1s ease;
 }

@@ -118,138 +118,165 @@ const Feed = () => {
           </div>
           <div id="feedMain">
             <div id="feedBackground">
-              <div><p className='photoTitle'>Aviary</p></div>
+              <div>
+                <p className="photoTitle">Aviary</p>
+              </div>
               <div className="addPhotoBtnDiv">
                 <CreatePhotoModal />
               </div>
               <div className="feedDiv">
                 {photos?.reverse().map((photo) => (
-                  <div className="imgDiv" key={photo.id}>
-                    <div className="pNcDiv">
+                  <div className="imgDiv" key={photo.id} src={photo.url} alt="">
 
-                    <div className="createPhotoCommentDiv">
-                    <div><p className='photoTitle'>Photo Comments</p></div>
-                      <CreatePhotoCommentModal />
-                      {photoComments?.reverse().map((photoComment) => (
+                      <div className="pNcDiv">
+                        <div className="createPhotoCommentDiv">
+                          <div>
+                            <p className="photoTitle">Photo Comments</p>
+                          </div>
+                          <CreatePhotoCommentModal />
+                          {photoComments?.reverse().map((photoComment) => (
+                            <div
+                              className="photoCommentsDiv"
+                              key={photoComment.id}
+                            >
+                              {photoComment?.photo_id === photo.id &&
+                                photoComment?.pcontent}
+                              {sessionUser.id === photoComment.user_id && (
+                                <button
+                                  onClick={() => {
+                                    setToEditPhotoComment(!toEditPhotoComment);
+                                    setPhotoCommentId(photoComment.id);
+                                  }}
+                                  className="del-photo-btn"
+                                >
+                                  <img
+                                    className="recIcon"
+                                    src={editIcon}
+                                    alt=""
+                                  ></img>
+                                </button>
+                              )}
+                              {photoCommentId === photoComment.id
+                                ? toEditPhotoComment && (
+                                    <form
+                                      onSubmit={() => {
+                                        handleEditPhotoComment(
+                                          photoComment.id,
+                                          pcontent
+                                        );
+                                      }}
+                                    >
+                                      <input
+                                        className="updateBarInput"
+                                        onChange={(e) =>
+                                          setPcontent(e.target.value)
+                                        }
+                                        value={pcontent}
+                                        // value={photoCommentsObj[photoComment.id].pcontent}
+                                        // placeholder={comment.content}
+                                      />
 
-                        <div className="photoCommentsDiv" key={photoComment.id}>
-                          {photoComment?.photo_id === photo.id &&
-                            photoComment?.pcontent}
-                          {sessionUser.id === photoComment.user_id && (
+                                      <button className="postBtn" type="submit">
+                                        Update Comment
+                                      </button>
+                                      <button
+                                        className="postBtn"
+                                        onClick={cancelPhotoComment}
+                                      >
+                                        Cancel
+                                      </button>
+                                    </form>
+                                  )
+                                : null}
+                              {sessionUser.id === photoComment.user_id && (
+                                <button
+                                  onClick={() =>
+                                    handleDeletePhotoComment(photoComment.id)
+                                  }
+                                  type="submit"
+                                  className="del-photo-btn"
+                                >
+                                  <img
+                                    className="recIcon"
+                                    src={recycleIcon}
+                                    alt=""
+                                  ></img>
+                                </button>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                    <div>
+                      <img className="imgClass" src={photo.url} alt="" />
+                      <div className="belowPicDiv">
+                        <p className="captionTag">{photo.caption}</p>
+                        <p>Photo Number: {photo.id}</p>
+                        <div id="edDiv">
+                          {sessionUser.id === photo.user_id && (
                             <button
                               onClick={() => {
-                                setToEditPhotoComment(!toEditPhotoComment);
-                                setPhotoCommentId(photoComment.id);
+                                setToEditPhoto(!toEditPhoto);
+                                setPhotoId(photo.id);
                               }}
                               className="del-photo-btn"
                             >
-                              <img className="recIcon" src={editIcon} alt=''></img>
+                              <img
+                                className="recIcon"
+                                src={editIcon}
+                                alt=""
+                              ></img>
                             </button>
                           )}
-                          {photoCommentId === photoComment.id
-                            ? toEditPhotoComment && (
+                          {photoId === photo.id
+                            ? toEditPhoto && (
                                 <form
                                   onSubmit={() => {
-                                    handleEditPhotoComment(
-                                      photoComment.id,
-                                      pcontent
-                                    );
+                                    handleEditPhoto(photo.id, caption);
                                   }}
                                 >
                                   <input
                                     className="updateBarInput"
-                                    onChange={(e) => setPcontent(e.target.value)}
-                                    value={pcontent}
-                                    // value={photoCommentsObj[photoComment.id].pcontent}
-                                    // placeholder={comment.content}
+                                    onChange={(e) => setCaption(e.target.value)}
+                                    value={caption}
+                                    // value={photosObj[photo.id].caption}
+                                    placeholder="Enter new caption"
                                   />
 
                                   <button className="postBtn" type="submit">
-                                    Update Comment
+                                    Update Photo Caption
                                   </button>
-                                  <button
-                                    className="postBtn"
-                                    onClick={cancelPhotoComment}
-                                  >
+                                  <button className="postBtn" onClick={cancel}>
                                     Cancel
                                   </button>
                                 </form>
                               )
-                            : null}
-                          {sessionUser.id === photoComment.user_id && (
+                            : null}{" "}
+                          {sessionUser.id === photo.user_id && (
                             <button
-                              onClick={() =>
-                                handleDeletePhotoComment(photoComment.id)
-                              }
+                              onClick={() => handleDelete(photo.id)}
                               type="submit"
                               className="del-photo-btn"
                             >
-                              <img className="recIcon" src={recycleIcon} alt=''></img>
+                              <img
+                                className="recIcon"
+                                src={recycleIcon}
+                                alt=""
+                              ></img>
                             </button>
                           )}
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </div>
-                  <div>
-                <img className="imgClass" src={photo.url} alt=''/>
-                <div className="belowPicDiv">
-                    <p className="captionTag">{photo.caption}</p>
-                    <p>Photo Number: {photo.id}</p>
-                    <div id="edDiv">
-                      {sessionUser.id === photo.user_id && (
-                        <button
-                          onClick={() => {
-                            setToEditPhoto(!toEditPhoto);
-                            setPhotoId(photo.id);
-                          }}
-                          className="del-photo-btn"
-                        >
-                          <img className="recIcon" src={editIcon} alt=''></img>
-                        </button>
-                      )}
-                      {photoId === photo.id
-                        ? toEditPhoto && (
-                            <form
-                              onSubmit={() => {
-                                handleEditPhoto(photo.id, caption);
-                              }}
-                            >
-                              <input
-                                className="updateBarInput"
-                                onChange={(e) => setCaption(e.target.value)}
-                                value={caption}
-                                // value={photosObj[photo.id].caption}
-                                placeholder="Enter new caption"
-                              />
-
-                              <button className="postBtn" type="submit">
-                                Update Photo Caption
-                              </button>
-                              <button className="postBtn" onClick={cancel}>
-                                Cancel
-                              </button>
-                            </form>
-                          )
-                        : null}{" "}
-                      {sessionUser.id === photo.user_id && (
-                        <button
-                          onClick={() => handleDelete(photo.id)}
-                          type="submit"
-                          className="del-photo-btn"
-                        >
-                          <img className="recIcon" src={recycleIcon} alt=''></img>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                  </div>
-                </div>
                 ))}
               </div>
             </div>
             <div className="commentsBackground">
-            <div><p className='photoTitle'>Group Chat</p></div>
+              <div>
+                <p className="photoTitle">Group Chat</p>
+              </div>
               <div className="createCommentDiv">
                 <CreateCommentModal />
                 <div className="commentsDiv">
@@ -265,7 +292,11 @@ const Feed = () => {
                             }}
                             className="del-photo-btn"
                           >
-                            <img className="recIcon" src={editIcon} alt=''></img>
+                            <img
+                              className="recIcon"
+                              src={editIcon}
+                              alt=""
+                            ></img>
                           </button>
                         )}
                         {commentId === comment.id
@@ -301,7 +332,11 @@ const Feed = () => {
                             type="submit"
                             className="del-photo-btn"
                           >
-                            <img className="recIcon" src={recycleIcon} alt=''></img>
+                            <img
+                              className="recIcon"
+                              src={recycleIcon}
+                              alt=""
+                            ></img>
                           </button>
                         )}
                       </div>
@@ -314,10 +349,10 @@ const Feed = () => {
           <div className="bottomBorder">
             <p className="credits"> © 2021 Tony Hauck</p>
             <a href="https://github.com/hauck29">
-              <img className="gLogo" src={githubLogo} alt=''></img>
+              <img className="gLogo" src={githubLogo} alt=""></img>
             </a>
             <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/">
-              <img className="lLogo" src={linkedInLogo} alt=''></img>
+              <img className="lLogo" src={linkedInLogo} alt=""></img>
             </a>
           </div>
         </div>

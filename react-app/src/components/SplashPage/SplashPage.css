@@ -1,8 +1,11 @@
+
+
+
 body {
   margin: 0;
-  /* background-color: rgb(201, 194, 186); */
-  /* background-color: rgba(77, 77, 77, 0.9); */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.58));
+  padding: 0;
+  background-image: url(https://vastphotos.com/files/uploads/photos/10126/new-york-city-lightning-storm-l.jpg);
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -11,34 +14,6 @@ body {
   width: 100vw;
 }
 
-.startButtonDiv {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 30vh;
-}
-.startButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 350px;
-  border-radius: 10px;
-  /* border: 3px white; */
-
-  font-family: cursive;
-  font-size: xx-large;
-  background-color: rgb(0 0 0 / 0.45);
-  color: rgba(255, 255, 255, 0.705);
-  margin-top: 25px;
-  z-index: 1;
-}
-.startButton:hover {
-  cursor: pointer;
-  color: white;
-  box-shadow: 0 0 25px 15px rgb(0 0 0 / 0.75);
-
-}
 .welcomeMessage {
   font-family: cursive;
   color: white;
@@ -63,12 +38,7 @@ body {
   border-radius: 5px;
   font-size: small;
 }
-/* .splashImage{
-    width: 100%;
-    border-radius: 5px;
-     box-shadow: 0 0 25px 15px rgb(0 0 0 / 0.75);
-     position: relative;
-} */
+
 .lLogo{
   height: 30px;
 }

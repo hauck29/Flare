@@ -4,9 +4,24 @@
     <meta charset="utf-8" />
     <title>flarebird</title>
     <link rel="icon" href="/favicon.ico?v=2" />
+    <style>
+            body {
+          animation: fadeInAnimation ease 5s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+      }
+
+      @keyframes fadeInAnimation {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+           }
+      }
+    </style>
   </head>
   <body>
-    <div id="root">
-    </div>
+    <div id="root"></div>
   </body>
 </html>

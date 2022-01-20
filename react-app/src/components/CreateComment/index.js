@@ -8,7 +8,7 @@ function CreateCommentModal() {
 
   return (
     <>
-      <button className='postBtn' onClick={() => setShowModal(true)}>Post A New Comment</button>
+      <button className='postBtn' onClick={() => setShowModal(true)}>Post To Chat</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CommentForm setShowModal={setShowModal}/>
