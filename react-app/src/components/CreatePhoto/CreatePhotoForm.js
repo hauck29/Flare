@@ -46,7 +46,7 @@ const UploadForm = ({setShowModal}) => {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input className='loginInput'
+        <input type='file' className='loginInput'
           onChange={(e) => setUrl(e.target.value)}
           value={url}
           placeholder="Photo URL"

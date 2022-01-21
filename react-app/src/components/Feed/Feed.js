@@ -22,13 +22,13 @@ const Feed = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const photos = useSelector((state) => Object.values(state.photos));
-  // const photosObj = useSelector((state) => state.photos);
+  const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
-  // const commentsObj = useSelector((state) => state.comments);
+  const commentsObj = useSelector((state) => state.comments);
   const photoComments = useSelector((state) =>
     Object.values(state.photoComments)
   );
-  // const photoCommentsObj = useSelector((state) => state.photoComments);
+  const photoCommentsObj = useSelector((state) => state.photoComments);
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const [photoCommentId, setPhotoCommentId] = useState("");
@@ -172,8 +172,6 @@ const Feed = () => {
                                           setPcontent(e.target.value)
                                         }
                                         value={pcontent}
-                                        // value={photoCommentsObj[photoComment.id].pcontent}
-                                        // placeholder={comment.content}
                                       />
 
                                       <button className="postBtn" type="submit">
@@ -217,6 +215,7 @@ const Feed = () => {
                           {sessionUser.id === photo.user_id && (
                             <button
                               onClick={() => {
+                                setCaption(photosObj[photo.id].caption);
                                 setToEditPhoto(!toEditPhoto);
                                 setPhotoId(photo.id);
                               }}
@@ -240,7 +239,6 @@ const Feed = () => {
                                     className="updateBarInput"
                                     onChange={(e) => setCaption(e.target.value)}
                                     value={caption}
-                                    // value={photosObj[photo.id].caption}
                                     placeholder="Enter new caption"
                                   />
 
@@ -287,6 +285,7 @@ const Feed = () => {
                         {sessionUser.id === comment.user_id && (
                           <button
                             onClick={() => {
+                              setContent(commentsObj[comment.id].content);
                               setToEditComment(!toEditComment);
                               setCommentId(comment.id);
                             }}
@@ -303,6 +302,7 @@ const Feed = () => {
                           ? toEditComment && (
                               <form
                                 onSubmit={() => {
+
                                   handleEditComment(comment.id, content);
                                 }}
                               >
@@ -310,8 +310,6 @@ const Feed = () => {
                                   className="updateBarInput"
                                   onChange={(e) => setContent(e.target.value)}
                                   value={content}
-                                  // value={commentsObj[comment.id].content}
-                                  // placeholder={comment.content}
                                 />
 
                                 <button className="postBtn" type="submit">
