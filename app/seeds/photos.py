@@ -57,6 +57,34 @@ def seed_photos():
     photo18 = Photo(
         url='https://121clicks.com/wp-content/uploads/2013/06/axel_hildebrandt_01.jpg',
         user_id=9, caption='Distracted Driving')
+    photo19 = Photo(
+        url='https://cdn.wallpapersafari.com/88/29/R9BuPs.jpg',
+        user_id=1, caption='Not Camoflagued'
+    )
+    photo20 = Photo(
+        url='https://images.unsplash.com/photo-1579264688258-c0ebf8c7942a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8&w=1000&q=80',
+        user_id=1, caption='On High Alert'
+    )
+    photo21 = Photo(
+        url='https://wallpapermemory.com/uploads/437/owl-wallpaper-full-hd-1080p-237369.jpg',
+        user_id=1, caption='Your Soul is MINE'
+    )
+    photo22 = Photo(
+        url='https://www.hdnicewallpapers.com/Walls/Big/Owl/Beautiful_Flying_Owl.jpg',
+        user_id=1, caption='Flapping'
+    )
+    photo23 = Photo(
+        url='http://highresolution.photography/images/barred-owl-main.jpg',
+        user_id=1, caption='Barred Owl just chillin'
+    )
+    photo24 = Photo(
+        url='https://cdn.wallpapersafari.com/33/77/m9BIAe.jpg',
+        user_id=1, caption='Bored Owl'
+    )
+    photo25 = Photo(
+        url='https://wallpaperaccess.com/full/176530.jpg',
+        user_id=1, caption='Haaallloooo, im bebe'
+    )
 
     db.session.add(photo1)
     db.session.add(photo2)
@@ -76,6 +104,13 @@ def seed_photos():
     db.session.add(photo16)
     db.session.add(photo17)
     db.session.add(photo18)
+    db.session.add(photo19)
+    db.session.add(photo20)
+    db.session.add(photo21)
+    db.session.add(photo22)
+    db.session.add(photo23)
+    db.session.add(photo24)
+    db.session.add(photo25)
 
     db.session.commit()
 

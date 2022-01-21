@@ -16,10 +16,13 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+    console.log('!!!!!!!!!!!!!!');
     const data = await dispatch(login(email, password));
+    console.log('000000000000', data);
     if (data) {
       setErrors(data);
     }
+    //this is pushing properly
     history.push('/');
   };
 
