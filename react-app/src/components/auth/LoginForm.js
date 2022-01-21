@@ -16,14 +16,12 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    console.log('!!!!!!!!!!!!!!');
     const data = await dispatch(login(email, password));
-    console.log('000000000000', data);
     if (data) {
       setErrors(data);
     }
-    //this is pushing properly
     history.push('/');
+    setTimeout(() => {alert('You have been logged in!')}, 100);
   };
 
   const updateEmail = (e) => {
@@ -45,14 +43,15 @@ const LoginForm = () => {
   return (
 
     <form onSubmit={onLogin}>
+      <div className='loginOutterDiv'>
+      <span className="pulse">
+        <div className="loginFormDiv">
       <div>
+
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div className='loginOutterDiv'>
-      <span className="pulse">
-        <div className="loginFormDiv">
           <div>
             <label htmlFor="email"></label>
             <input

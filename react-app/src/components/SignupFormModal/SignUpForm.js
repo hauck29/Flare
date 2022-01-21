@@ -24,6 +24,7 @@ const SignUpForm = () => {
       }
     }
     history.push('/');
+    setTimeout(() => {alert('You have successfully created an account and have been logged in!')}, 100);
   };
 
   const updateUsername = (e) => {
