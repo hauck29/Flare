@@ -16,18 +16,18 @@ const UploadForm = ({setShowModal}) => {
       setErrors(["You must enter in a valid URL to post a photo"]);
       return errors;
     }
-    if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
-      setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
-      return errors;
-    }
+    // if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
+    //   setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
+    //   return errors;
+    // }
     if(caption.length > 255){
       setErrors(['The photo caption must be fewer than 255 characters.'])
       return errors;
     }
-    if(url.length > 255){
-      setErrors(['The photo url must be fewer than 255 characters.'])
-      return errors;
-    }
+    // if(url.length > 255){
+    //   setErrors(['The photo url must be fewer than 255 characters.'])
+    //   return errors;
+    // }
     const payload = {
       user_id: user.id,
       url,
@@ -46,7 +46,7 @@ const UploadForm = ({setShowModal}) => {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input type='file' className='loginInput'
+        <input className='loginInput'
           onChange={(e) => setUrl(e.target.value)}
           value={url}
           placeholder="Photo URL"

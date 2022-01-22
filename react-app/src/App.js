@@ -38,7 +38,8 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/login' exact={true}>
-          <div className='h1'><h2>Welcome to FlareBird, a photo aviary. Log In or Sign Up to begin!</h2></div>
+          <div className='h1'><h2>Welcome to FlareBird, a photo aviary.</h2></div>
+          <div className='h2'><h2>Log In or Sign Up to begin!</h2></div>
           <LoginForm />
           <div className="bottomBorder">
         <p className="credits"> © 2021 Tony Hauck</p>

@@ -4,8 +4,6 @@ import { Redirect, useHistory } from "react-router-dom";
 import { login, demoLogin } from "../../store/session";
 import "./LoginForm.css";
 
-
-
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -19,9 +17,12 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      history.push("/");
+      setTimeout(() => {
+        alert("You have been logged in!");
+      }, 100);
     }
-    history.push('/');
-    setTimeout(() => {alert('You have been logged in!')}, 100);
   };
 
   const updateEmail = (e) => {
@@ -31,57 +32,58 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
-  const handleDemoLogin= (e) => {
+  const handleDemoLogin = (e) => {
     e.preventDefault();
-    return dispatch(demoLogin())
-  }
+    return dispatch(demoLogin());
+  };
 
   if (user) {
     return <Redirect to="/" />;
   }
 
   return (
-
     <form onSubmit={onLogin}>
-      <div className='loginOutterDiv'>
-      <span className="pulse">
-        <div className="loginFormDiv">
-      <div>
-
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-          <div>
-            <label htmlFor="email"></label>
-            <input
-              className="loginInput"
-              name="email"
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={updateEmail}
-            />
+      <div className="loginOutterDiv">
+        <span className="pulse">
+          <div className="loginFormDiv">
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div>
+              <label htmlFor="email"></label>
+              <input
+                className="loginInput"
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div>
+              <label htmlFor="password"></label>
+              <input
+                className="loginInput"
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <button className="loginBtn" type="submit">
+              Login
+            </button>
+            <button
+              onClick={handleDemoLogin}
+              className="loginBtn"
+              type="submit"
+            >
+              Demo-Login
+            </button>
           </div>
-          <div>
-            <label htmlFor="password"></label>
-            <input
-              className="loginInput"
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <button className="loginBtn" type="submit">
-            Login
-          </button>
-          <button onClick={handleDemoLogin} className="loginBtn" type="submit">
-            Demo-Login
-          </button>
-
-        </div>
         </span>
       </div>
     </form>
