@@ -71,7 +71,9 @@ export const demoLogin = () => async (dispatch) => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(setUser(data))
+    dispatch(setUser(data));
+    setTimeout(() => {alert('You are now logged in as the site Demo User')}, 100);
+
     return null;
   } else if (response.status < 500) {
     const data = await response.json();

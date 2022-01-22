@@ -7,10 +7,10 @@
   overflow: hidden;
 }
 .imgClass:hover {
-  transform: translate3D(0, -1px, 0) scale(1.05);
+  transform: translate3D(0, -1px, 0) scale(1.15);
   border: none;
   /* box-shadow: 0 0 25px 5px white; */
-  border-radius: 80%/50%;
+  border-radius: 50%;
 
 
   animation: pulse 1s infinite;
