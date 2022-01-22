@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
-import {
-  getPhotoComments,
-  deletephotoComment,
-  editphotoComment,
-} from "../../store/photoComments";
+
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
-import CreatePhotoCommentModal from "../CreatePC";
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
 import githubLogo from "../SplashPage/githubLogo.png";
@@ -25,17 +20,11 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
-  const photoComments = useSelector((state) =>
-    Object.values(state.photoComments)
-  );
-  const photoCommentsObj = useSelector((state) => state.photoComments);
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
-  const [photoCommentId, setPhotoCommentId] = useState("");
   const history = useHistory();
   const [toEditPhoto, setToEditPhoto] = useState(false);
   const [toEditComment, setToEditComment] = useState(false);
-  const [toEditPhotoComment, setToEditPhotoComment] = useState(false);
   const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
   const [pcontent, setPcontent] = useState("");
@@ -48,10 +37,6 @@ const Feed = () => {
     e.preventDefault();
     setToEditComment(!toEditComment);
   };
-  const cancelPhotoComment = (e) => {
-    e.preventDefault();
-    setToEditPhotoComment(!toEditPhotoComment);
-  };
 
   const handleDelete = (id) => {
     dispatch(deletePhoto(id));
@@ -61,10 +46,7 @@ const Feed = () => {
     dispatch(deleteComment(id));
     history.push("/");
   };
-  const handleDeletePhotoComment = (id) => {
-    dispatch(deletephotoComment(id));
-    history.push("/");
-  };
+
 
   const handleEditPhoto = async (id, caption) => {
     const payload = {
@@ -83,19 +65,12 @@ const Feed = () => {
     dispatch(editComment(payload));
     setToEditComment(!toEditComment);
   };
-  const handleEditPhotoComment = async (id, pcontent) => {
-    const payload = {
-      id,
-      pcontent,
-    };
-    dispatch(editphotoComment(payload));
-    setToEditPhotoComment(!toEditPhotoComment);
-  };
+
 
   useEffect(() => {
     dispatch(
       getPhotos(),
-      dispatch(getComments(), dispatch(getPhotoComments()))
+      dispatch(getComments())
     );
   }, [dispatch]);
 
@@ -271,7 +246,7 @@ const Feed = () => {
               </div>
             </div>
           </div>
-          
+
         </div>
       </>
     );
