@@ -33,9 +33,7 @@ def seed_photos():
     photo10 = Photo(
         url='https://www.freegreatpicture.com/files/151/1898-high-resolution-pictures-of-birds.jpg',
         user_id=9, caption='This is a lovely blue bird')
-    photo11 = Photo(
-        url='https://images.unsplash.com/photo-1535083783855-76ae62b2914e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3JmdWwlMjBiaXJkfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-        user_id=9, caption='Come at me BRO!')
+
     photo12 = Photo(
         url='https://mymodernmet.com/wp/wp-content/uploads/2019/06/david-travis-bird-photography-7.jpg',
         user_id=9, caption='Jay on a pink tree')
@@ -96,7 +94,6 @@ def seed_photos():
     db.session.add(photo8)
     db.session.add(photo9)
     db.session.add(photo10)
-    db.session.add(photo11)
     db.session.add(photo12)
     db.session.add(photo13)
     db.session.add(photo14)
