@@ -1,16 +1,16 @@
 .imgClass {
-  width: 27vw;
-  height: auto;
-  border-radius: 50%;
+  width: 13vw;
+  height: 25vh;
+  /* border-radius: 50%; */
   transition: all 0.4s ease;
   margin-right: 20px;
   overflow: hidden;
 }
 .imgClass:hover {
-  transform: translate3D(-15vw, 2rem, 0) scale(1.5);
+  transform: translate3D(0, -1px, 0) scale(1.05);
   border: none;
   /* box-shadow: 0 0 25px 5px white; */
-  border-radius: 25%/50%;
+  border-radius: 80%/50%;
 
 
   animation: pulse 1s infinite;
@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: center;
   width: 60vw;
-  height: 63.25vh;
+  height: 70vh;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -71,7 +71,7 @@ p {
   cursor: pointer;
   color: #f4eea9;
 }
-.imgDiv {
+/* .imgDiv {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,7 +84,7 @@ p {
   height: 65vh;
   transition: all 0.4s ease;
   padding-right: 10px;
-}
+} */
 
 .pNcDiv {
   display: grid;
@@ -211,6 +211,10 @@ p {
   width: 15px;
   margin-left: 5px;
   transition: all 0.4s ease;
+  opacity: 0.25;
+}
+.recIcon:hover{
+  opacity: 1;
 }
 .editIcon{
 
@@ -222,12 +226,10 @@ p {
 .editIcon:hover{
   transform: translate3D(0, -1px, 0) scale(1.5);
 }
-.bottomBorder{
-  width: 50vw;
-}
+
 .belowPicDiv{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
 }
 .usersLinkDiv{
   margin-left: 6vw;
@@ -241,29 +243,23 @@ p {
 button:hover{
   cursor: pointer;
 }
-.gLogo{
-  margin-left: 5vw;
-  margin-right: 3vw;
-  border-radius: 10px;
-  transition: 1s ease-in-out;
-}
-.lLogo{
-  transition: 1s ease-in-out;
-}
+
 .credits{
   transition: 1s ease-in-out;
   border-radius: 10px;
 }
+.gLogo{
+  transition: 0.4s ease-in-out;
+}
+.lLogo{
+  transition: 0.4s ease-in-out;
+}
 .gLogo:hover{
-  box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white, inset 0 0 10px white;
-  border-radius: 50%;
-  transform: translate3D(0, -1px, 0) scale(1.5);
+  transform: translate3D(0, 1vh, 0);
 
 }
 .lLogo:hover{
-  box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white, inset 0 0 10px white;
-  border-radius: 50%;
-  transform: translate3D(0, -1px, 0) scale(1.5);
+  transform: translate3D(0, 1vh, 0);
 
 }
 .credits:hover{
