@@ -1,17 +1,37 @@
 .h1{
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     font-family: cursive;
     color: white;
     /* background-color: rgba(0, 0, 0, 0.5); */
     border-radius: 10px;
     width: fit-content;
-    height: 20vh;
+    height: 10vh;
     font-size: x-large;
     text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 30px white, 0 0 75px white;
     position: relative;
     margin-top: 5vh;
     margin-left: 20vw;
+    margin-right: 20vw;
+}
+.h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: cursive;
+  color: white;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-radius: 10px;
+  width: fit-content;
+  height: 10vh;
+  font-size: x-large;
+  text-shadow: 0 0 10px white, 0 0 15px white, 0 0 20px white, 0 0 30px white, 0 0 75px white;
+  position: relative;
+  margin-left: 20vw;
+  margin-right: 20vw;
 }
 
 .h1::before{

@@ -285,6 +285,7 @@ const Feed = () => {
                         {sessionUser.id === comment.user_id && (
                           <button
                             onClick={() => {
+                              //input population issue
                               setContent(commentsObj[comment.id].content);
                               setToEditComment(!toEditComment);
                               setCommentId(comment.id);
