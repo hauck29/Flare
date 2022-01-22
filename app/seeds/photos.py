@@ -71,10 +71,7 @@ def seed_photos():
         url='https://www.hdnicewallpapers.com/Walls/Big/Owl/Beautiful_Flying_Owl.jpg',
         user_id=1, caption='Flapping'
     )
-    photo23 = Photo(
-        url='http://highresolution.photography/images/barred-owl-main.jpg',
-        user_id=1, caption='Barred Owl just chillin'
-    )
+
     photo24 = Photo(
         url='https://cdn.wallpapersafari.com/33/77/m9BIAe.jpg',
         user_id=1, caption='Bored Owl'
@@ -105,7 +102,6 @@ def seed_photos():
     db.session.add(photo20)
     db.session.add(photo21)
     db.session.add(photo22)
-    db.session.add(photo23)
     db.session.add(photo24)
     db.session.add(photo25)
 
