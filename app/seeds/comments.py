@@ -56,8 +56,8 @@ def seed_comments():
         content='CN12'
     )
     comment13 = Comment(
-        user_id=2,
-        content='At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+        user_id=5,
+        content='Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'
     )
     comment14 = Comment(
         user_id=5,
