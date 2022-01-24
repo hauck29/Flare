@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../store/comments";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import CKEditor from '@ckeditor/ckeditor5-react';
 
 
 const CommentForm = ({setShowModal}) => {
@@ -37,7 +39,7 @@ const CommentForm = ({setShowModal}) => {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input className='loginInput'
+        <textarea className='loginInput'
           onChange={(e) => setContent(e.target.value)}
           value={content}
           placeholder="Enter a Comment"

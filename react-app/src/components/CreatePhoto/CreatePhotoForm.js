@@ -51,7 +51,7 @@ const UploadForm = ({setShowModal}) => {
           value={url}
           placeholder="Photo URL"
         />
-        <input className='loginInput'
+        <textarea className='loginInput'
           onChange={(e) => setCaption(e.target.value)}
           value={caption}
           placeholder="Photo Caption"
