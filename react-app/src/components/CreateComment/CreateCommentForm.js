@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../store/comments";
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import CKEditor from '@ckeditor/ckeditor5-react';
+import {useHistory} from 'react-router-dom';
+
 
 
 const CommentForm = ({setShowModal}) => {
   const [content, setContent] = useState("");
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
@@ -27,7 +27,7 @@ const CommentForm = ({setShowModal}) => {
       content,
     };
     dispatch(createComment(payload));
-    // history.push("/");
+    history.push("/");
     setShowModal(false)
   };
 

@@ -99,6 +99,14 @@ const NavBar = () => {
             <div className="flareWord1">flare</div>
             <div className="flareWord2">b</div>
             <div className="flareWord3">ird</div>
+            <div className="bottomBorder">
+              <a href="https://github.com/hauck29">
+                <img className="gLogo" src={githubLogo} alt=""></img>
+              </a>
+              <a href="https://www.linkedin.com/in/tony-hauck-92b6a21a4/">
+                <img className="lLogo" src={linkedInLogo} alt=""></img>
+              </a>
+            </div>
           </div>
           <div className="searchBar"></div>
           <ul className="navListBox">

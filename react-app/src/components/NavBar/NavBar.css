@@ -16,26 +16,26 @@ ul {
   list-style-type: none;
 }
 li {
-  width: 86px;
+  width: 5vw;
   transition: all 1s ease;
 }
 
-.navElementBox {
+/* .navElementBox {
   text-decoration: none;
   color: white;
   font-family: cursive;
   font-size: small;
   display: flex;
   justify-content: center;
-}
+} */
 .flareWord1 {
   font-size: 50px;
   font-family: cursive;
   margin-left: 50px;
   color: rgba(136, 136, 136, 0.6);
   text-decoration: underline rgba(136, 136, 136, 0.0);
-  text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white;
-
+  /* text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white; */
+  -webkit-text-stroke: 0.25px rgba(0, 0, 0, 0.3);
 }
 .flareWord2 {
   font-size: 50px;
@@ -49,7 +49,7 @@ li {
   margin-right: 50px;
   color: rgba(136, 136, 136, 0.6);
   text-decoration: underline rgba(136, 136, 136, 0.0);
-  text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white;
+  /* text-shadow: 0 0 .1em white, 0 0 .25em white, 0 0 .5em white; */
 }
 .flareWordContainer{
   display: flex;
@@ -71,35 +71,25 @@ li {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
-.bird--one {/*is actually a moon*/
-  background-image: url(https://cdn.picpng.com/moon/moon-full-moon-cloudy-clouds-101105.png);
-  border-radius: 50%;
-  width: 175px;
-  -webkit-animation-duration: 0s;
-          animation-duration: 0s;
+.bird--one {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
-.bird--two { /*cloud*/
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Cartoon_cloud.svg/302px-Cartoon_cloud.svg.png);
-  border-radius: 50%;
-  width: 400px;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+.bird--two {
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
   -webkit-animation-delay: -0.75s;
           animation-delay: -0.75s;
 }
-.bird--three { /*cloud*/
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Cartoon_cloud.svg/302px-Cartoon_cloud.svg.png);
-  border-radius: 50%;
-  width: 225px;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+.bird--three {
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
   -webkit-animation-delay: -0.25s;
           animation-delay: -0.25s;
 }
 .bird--four {
-  width: 250px;
   -webkit-animation-duration: 1.1s;
           animation-duration: 1.1s;
   -webkit-animation-delay: -0.5s;
@@ -111,7 +101,7 @@ li {
   -webkit-animation-delay: -0.85s;
           animation-delay: -0.85s;
 }
-.bird--six {/*cloud*/
+.bird--six {
 
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -140,22 +130,23 @@ li {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
-.bird-container--one { /*Moon*/
-  -webkit-animation-duration: 115s;
-          animation-duration: 115s;
+.bird-container--one {
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
   -webkit-animation-delay: 0;
           animation-delay: 0;
+  opacity: 80%;
 }
-.bird-container--two {/*fast cloud*/
-  -webkit-animation-duration: 45s;
-          animation-duration: 45s;
+.bird-container--two {
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
   opacity: 60%;
 }
-.bird-container--three {/*slow cloud*/
-  -webkit-animation-duration: 65s;
-          animation-duration: 65s;
+.bird-container--three {
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
   -webkit-animation-delay: 9.5s;
           animation-delay: 9.5s;
   opacity: 50%;

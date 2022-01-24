@@ -41,7 +41,7 @@ function App() {
           <div className='h1'><h2>Welcome to FlareBird, a photo aviary.</h2></div>
           <div className='h2'><h2>Log In or Sign Up to begin!</h2></div>
           <LoginForm />
-          
+
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>

@@ -53,7 +53,35 @@ def seed_comments():
     )
     comment12 = Comment(
         user_id=5,
-        content='Comment number twelve!'
+        content='CN12'
+    )
+    comment13 = Comment(
+        user_id=2,
+        content='At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+    )
+    comment14 = Comment(
+        user_id=5,
+        content='Et harum quidem rerum facilis est et expedita distinctio.'
+    )
+    comment15 = Comment(
+        user_id=5,
+        content='Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.'
+    )
+    comment16 = Comment(
+        user_id=5,
+        content='Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.'
+    )
+    comment17 = Comment(
+        user_id=5,
+        content='Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'
+    )
+    comment18 = Comment(
+        user_id=5,
+        content='Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    )
+    comment19 = Comment(
+        user_id=5,
+        content='Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?'
     )
 
     db.session.add(comment1)
@@ -68,6 +96,13 @@ def seed_comments():
     db.session.add(comment10)
     db.session.add(comment11)
     db.session.add(comment12)
+    db.session.add(comment13)
+    db.session.add(comment14)
+    db.session.add(comment15)
+    db.session.add(comment16)
+    db.session.add(comment17)
+    db.session.add(comment18)
+    db.session.add(comment19)
 
     db.session.commit()
 
