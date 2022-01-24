@@ -168,6 +168,8 @@ li {
           animation-duration: 18s;
   -webkit-animation-delay: 2.5s;
           animation-delay: 2.5s;
+  opacity: 60%;
+
 }
 .bird-container--seven {
   -webkit-animation-duration: 14s;

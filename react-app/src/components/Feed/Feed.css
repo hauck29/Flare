@@ -1,22 +1,23 @@
 .imgClass {
-  width: 13vw;
-  height: 25vh;
+  width: 35vw;
+  height: 30vh;
   /* border-radius: 50%; */
   transition: all 0.8s ease;
   margin-right: 2vw;
   margin-left: 2vw;
   overflow: hidden;
-  opacity: 70%;
+  opacity: 0.5;
   border-radius: 10px;
   box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  filter: saturate(30%);
+
 }
 .imgClass:hover {
   transform: translate3D(0, -1px, 0) scale(1.15);
   border: none;
-  /* box-shadow: 0 0 25px 5px white; */
-  border-radius: 50%;
   opacity: 1;
-
+  filter: saturate(100%);
   animation: pulse 1s infinite;
   @keyframes pulse {
     0% {
@@ -41,6 +42,12 @@
   box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
   /* 0 0 10px  rgba(0,0,0,0.5), 0 0 15px  rgba(0,0,0,0.5), 0 0 25px  darkgrey; */
   border-radius: 5px;
+}
+.pSep{
+  height: 0.5vh;
+  background-color: rgba(255, 255, 255, .25);
+  box-shadow: 0.4em 0 .4em rgba(0, 0, 0, 0.3), 0.8em .4em .4em rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 .pageDiv{
   height: 80vh;
@@ -158,11 +165,13 @@ p {
   border: 1px solid rgb(136, 136, 136);
   transition: all 0.4s ease;
   margin-left: 1vw;
+  opacity: 0.5;
 }
 .commentDiv:hover{
   background-color: rgba(255, 255, 255);
   color: rgba(0, 0, 0, 0.61);
   box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  opacity: 1;
     animation: pulse 1s infinite;
   @keyframes pulse {
     0% {

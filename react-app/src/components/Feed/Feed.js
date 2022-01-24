@@ -168,8 +168,10 @@ const Feed = () => {
                         </div>
                       </div>
                     </div>
+                    <div className='pSep'></div>
                   </div>
                 ))}
+
               </div>
             </div>
             <div className="commentsBackground">
