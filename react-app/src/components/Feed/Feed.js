@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
+import {
+  getPhotoComments,
+  deletephotoComment,
+  editphotoComment,
+} from "../../store/photoComments";
 
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
@@ -20,6 +25,9 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
+  const photoComments = useSelector((state) =>
+    Object.values(state.photoComments)
+  );
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
@@ -47,7 +55,6 @@ const Feed = () => {
     history.push("/");
   };
 
-
   const handleEditPhoto = async (id, caption) => {
     const payload = {
       id,
@@ -66,11 +73,10 @@ const Feed = () => {
     setToEditComment(!toEditComment);
   };
 
-
   useEffect(() => {
     dispatch(
       getPhotos(),
-      dispatch(getComments())
+      dispatch(getComments(), dispatch(getPhotoComments()))
     );
   }, [dispatch]);
 
@@ -100,15 +106,13 @@ const Feed = () => {
                 <CreatePhotoModal />
               </div>
               <div className="feedDiv">
-                {photos?.reverse().map((photo) => (
-                  <div className="imgDiv" key={photo.id} >
-
-                      <div className="pNcDiv">
-
-                      </div>
-
+                {photos?.map((photo /*.reverse()*/) => (
+                  <div className="imgDiv" key={photo.id}>
                     <div>
-                      <img className="imgClass" src={photo.url} alt="" />
+                      <a href={photo.id}>
+                        <img className="imgClass" src={photo.url} alt="" />
+                      </a>
+
                       <div className="belowPicDiv">
                         <p className="captionTag">{photo.caption}</p>
                         {/* <p>Photo Number: {photo.id}</p> */}
@@ -167,11 +171,10 @@ const Feed = () => {
                           )}
                         </div>
                       </div>
+                      <div className="pSep"></div>
                     </div>
-                    <div className='pSep'></div>
                   </div>
                 ))}
-
               </div>
             </div>
             <div className="commentsBackground">
@@ -206,7 +209,6 @@ const Feed = () => {
                           ? toEditComment && (
                               <form
                                 onSubmit={() => {
-
                                   handleEditComment(comment.id, content);
                                 }}
                               >
@@ -248,7 +250,6 @@ const Feed = () => {
               </div>
             </div>
           </div>
-
         </div>
       </>
     );
