@@ -25,9 +25,7 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
-  const photoComments = useSelector((state) =>
-    Object.values(state.photoComments)
-  );
+
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
@@ -35,7 +33,6 @@ const Feed = () => {
   const [toEditComment, setToEditComment] = useState(false);
   const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
-  const [pcontent, setPcontent] = useState("");
 
   const cancel = (e) => {
     e.preventDefault();
@@ -109,7 +106,7 @@ const Feed = () => {
                 {photos?.map((photo /*.reverse()*/) => (
                   <div className="imgDiv" key={photo.id}>
                     <div>
-                      <a href={photo.id}>
+                      <a href={photo.id} onClick={() => {setPhotoId(photo.id)}} photoId={photo.id}>
                         <img className="imgClass" src={photo.url} alt="" />
                       </a>
 
