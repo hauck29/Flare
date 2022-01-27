@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
 
-
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
@@ -65,10 +64,7 @@ const Feed = () => {
   };
 
   useEffect(() => {
-    dispatch(
-      getPhotos(),
-      dispatch(getComments())
-    );
+    dispatch(getPhotos(), dispatch(getComments()));
   }, [dispatch]);
 
   if (sessionUser) {
@@ -97,17 +93,17 @@ const Feed = () => {
                 <CreatePhotoModal />
               </div>
               <div className="feedDiv">
-                {photos?.reverse().map((photo /*.reverse()*/) => (
+                {photos?.reverse().map((photo) => (
                   <div className="imgDiv" key={photo.id}>
-                    <div>
-                      <a href={photo.id}>
-                        <img className="imgClass" src={photo.url} alt="" />
-                      </a>
 
                       <div className="belowPicDiv">
+                        <a href={photo.id}>
+                          <img className="imgClass" src={photo.url} alt="" />
+                        </a>
+
+                        <div id="edDiv">
                         <p className="captionTag">{photo.caption}</p>
                         {/* <p>Photo Number: {photo.id}</p> */}
-                        <div id="edDiv">
                           {sessionUser.id === photo.user_id && (
                             <button
                               onClick={() => {
@@ -162,8 +158,8 @@ const Feed = () => {
                           )}
                         </div>
                       </div>
-                      <div className="pSep"></div>
-                    </div>
+                      {/* <div className="pSep"></div> */}
+
                   </div>
                 ))}
               </div>
