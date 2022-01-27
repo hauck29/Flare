@@ -18,6 +18,20 @@
   opacity: 1;
   filter: saturate(100%);
   animation: pulse 1s infinite;
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+      box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+    }
+    50% {
+        -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+  }
 }
 
 .photoTitle {
@@ -151,6 +165,20 @@ p {
   box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
   opacity: 1;
   animation: pulse 1s infinite;
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+      box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+    }
+    50% {
+        -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+  }
 }
 .photoCommentsDiv {
   display: flex;
