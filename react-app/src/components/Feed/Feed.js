@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
 
+
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
 import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
-import githubLogo from "../SplashPage/githubLogo.png";
-import linkedInLogo from "../SplashPage/linkedInLogo.png";
 import { NavLink } from "react-router-dom";
 
 const Feed = () => {
@@ -20,6 +19,7 @@ const Feed = () => {
   const photosObj = useSelector((state) => state.photos);
   const comments = useSelector((state) => Object.values(state.comments));
   const commentsObj = useSelector((state) => state.comments);
+
   const [photoId, setPhotoId] = useState("");
   const [commentId, setCommentId] = useState("");
   const history = useHistory();
@@ -27,7 +27,6 @@ const Feed = () => {
   const [toEditComment, setToEditComment] = useState(false);
   const [caption, setCaption] = useState("");
   const [content, setContent] = useState("");
-  const [pcontent, setPcontent] = useState("");
 
   const cancel = (e) => {
     e.preventDefault();
@@ -47,7 +46,6 @@ const Feed = () => {
     history.push("/");
   };
 
-
   const handleEditPhoto = async (id, caption) => {
     const payload = {
       id,
@@ -65,7 +63,6 @@ const Feed = () => {
     dispatch(editComment(payload));
     setToEditComment(!toEditComment);
   };
-
 
   useEffect(() => {
     dispatch(
@@ -88,7 +85,7 @@ const Feed = () => {
               exact={true}
               activeClassName="active"
             >
-              User Reference List
+              User Reference List - (Dev Only)
             </NavLink>
           </div>
           <div id="feedMain">
@@ -100,15 +97,13 @@ const Feed = () => {
                 <CreatePhotoModal />
               </div>
               <div className="feedDiv">
-                {photos?.reverse().map((photo) => (
-                  <div className="imgDiv" key={photo.id} >
-
-                      <div className="pNcDiv">
-
-                      </div>
-
+                {photos?.reverse().map((photo /*.reverse()*/) => (
+                  <div className="imgDiv" key={photo.id}>
                     <div>
-                      <img className="imgClass" src={photo.url} alt="" />
+                      <a href={photo.id}>
+                        <img className="imgClass" src={photo.url} alt="" />
+                      </a>
+
                       <div className="belowPicDiv">
                         <p className="captionTag">{photo.caption}</p>
                         {/* <p>Photo Number: {photo.id}</p> */}
@@ -136,7 +131,7 @@ const Feed = () => {
                                     handleEditPhoto(photo.id, caption);
                                   }}
                                 >
-                                  <input
+                                  <textarea
                                     className="updateBarInput"
                                     onChange={(e) => setCaption(e.target.value)}
                                     value={caption}
@@ -167,11 +162,10 @@ const Feed = () => {
                           )}
                         </div>
                       </div>
+                      <div className="pSep"></div>
                     </div>
-                    <div className='pSep'></div>
                   </div>
                 ))}
-
               </div>
             </div>
             <div className="commentsBackground">
@@ -206,11 +200,10 @@ const Feed = () => {
                           ? toEditComment && (
                               <form
                                 onSubmit={() => {
-
                                   handleEditComment(comment.id, content);
                                 }}
                               >
-                                <input
+                                <textarea
                                   className="updateBarInput"
                                   onChange={(e) => setContent(e.target.value)}
                                   value={content}
@@ -248,7 +241,6 @@ const Feed = () => {
               </div>
             </div>
           </div>
-
         </div>
       </>
     );

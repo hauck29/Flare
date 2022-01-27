@@ -11,8 +11,8 @@ import { authenticate } from './store/session';
 import './components/SplashPage/SplashPage.css'
 import Feed from './components/Feed/Feed'
 import './App.css';
-import githubLogo from "./githubLogo.png";
-import linkedInLogo from "./linkedInLogo.png";
+
+import DisplayPhoto from './components/DisplayPhoto/DisplayPhoto';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <Feed />
+        </ProtectedRoute>
+        <ProtectedRoute path='/:photoId' exact={true}>
+          <DisplayPhoto />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

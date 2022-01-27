@@ -1,0 +1,32 @@
+.postBtn{
+    /* border: 3px olive inset; */
+    /* border: none; */
+    font-family: cursive;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: transparent; */
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
+}
+.postBtn:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.loginBtn{
+    width: 100px;
+}
+.ul{
+    padding: 0;
+    height: 10vh;
+    width: 30vw;
+}
+.li{
+    height: 5vh;
+    width: 20vw;
+}
+.add-photo{
+    display: flex;
+    flex-direction: column;
+}

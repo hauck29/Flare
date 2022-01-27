@@ -54,6 +54,15 @@ const NavBar = () => {
               </a>
             </div>
           </div>
+          <div id='sDiv'>
+          {/* <input
+            type="search"
+            id="site-search"
+            placeholder='Search for Birds'
+          />
+
+          <button className='searchBtn'>Search</button> */}
+          </div>
           <ul className="navListBox">
             <li className="logoutBtn">
               <LogoutButton />
