@@ -77,6 +77,12 @@ li {
   display: flex;
   width: fit-content;
   border-radius: 10px;
+  transition: all 0.4s ease;
+}
+.flareWordContainer:hover{
+  transform: translate3D(4vw, 0.8vh, 0) scale(1.25);
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
 }
 
 .bird {

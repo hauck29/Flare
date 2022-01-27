@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
-import { NavLink, useHistory } from "react-router-dom";
+import { getPhotos } from "../../store/photos";
+import { NavLink, useParams } from "react-router-dom";
 import "./DisplayPhoto.css";
 import { getPhotoComments, deletephotoComment, editphotoComment } from "../../store/photoComments";
 import recycleIcon from "../Feed/recycle.png";
 import editIcon from "../Feed/edit.png";
 import CreatePhotoCommentModal from '../CreatePC'
 
-function DisplayPhoto({ photoId }) {
+function DisplayPhoto() {
   const sessionUser = useSelector((state) => state.session.user);
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPhotos(), dispatch(getPhotoComments()));
@@ -20,13 +20,12 @@ function DisplayPhoto({ photoId }) {
     Object.values(state.photoComments)
   );
   const photoCommentsObj = useSelector((state) => state.photoComments);
-
+  const {photoId} = useParams();
   const [toEditPhotoComment, setToEditPhotoComment] = useState(false);
 
   const photo = photos[photoId];
   const [pcontent, setPcontent] = useState("");
   const [photoCommentId, setPhotoCommentId] = useState("");
-  console.log("$$$$$$$$$$", photos, photo);
 
   const cancelPhotoComment = (e) => {
     e.preventDefault();
@@ -55,7 +54,7 @@ function DisplayPhoto({ photoId }) {
       </div>
       <div className="displayPhoto">
         <img
-          src="https://image.shutterstock.com/image-photo/photo-owl-macro-photography-high-260nw-1178957458.jpg"
+          src={photo?.url}
           alt=""
         ></img>
       </div>
@@ -64,7 +63,9 @@ function DisplayPhoto({ photoId }) {
         <div clasName="commentsDivB">
           {photoComments?.reverse().map((photoComment) => (
             <div className="commentDivB" key={photoComment.id}>
+              {photoComment?.photo_id === photo?.id && (
               {photoComment.pcontent}
+              )}
               {sessionUser.id === photoComment.user_id && (
                           <button
                             onClick={() => {
@@ -120,10 +121,10 @@ function DisplayPhoto({ photoId }) {
           ))}
 
         </div>
+
       </div>
     </>
   );
-  //   return <img src={photo.url} alt=""></img>;
 }
 
 export default DisplayPhoto;

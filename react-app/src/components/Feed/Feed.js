@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos, deletePhoto, editPhoto } from "../../store/photos";
 import { getComments, deleteComment, editComment } from "../../store/comments";
-import {
-  getPhotoComments,
-  deletephotoComment,
-  editphotoComment,
-} from "../../store/photoComments";
+
 
 import "../Feed/Feed.css";
 import { useHistory } from "react-router-dom";
@@ -14,8 +10,6 @@ import CreatePhotoModal from "../CreatePhoto";
 import CreateCommentModal from "../CreateComment";
 import recycleIcon from "./recycle.png";
 import editIcon from "./edit.png";
-import githubLogo from "../SplashPage/githubLogo.png";
-import linkedInLogo from "../SplashPage/linkedInLogo.png";
 import { NavLink } from "react-router-dom";
 
 const Feed = () => {
@@ -73,7 +67,7 @@ const Feed = () => {
   useEffect(() => {
     dispatch(
       getPhotos(),
-      dispatch(getComments(), dispatch(getPhotoComments()))
+      dispatch(getComments())
     );
   }, [dispatch]);
 
@@ -106,7 +100,7 @@ const Feed = () => {
                 {photos?.map((photo /*.reverse()*/) => (
                   <div className="imgDiv" key={photo.id}>
                     <div>
-                      <a href={photo.id} onClick={() => {setPhotoId(photo.id)}} photoId={photo.id}>
+                      <a href={photo.id}>
                         <img className="imgClass" src={photo.url} alt="" />
                       </a>
 

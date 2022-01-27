@@ -5,6 +5,7 @@
     margin-bottom: 5vh;
     border-radius: 50%;
     box-shadow: 1em 0 .4em 1em rgba(0, 0, 0, 0.3), 1em .4em .4em 1em rgba(0, 0, 0, 0.5);
+    height: 30vh;
 }
 
 .commentDivB{

@@ -11,8 +11,7 @@ import { authenticate } from './store/session';
 import './components/SplashPage/SplashPage.css'
 import Feed from './components/Feed/Feed'
 import './App.css';
-import githubLogo from "./githubLogo.png";
-import linkedInLogo from "./linkedInLogo.png";
+
 import DisplayPhoto from './components/DisplayPhoto/DisplayPhoto';
 
 function App() {

@@ -55,13 +55,13 @@ const NavBar = () => {
             </div>
           </div>
           <div id='sDiv'>
-          <input
+          {/* <input
             type="search"
             id="site-search"
             placeholder='Search for Birds'
           />
 
-          <button className='searchBtn'>Search</button>
+          <button className='searchBtn'>Search</button> */}
           </div>
           <ul className="navListBox">
             <li className="logoutBtn">
