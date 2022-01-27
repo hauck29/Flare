@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login, demoLogin } from "../../store/session";
 import "./LoginForm.css";
-
+import SignupForm from "../SignupFormModal/SignUpForm";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -47,43 +47,51 @@ const LoginForm = () => {
       <div className="loginOutterDiv">
         <span className="pulse">
           <div className="loginFormDiv">
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
+            <div className="splashWrapper">
+              <div className="logInSplash">
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+
+                <div>
+                  <label htmlFor="email"></label>
+                  <input
+                    className="loginInput"
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    value={email}
+                    onChange={updateEmail}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password"></label>
+                  <input
+                    className="loginInput"
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={updatePassword}
+                  />
+                </div>
+                <div className="buttonsDiv">
+                  <button className="loginBtn" type="submit">
+                    Login
+                  </button>
+                  <button
+                    onClick={handleDemoLogin}
+                    className="loginBtn"
+                    type="submit"
+                  >
+                    Demo-Login
+                  </button>
+                </div>
+              </div>
+              <div className="SUFDiv">
+                <SignupForm />
+              </div>
             </div>
-            <div>
-              <label htmlFor="email"></label>
-              <input
-                className="loginInput"
-                name="email"
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={updateEmail}
-              />
-            </div>
-            <div>
-              <label htmlFor="password"></label>
-              <input
-                className="loginInput"
-                name="password"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={updatePassword}
-              />
-            </div>
-            <button className="loginBtn" type="submit">
-              Login
-            </button>
-            <button
-              onClick={handleDemoLogin}
-              className="loginBtn"
-              type="submit"
-            >
-              Demo-Login
-            </button>
           </div>
         </span>
       </div>

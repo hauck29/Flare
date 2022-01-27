@@ -14,7 +14,6 @@
   border: none;
   padding: 5px;
   margin: 10px;
-  background-color: white;
 }
 .loginBtn {
   border: none;
@@ -36,4 +35,20 @@
 .loginOutterDiv {
   display: flex;
   justify-content: center;
+}
+.splashWrapper{
+  display: flex;
+  flex-direction: row;
+}
+.loginSplash{
+  display: flex;
+  flex-direction: column;
+}
+.buttonsDiv{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.SUFDiv{
+  margin-left: 5vw;
 }

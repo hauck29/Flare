@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import "../NavBar/NavBar.css";
-import SignupFormModal from "../SignupFormModal/indexSignupForm";
+import SignupForm from "../SignupFormModal/SignUpForm";
 import githubLogo from "./githubLogo.png";
 import linkedInLogo from "./linkedInLogo.png";
 
@@ -120,7 +120,7 @@ const NavBar = () => {
           <div className="searchBar"></div>
           <ul className="navListBox">
             <li>
-              <SignupFormModal />
+              
             </li>
           </ul>
         </nav>
