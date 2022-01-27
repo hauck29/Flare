@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createphotoComment } from "../../store/photoComments";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
   const [pcontent, setPcontent] = useState("");
-  const [pId, setPId] = useState('');
+  const [setPId] = useState('');
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
