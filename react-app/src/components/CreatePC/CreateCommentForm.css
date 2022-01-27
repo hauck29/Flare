@@ -7,6 +7,7 @@
     /* background-color: transparent; */
     margin: 5px;
     border-radius: 5px;
+    box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
 }
 .postBtn:hover{
     cursor: pointer;

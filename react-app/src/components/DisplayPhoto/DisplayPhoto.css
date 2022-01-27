@@ -1,18 +1,44 @@
 
+
+.rtpDP{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: rgb(200, 200, 200);
+  font-family: cursive;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  margin-right: 5vw;
+  box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
+}
+.rtpDP:hover{
+  transform: translate3D(0, -1px, 0) scale(1.5);
+  animation: pulse 1s infinite;
+}
+.displayPhoto{
+  display: flex;
+  align-items: center;
+}
 .displayPhoto > img{
     transition: all 0.8s ease;
     margin-top: 10vh;
     margin-bottom: 5vh;
-    border-radius: 50%;
+    margin-left: 5vw;
+    border-radius: 5%;
     box-shadow: 1em 0 .4em 1em rgba(0, 0, 0, 0.3), 1em .4em .4em 1em rgba(0, 0, 0, 0.5);
     height: 30vh;
+    transition: ease 0.5s all;
 }
-
+.displayPhoto > img:hover {
+  transform: scale(1.5);
+}
+.photoCommentContentDiv{
+  margin-right: 5vw;
+}
 .commentDivB{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.61);
+    flex-direction: row;
+    align-items: space-between;
+    background-color: rgba(0, 0, 0, 0.6);
     margin: 1vw;
     color: white;
     border-radius: 5px;

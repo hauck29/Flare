@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createphotoComment } from "../../store/photoComments";
+import { NavLink, useParams } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
   const [pcontent, setPcontent] = useState("");
-  const [photoId, setPhotoId] = useState('');
+  const [pId, setPId] = useState('');
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
 
   const [errors, setErrors] = useState([]);
-
+  const {photoId} = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (pcontent.length < 1) {
@@ -40,19 +41,14 @@ const PhotoCommentForm = ({setShowModal}) => {
       </ul>
       <form onSubmit={handleSubmit}>
         <input className='loginInput'
-          onChange={(e) => setPcontent(e.target.value)}
+          onChange={(e) => setPcontent(e.target.value, setPId(photoId))}
           value={pcontent}
           placeholder="Enter a Comment"
-        />
-        <input className='loginInput'
-          onChange={(e) => setPhotoId(e.target.value)}
-          placeholder="Enter a Photo ID"
         />
         <div className="add-p-btns">
           <button className="loginBtn" type="submit">
             Add Comment
           </button>
-
         </div>
       </form>
     </div>

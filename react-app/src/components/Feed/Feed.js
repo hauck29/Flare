@@ -85,7 +85,7 @@ const Feed = () => {
               exact={true}
               activeClassName="active"
             >
-              User Reference List
+              User Reference List - (Dev Only)
             </NavLink>
           </div>
           <div id="feedMain">
@@ -97,7 +97,7 @@ const Feed = () => {
                 <CreatePhotoModal />
               </div>
               <div className="feedDiv">
-                {photos?.map((photo /*.reverse()*/) => (
+                {photos?.reverse().map((photo /*.reverse()*/) => (
                   <div className="imgDiv" key={photo.id}>
                     <div>
                       <a href={photo.id}>
@@ -131,7 +131,7 @@ const Feed = () => {
                                     handleEditPhoto(photo.id, caption);
                                   }}
                                 >
-                                  <input
+                                  <textarea
                                     className="updateBarInput"
                                     onChange={(e) => setCaption(e.target.value)}
                                     value={caption}
@@ -203,7 +203,7 @@ const Feed = () => {
                                   handleEditComment(comment.id, content);
                                 }}
                               >
-                                <input
+                                <textarea
                                   className="updateBarInput"
                                   onChange={(e) => setContent(e.target.value)}
                                   value={content}
