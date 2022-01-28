@@ -16,10 +16,10 @@ const UploadForm = ({setShowModal}) => {
       setErrors(["You must enter in a valid URL to post a photo"]);
       return errors;
     }
-    // if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
-    //   setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
-    //   return errors;
-    // }
+    if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
+      setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
+      return errors;
+    }
     if(caption.length > 255){
       setErrors(['The photo caption must be fewer than 255 characters.'])
       return errors;

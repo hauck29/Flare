@@ -27,7 +27,7 @@ export function Modal({ onClose, children }) {
   return ReactDOM.createPortal(
     <div id="modal">
       <div id="modal-background" onClick={onClose} />
-      <div class='pulse' id="modal-content">{children}</div>
+      <div className='pulse' id="modal-content">{children}</div>
     </div>,
     modalNode
   );

@@ -88,9 +88,9 @@ const LoginForm = () => {
                   </button>
                 </div>
               </div>
-              <div className="SUFDiv">
+              {/* <div className="SUFDiv">
                 <SignupForm />
-              </div>
+              </div> */}
             </div>
           </div>
         </span>
