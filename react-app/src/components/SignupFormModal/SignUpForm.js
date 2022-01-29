@@ -15,6 +15,9 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(email)){
+      return setErrors(['EMAIL must be in a valid format (name@email.com)']);
+    }
     if (password !== repeatPassword) {
       return setErrors(["Password and Confirm Password fields MUST match"]);
     } else {

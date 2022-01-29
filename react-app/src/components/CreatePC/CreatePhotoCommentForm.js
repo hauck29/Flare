@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const PhotoCommentForm = ({setShowModal}) => {
   const [pcontent, setPcontent] = useState("");
-  const [setPId] = useState('');
+  const [pId, setPId] = useState('');
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);

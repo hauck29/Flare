@@ -79,11 +79,13 @@ li {
   border-radius: 10px;
   transition: all 0.4s ease;
   background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
 }
 .flareWordContainer:hover{
   /* transform: translate3D(4vw, 0.8vh, 0) scale(1.25); */
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
+
 }
 
 .bird {

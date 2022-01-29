@@ -1,9 +1,8 @@
 .postBtn{
-    border: none;
+    border: 1px white solid;
     font-family: cursive;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    /* background-color: transparent; */
     margin: 5px;
     border-radius: 5px;
     transition: 0.4s ease-in-out;
@@ -13,9 +12,7 @@
     background-color: white;
     color: black;
 }
-.loginBtn{
-    width: 100px;
-}
+
 .ul{
     padding: 0;
     height: 10vh;

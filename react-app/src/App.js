@@ -34,9 +34,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/sign-up' exact={true}>
+        {/* <Route path='/sign-up' exact={true}>
           <SignUpForm />
-        </Route>
+        </Route> */}
         <Route path='/login' exact={true}>
           <div className='h1'><h2>Welcome to FlareBird, a photo aviary.</h2></div>
           <div className='h2'><h2>Log In or Sign Up to begin!</h2></div>

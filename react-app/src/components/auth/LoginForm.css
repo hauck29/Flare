@@ -4,10 +4,11 @@
   justify-content: center;
   flex-direction: column;
   /* margin-top: 100px; */
-  background-color: rgba(207, 207, 207, 0.5);
+  /* background-color: rgba(207, 207, 207, 0.5); */
   height: 300px;
   width: 500px;
   border-radius: 15px;
+  box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
 }
 .loginInput {
   border-radius: 5px;
@@ -16,21 +17,20 @@
   margin: 10px;
 }
 .loginBtn {
-  border: none;
+  border: 1px white solid;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  width: 20%;
-  height: 10%;
   border-radius: 5px;
   font-family: cursive;
   transition: 1s ease;
-  margin: 10px;
+  margin: 1vh;
+  box-shadow: 1em 0 .4em rgba(0, 0, 0, 0.3), 1em .4em .4em rgba(0, 0, 0, 0.5);
 }
 .loginBtn:hover {
-  box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white,
-    inset 0 0 10px white;
-  border-radius: 50%;
-  transform: translate3D(0, -1px, 0) scale(1.1);
+  /* box-shadow: 0 0 20px white, 0 0 15px white, 0 0 10px white,
+    inset 0 0 10px white; */
+  color: rgba(0, 0, 0, 0.8);
+  background-color: white;
 }
 .loginOutterDiv {
   display: flex;
