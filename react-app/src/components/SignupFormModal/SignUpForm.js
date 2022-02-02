@@ -15,8 +15,12 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(email)){
-      return setErrors(['EMAIL must be in a valid format (name@email.com)']);
+    if (
+      !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(
+        email
+      )
+    ) {
+      return setErrors(["EMAIL must be in a valid format (name@email.com)"]);
     }
     if (password !== repeatPassword) {
       return setErrors(["Password and Confirm Password fields MUST match"]);
@@ -57,62 +61,66 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <div>
-          <div>
-            <label></label>
-            <input
-              className="loginInput"
-              type="text"
-              name="username"
-              placeholder="User Name"
-              onChange={updateUsername}
-              value={username}
-            ></input>
+      <div className="loginOutterDiv">
+        <span className="pulse">
+          <div className="loginFormDiv">
+            <div className="splashWrapper">
+              <div className="logInSplash">
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+
+
+              <div>
+                <input
+                  className="loginInput"
+                  type="text"
+                  name="username"
+                  placeholder="User Name"
+                  onChange={updateUsername}
+                  value={username}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className="loginInput"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  onChange={updateEmail}
+                  value={email}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className="loginInput"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  onChange={updatePassword}
+                  value={password}
+                ></input>
+              </div>
+              <div>
+                <input
+                  className="loginInput"
+                  type="password"
+                  name="repeat_password"
+                  placeholder="Confirm Password"
+                  onChange={updateRepeatPassword}
+                  value={repeatPassword}
+                  required={true}
+                ></input>
+              </div>
+              <div className="buttonsDiv">
+                <button className="loginBtn" type="submit">
+                  Sign Up
+                </button>
+              </div>
+            </div>
           </div>
-          <div>
-            <label></label>
-            <input
-              className="loginInput"
-              type="text"
-              name="email"
-              placeholder="Email"
-              onChange={updateEmail}
-              value={email}
-            ></input>
           </div>
-          <div>
-            <label></label>
-            <input
-              className="loginInput"
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={updatePassword}
-              value={password}
-            ></input>
-          </div>
-          <div>
-            <label></label>
-            <input
-              className="loginInput"
-              type="password"
-              name="repeat_password"
-              placeholder="Confirm Password"
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-          </div>
-          <button className="loginBtn" type="submit">
-            Sign Up
-          </button>
-        </div>
+        </span>
       </div>
     </form>
   );

@@ -119,9 +119,10 @@ const NavBar = () => {
           </div>
           <div className="searchBar"></div>
           <ul className="navListBox">
-            <li>
+
+            {/* <li className='sub'>
               <SignupFormModal />
-            </li>
+            </li> */}
           </ul>
         </nav>
       </>

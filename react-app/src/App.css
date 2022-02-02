@@ -50,6 +50,10 @@
     transform: perspective(1em) rotateX(10deg) flip;
     filter: blur(1.5em);
 }
+.formsDiv{
+  display: flex;
+  align-items: center;
+}
 
 .pulse {
     border-radius: 15px;
