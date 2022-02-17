@@ -5,6 +5,8 @@ from wtforms.validators import DataRequired
 from datetime import datetime
 from app.models import db
 from app.forms.photo_form import PhotoForm
+from app.aws_s3 import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 
 photo_routes = Blueprint('photos', __name__)
@@ -47,9 +49,29 @@ def get_all_photos():
 def create_photo():
     form = PhotoForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    if "image" not in form.data:
+        return {"errors": "image required"}, 400
+
+    image = form.data["image"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+
     photo = Photo(
         user_id=form.data['user_id'],
-        url=form.data['url'],
+        url=url,
         caption=form.data['caption'],
         createdAt=datetime.now(),
         updatedAt=datetime.now(),

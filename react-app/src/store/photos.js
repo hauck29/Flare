@@ -48,12 +48,10 @@ export const getPhotos = () => async (dispatch) => {
 
 
 export const createPhoto = (photoData) => async (dispatch) => {
+  console.log('@@@@@@@', photoData.get('image'));
   const response = await fetch("/api/photos/", {
     method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(photoData),
+    body: photoData,
   });
 
   if (response.ok) {

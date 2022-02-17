@@ -12,14 +12,14 @@ const UploadForm = ({setShowModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (url.length < 1) {
-      setErrors(["You must enter in a valid URL to post a photo"]);
-      return errors;
-    }
-    if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
-      setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
-      return errors;
-    }
+    // if (url.length < 1) {
+    //   setErrors(["You must enter in a valid URL to post a photo"]);
+    //   return errors;
+    // }
+    // if(!/\.(jpe?g|png|gif|bmp)$/i.test(url)){
+    //   setErrors(['Must be a valid image url format (.jpeg, .png, .gif, .bmp']);
+    //   return errors;
+    // }
     if(caption.length > 255){
       setErrors(['The photo caption must be fewer than 255 characters.'])
       return errors;
@@ -28,12 +28,18 @@ const UploadForm = ({setShowModal}) => {
     //   setErrors(['The photo url must be fewer than 255 characters.'])
     //   return errors;
     // }
-    const payload = {
-      user_id: user.id,
-      url,
-      caption,
-    };
-    dispatch(createPhoto(payload));
+
+    const formData = new FormData();
+    formData.append('image', url);
+    formData.append('user_id', user.id);
+    formData.append('caption', caption);
+
+    // const payload = {
+    //   user_id: user.id,
+    //   url,
+    //   caption,
+    // };
+    dispatch(createPhoto(formData));
     // history.push("/");
     setShowModal(false);
   };
@@ -46,11 +52,12 @@ const UploadForm = ({setShowModal}) => {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input className='loginInput'
+        <input type='file' accept='.jpg, .jpeg, .png, .gif' onChange={(e) => setUrl(e.target.files[0])}></input>
+        {/* <input className='loginInput'
           onChange={(e) => setUrl(e.target.value)}
           value={url}
           placeholder="Photo URL"
-        />
+        /> */}
         <textarea className='loginInput'
           onChange={(e) => setCaption(e.target.value)}
           value={caption}
